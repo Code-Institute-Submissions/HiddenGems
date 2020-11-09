@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <nav class="navbar navbar-expand-lg navbar-light" id="mainNav"> <!-- fixed-top -->
         <div class="container">
           <a id="logo" class="navbar-brand" href="#">Hidden Gems</a>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,23 @@
     
     <div class="top-content">
       <div>Test Content</div>
+    </div>
+    <div class="deck-wrapper">
+      <div class="card-deck">
+        {% for movie in movies %}
+          {% if loop.index <= 3 %}
+            <div class="card flex-row flex-wrap" >
+              <div class="card-header border-0">
+                <img src="http://via.placeholder.com/100x100" alt="">
+              </div>
+              <div class="card-block px-2">
+                <h4 class="card-title">{{ movie.movie_name }}</h4>
+                <p class="card-text">{{ movie.movie_review }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   
     

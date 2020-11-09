@@ -137,6 +137,9 @@ Mobile
 
 ## Attribution
 
+- Assistance with card images lining up to the left:
+https://stackoverflow.com/questions/49141874/bootstrap-4-card-panel-with-image-left-of-header-and-title
+
 
 
 

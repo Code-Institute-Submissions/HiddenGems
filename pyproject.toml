@@ -8,6 +8,7 @@ authors = ["repl.it user <replituser@example.com>"]
 python = "^3.8"
 Flask = "^1.1.2"
 Flask-PyMongo = "^2.3.0"
+dnspython = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 
