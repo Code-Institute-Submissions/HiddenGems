@@ -140,6 +140,9 @@ Mobile
 - Assistance with card images lining up to the left:
 https://stackoverflow.com/questions/49141874/bootstrap-4-card-panel-with-image-left-of-header-and-title
 
+- IMDB API assistance found at:
+https://stackoverflow.com/questions/1966503/does-imdb-provide-an-api
+
 
 
 
