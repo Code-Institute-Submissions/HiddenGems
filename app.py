@@ -15,9 +15,15 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def index():
+@app.route("/get_movies")
+def get_movies():
   movies = mongo.db.movies.find()
-  return render_template("base.html", movies=movies)
+  return render_template("movies.html", movies=movies)
+
+
+@app.route("/add_movie")
+def add_movie():
+  return render_template("add_movie.html")
 
 
 

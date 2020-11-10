@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Test Add Movie</h1>
+
+<form>
+  <div class="form-group">
+    <label for="movietitle">Movie Title</label>
+    <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
+  </div>
+  <button onclick= getJSON() type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<div id="data"></div>
+
+{% endblock %}
