@@ -21,3 +21,8 @@ body {
 .card-deck{
   padding: 10px;
 }
+
+.thumbnail-image {
+  width: 100px;
+  height: 100px;
+}
