@@ -26,6 +26,11 @@ def add_movie():
   return render_template("add_movie.html")
 
 
+@app.route("/find_movie")
+def find_movie():
+  return render_template("find_movie.html")
+
+
 
 #app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', '8000')), debug=True)
 
