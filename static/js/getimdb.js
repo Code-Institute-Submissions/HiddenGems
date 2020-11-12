@@ -39,6 +39,7 @@ function getIMDB(){
                 <p id="movie-year-${[i]}"class="card-text"></p>
                 <p id="movie-actors-${[i]}"class="card-text"></p>
               </div>
+              <button id="select-button-${[i]}" onclick="getDetails(this.id)" class="btn-sm btn-primary">This One!</button>
             </div>`);
             //Add select button which pulls info into dict.
       clickCounter++;
@@ -55,5 +56,38 @@ function getIMDB(){
     } 
   };
   addScript('https://sg.media-imdb.com/suggests/' + movielink[0] + '/' + movielink + '.json'); 
+
+  
 };
 // should call imdb only after html is loaded. Race issue.
+
+
+
+
+
+function getDetails(id){
+    switch(id){
+        case "select-button-0":
+            console.log("1 was pressed");
+            break;
+        case "select-button-1":
+            console.log("2 was pressed");
+            break;
+        case "select-button-2":
+            //q.play();
+            console.log("3 was pressed");
+            break;
+        case "select-button-3":
+            //q.play();
+            console.log("4 was pressed");
+            break;
+        case "select-button-4":
+            //q.play();
+            console.log("5 was pressed");
+            break;
+        case "select-button-5":
+            //q.play();
+            console.log("6 was pressed");
+            break;
+    }
+}
