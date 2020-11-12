@@ -8,66 +8,17 @@
     <label for="movietitle">Movie Title</label>
     <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
   </div>
-  <!-- <a href="{{ url_for('find_movie') }}" type="submit" class="btn btn-primary">Search</a> -->
   
 </form>
+<button id="searchMovie" onclick="getIMDB()" class="btn btn-primary">Search Film</button>
 
-<button onclick="getIMDB()" class="btn btn-primary">Search Two</button>
 
 <!-- <body onload="getIMDB()"> -->
-<h1>Did you mean?</h1>
 
 
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-0" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-0" class="card-title"></h4>
-                <p id="movie-year-0"class="card-text"></p>
-                <p id="movie-actors-0"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-1" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-1" class="card-title"></h4>
-                <p id="movie-year-1"class="card-text"></p>
-                <p id="movie-actors-1"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-2" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-2" class="card-title"></h4>
-                <p id="movie-year-2"class="card-text"></p>
-                <p id="movie-actors-2"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-3" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-3" class="card-title"></h4>
-                <p id="movie-year-3"class="card-text"></p>
-                <p id="movie-actors-3"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-4" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-4" class="card-title"></h4>
-                <p id="movie-year-4"class="card-text"></p>
-                <p id="movie-actors-4"class="card-text"></p>
-              </div>
-            </div>
+
+<div id="insertMovie"></div>
+
 
 
 {% endblock %}
