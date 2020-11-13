@@ -69,34 +69,58 @@ function getIMDB(){
 function getDetails(id){
     switch(id){
         case "select-button-0":
-            console.log("1 was pressed");
             var title = $("#movie-title-0").text();
             var year = $("#movie-year-0").text();
             var image = $("#movie-image-0").attr('src');
             var actors = $("#movie-actors-0").text();
-            console.log(title);
-            console.log(year);
-            console.log(image);
-            console.log(actors);
             break;
         case "select-button-1":
-            console.log("2 was pressed");
+            var title = $("#movie-title-1").text();
+            var year = $("#movie-year-1").text();
+            var image = $("#movie-image-1").attr('src');
+            var actors = $("#movie-actors-1").text();
             break;
         case "select-button-2":
-            //q.play();
-            console.log("3 was pressed");
+            var title = $("#movie-title-2").text();
+            var year = $("#movie-year-2").text();
+            var image = $("#movie-image-2").attr('src');
+            var actors = $("#movie-actors-2").text();
             break;
         case "select-button-3":
-            //q.play();
-            console.log("4 was pressed");
+            var title = $("#movie-title-3").text();
+            var year = $("#movie-year-3").text();
+            var image = $("#movie-image-3").attr('src');
+            var actors = $("#movie-actors-3").text();
             break;
         case "select-button-4":
-            //q.play();
-            console.log("5 was pressed");
+            var title = $("#movie-title-4").text();
+            var year = $("#movie-year-4").text();
+            var image = $("#movie-image-4").attr('src');
+            var actors = $("#movie-actors-4").text();
             break;
         case "select-button-5":
-            //q.play();
-            console.log("6 was pressed");
+            var title = $("#movie-title-5").text();
+            var year = $("#movie-year-5").text();
+            var image = $("#movie-image-5").attr('src');
+            var actors = $("#movie-actors-5").text();
+            break;
+        case "select-button-6":
+            var title = $("#movie-title-6").text();
+            var year = $("#movie-year-6").text();
+            var image = $("#movie-image-6").attr('src');
+            var actors = $("#movie-actors-6").text();
+            break;
+        case "select-button-7":
+            var title = $("#movie-title-7").text();
+            var year = $("#movie-year-7").text();
+            var image = $("#movie-image-7").attr('src');
+            var actors = $("#movie-actors-7").text();
+            break;
+        case "select-button-8":
+            var title = $("#movie-title-8").text();
+            var year = $("#movie-year-8").text();
+            var image = $("#movie-image-8").attr('src');
+            var actors = $("#movie-actors-8").text();
             break;
     }
   localStorage.setItem("movietitle", title);

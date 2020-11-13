@@ -26,9 +26,21 @@ def add_movie():
   return render_template("add_movie.html")
 
 
-@app.route("/find_movie")
+@app.route("/find_movie", methods=["GET", "POST"])
 def find_movie():
-  return render_template("find_movie.html")
+  if request.method == "POST":
+        movie = {
+            "movie_name": request.form.get("movietitle"),
+            "movie_year": request.form.get("movieyear"),
+            "movie_image": request.form.get("movieimage"),
+            "category_name": request.form.get("category_name"),
+            "movie_actors": request.form.get("movieactors") 
+        }
+        mongo.db.movies.insert_one(movie)
+        return redirect(url_for("get_movies"))
+  
+  categories = mongo.db.categories.find().sort("category_name", 1)
+  return render_template("find_movie.html", categories=categories)
 
 
 

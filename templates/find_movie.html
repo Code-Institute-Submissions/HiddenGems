@@ -4,7 +4,7 @@
  <body onload="setDetails()"> 
 <h1>Is this correct?</h1>
 
-<form>
+<form method="POST" action="{{ url_for('find_movie')}}">>
   <div class="form-group">
     <label for="movietitle"></label>
     <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
@@ -14,8 +14,14 @@
     <input type="text" name="movieactors" class="form-control" id="movieactors" placeholder="Add Movie Actors here">
     <label for="movieimage"></label>
     <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image here">
-    <label for="moviecategory"></label>
-    <input type="text" name="movietcategory" class="form-control" id="moviecategory" placeholder="Add Movie Category here">
+    <label for="category_name">Movie Genre</label>
+    <select id="category_name" name="category_name" class="validate" required>
+      <option value="" disabled selected>Choose category</option>
+      {% for category in categories %}
+          <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+      {% endfor %}
+    </select>
+    <button id="searchMovie" type="submit" class="btn btn-primary">Go ahead, add my Movie.</button>
   </div>
 </form>
 
