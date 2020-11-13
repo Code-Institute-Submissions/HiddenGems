@@ -1,60 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-<body onload="getIMDB()"> 
-<h1>Did you mean?</h1>
+ <body onload="setDetails()"> 
+<h1>Is this correct?</h1>
 
-
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-0" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-0" class="card-title"></h4>
-                <p id="movie-year-0"class="card-text"></p>
-                <p id="movie-actors-0"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-1" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-1" class="card-title"></h4>
-                <p id="movie-year-1"class="card-text"></p>
-                <p id="movie-actors-1"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-2" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-2" class="card-title"></h4>
-                <p id="movie-year-2"class="card-text"></p>
-                <p id="movie-actors-2"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-3" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-3" class="card-title"></h4>
-                <p id="movie-year-3"class="card-text"></p>
-                <p id="movie-actors-3"class="card-text"></p>
-              </div>
-            </div>
-<div class="card flex-row flex-wrap" >
-              <div class="card-header border-0">
-                <img id="movie-image-4" class="thumbnail-image" alt="">
-              </div>
-              <div class="card-block px-2">
-                <h4 id="movie-title-4" class="card-title"></h4>
-                <p id="movie-year-4"class="card-text"></p>
-                <p id="movie-actors-4"class="card-text"></p>
-              </div>
-            </div>
+<form>
+  <div class="form-group">
+    <label for="movietitle"></label>
+    <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
+    <label for="movieyear"></label>
+    <input type="text" name="movieyear" class="form-control" id="movieyear" placeholder="Add Movie Year here">
+    <label for="movieactors"></label>
+    <input type="text" name="movieactors" class="form-control" id="movieactors" placeholder="Add Movie Actors here">
+    <label for="movieimage"></label>
+    <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image here">
+    <label for="moviecategory"></label>
+    <input type="text" name="movietcategory" class="form-control" id="moviecategory" placeholder="Add Movie Category here">
+  </div>
+</form>
 
 
 
