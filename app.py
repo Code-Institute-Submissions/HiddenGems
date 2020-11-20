@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -19,6 +20,35 @@ mongo = PyMongo(app)
 def get_movies():
   movies = mongo.db.movies.find()
   return render_template("movies.html", movies=movies)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+  if request.method == "POST":
+    existing_user = mongo.db.users.find_one(
+      {"username": request.form.get("username").lower()}
+    )
+
+    if existing_user:
+      if check_password_hash(
+        existing_user["password"], request.form.get("password")):
+          session["user"] = request.form.get("username").lower()
+          print("Successful login {}".format(request.form.get("username")))
+          #add flash here?
+          return redirect(url_for("profile", username=session["user"] ))
+      else:
+        #invalid password#flash message
+        print("invalid password")
+        return redirect(url_for("login")) 
+    
+    else:
+      #username not in database
+      print("invalid username")
+      return redirect(url_for("login"))
+
+  return render_template("login")
+
+  
 
 
 @app.route("/add_movie")
