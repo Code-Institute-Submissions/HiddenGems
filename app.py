@@ -46,7 +46,7 @@ def login():
       print("invalid username")
       return redirect(url_for("login"))
 
-    return render_template("login.html")
+  return render_template("login.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -71,7 +71,7 @@ def register():
         flash("Registration Successful")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("register.html")
+  return render_template("register.html")
 
 
 
