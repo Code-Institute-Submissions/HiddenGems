@@ -4,12 +4,12 @@
 <h1>Test Show Movies</h1>
 
 <div class="top-content">
-      <div>Test Content</div>
+      <div>New</div>
     </div>
     <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if loop.index <= 8 %}
+        {% for movie in movies|sort(attribute='_id', reverse = True) %}
+          {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -20,6 +20,58 @@
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
                 <p class="card-text">{{ movie.movie_review }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+
+<div class="top-content">
+      <div>Fantasy</div>
+    </div>
+    <div class="deck-wrapper">
+      <div class="card-deck">
+        {% for movie in movies %}
+          {% if movie.category_name == "Fantasy" %}
+            <div class="card flex-row flex-wrap" >
+              <div class="card-header border-0">
+                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
+              </div>
+              <div class="card-block px-2">
+                <h4 class="card-title">{{ movie.movie_name }}</h4>
+                <p class="card-text">{{ movie.movie_year }}</p>
+                <p class="card-text">{{ movie.movie_actors }}</p>
+                <p class="card-text">{{ movie.category_name }}</p>
+                <p class="card-text">{{ movie.movie_review }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+
+<div class="top-content">
+      <div>Romance</div>
+    </div>
+    <div class="deck-wrapper">
+      <div class="card-deck">
+        {% for movie in movies %}
+          {% if movie.category_name == "Romance" %}
+            <div class="card flex-row flex-wrap" >
+              <div class="card-header border-0">
+                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
+              </div>
+              <div class="card-block px-2">
+                <h4 class="card-title">{{ movie.movie_name }}</h4>
+                <p class="card-text">{{ movie.movie_year }}</p>
+                <p class="card-text">{{ movie.movie_actors }}</p>
+                <p class="card-text">{{ movie.category_name }}</p>
+                <p class="card-text">{{ movie.movie_review }}</p>
+                <p class="card-text">{{ movie.movie_rating }}</p>
+                <button>Agree</button>
               </div>
             </div>
           {% endif %}

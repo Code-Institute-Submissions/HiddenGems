@@ -143,6 +143,9 @@ https://stackoverflow.com/questions/49141874/bootstrap-4-card-panel-with-image-l
 - IMDB API assistance found at:
 https://stackoverflow.com/questions/1966503/does-imdb-provide-an-api
 
+- Assistance with jinja list sorting:
+https://stackoverflow.com/questions/1959386/how-do-you-sort-a-list-in-jinja2
+
 
 
 

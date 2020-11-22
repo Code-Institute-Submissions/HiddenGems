@@ -16,9 +16,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_movies")
+@app.route("/get_movies", methods=["GET", "POST"])
 def get_movies():
-  movies = mongo.db.movies.find()
+  movies = list(mongo.db.movies.find())
+  if request.method == "POST":
+    
   return render_template("movies.html", movies=movies)
 
 
