@@ -71,7 +71,10 @@
                 <p class="card-text">{{ movie.category_name }}</p>
                 <p class="card-text">{{ movie.movie_review }}</p>
                 <p class="card-text">{{ movie.movie_rating }}</p>
-                <button>Agree</button>
+                <form method="POST" action="{{ url_for('get_movies') }}">
+                  <input name="movie-input">{{ movie._id }}</input>
+                  <input name="{{ movie._id }}" type="submit" id="agree-button" name="agree-button">Agree</input>
+                </form>
               </div>
             </div>
           {% endif %}

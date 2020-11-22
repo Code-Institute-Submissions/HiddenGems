@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -20,8 +21,51 @@ mongo = PyMongo(app)
 def get_movies():
   movies = list(mongo.db.movies.find())
   if request.method == "POST":
+    #movieid = request.form.get("movie-input")
+    # submit = {
+    #         "movie_rating": 1
+    #     } 
+    mongo.db.movies.update({ "_id": ObjectId("5fbaba3e9303b46da9a73a79") },
+   {
+      '$inc': { "movie_rating": 1 }
+   })
     
   return render_template("movies.html", movies=movies)
+
+
+
+# @app.route('/upvote/<post_id>', methods=["GET", "POST"])
+# def upvote(post_id):
+#     print('%s upvoted' % post_id)
+#     # do your db update here and return a json encoded object
+#     #current_val = mongo.db.movies.find_one("_id": post_id)
+#     submit = {
+#             "movie_rating": "1"
+#         } 
+#     mongo.db.movies.update({"_id": ObjectId(post_id)}, submit)
+
+
+# @app.route('/upvote', methods=['POST'])
+# def upvote_post():
+#     if request.method == "POST":
+
+#         data_received = json.loads(request.data) 
+        
+#         post= mongo.db.movies.find_one(
+#       {"_id": data_received['postid'].first()}
+#     )
+        
+#         if post:
+#             mongo.db.update({
+#               "_id": ObjectId(post._id)
+#             },
+#             {
+#               "$inc": { "movie_rating": 1 }
+#             })
+                 
+#             return json.dumps({'status' : 'success'})
+#         return json.dumps({'status' : 'no post found'})
+#     return redirect(url_for('index'))
 
 
 @app.route("/login", methods=["GET", "POST"])
