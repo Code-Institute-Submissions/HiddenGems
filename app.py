@@ -1,4 +1,5 @@
 import os
+import logging
 from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -21,14 +22,14 @@ mongo = PyMongo(app)
 def get_movies():
   movies = list(mongo.db.movies.find())
   if request.method == "POST":
-    #movieid = request.form.get("movie-input")
+    movieid = request.form["movie-input"]
     # submit = {
     #         "movie_rating": 1
     #     } 
-    mongo.db.movies.update({ "_id": ObjectId("5fbaba3e9303b46da9a73a79") },
+    mongo.db.movies.update({ "_id": ObjectId(movieid) },
    {
       '$inc': { "movie_rating": 1 }
-   })
+   }, upsert=False)
     
   return render_template("movies.html", movies=movies)
 

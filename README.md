@@ -118,7 +118,7 @@ Mobile
 
 
 ## Future improvements
-
+- Making the upvoting system not need a page refresh to reflect. Perhaps using an AJAX request. 
 
 
 ## Deployment Procedure

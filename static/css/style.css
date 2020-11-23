@@ -26,3 +26,13 @@ body {
   width: 100px;
   height: 100px;
 }
+
+#agree-button {
+  color: orange;
+  background-color: transparent;
+  border: none;
+}
+
+#agree-button:hover {
+  color: orangered;
+}
