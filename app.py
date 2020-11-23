@@ -34,8 +34,8 @@ def get_movies():
   return render_template("movies.html", movies=movies)
 
 
-
-@app.route('/upvote/<movie_id>')
+# this should be a post or a put.
+@app.route('/upvote/<movie_id>', methods=["POST"])
 def upvote(movie_id):
   #movieid = request.form["movie-input"]
   
@@ -43,6 +43,9 @@ def upvote(movie_id):
   {
     '$inc': { "movie_rating": 1 }
   }, upsert=False)
+  return 'OK'
+  #change return here.
+
 
 
 # @app.route('/upvote', methods=['POST'])

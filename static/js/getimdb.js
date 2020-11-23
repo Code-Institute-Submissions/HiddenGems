@@ -143,7 +143,7 @@ function setDetails() {
 
 $('#agree-button').click(function(ev){
     var id = $(ev.currentTarget).attr('data-id');
-    $.get( "/upvote/" + id, function( data ) {
+    $.post( "/upvote/" + id, function( data ) {
       // change your button here, and remove its upvote_button class
       alert(data);
     });
