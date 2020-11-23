@@ -140,3 +140,11 @@ function setDetails() {
   var movieimage = localStorage.getItem("movieimage");
   $("#movieimage").val(movieimage);
 }
+
+$('#agree-button').click(function(ev){
+    var id = $(ev.currentTarget).attr('data-id');
+    $.get( "/upvote/" + id, function( data ) {
+      // change your button here, and remove its upvote_button class
+      alert(data);
+    });
+});

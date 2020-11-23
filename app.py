@@ -21,29 +21,28 @@ mongo = PyMongo(app)
 @app.route("/get_movies", methods=["GET", "POST"])
 def get_movies():
   movies = list(mongo.db.movies.find())
-  if request.method == "POST":
-    movieid = request.form["movie-input"]
-    # submit = {
-    #         "movie_rating": 1
-    #     } 
-    mongo.db.movies.update({ "_id": ObjectId(movieid) },
-   {
-      '$inc': { "movie_rating": 1 }
-   }, upsert=False)
+  # if request.method == "POST":
+  #   movieid = request.form["movie-input"]
+  #   # submit = {
+  #   #         "movie_rating": 1
+  #   #     } 
+  #   mongo.db.movies.update({ "_id": ObjectId(movieid) },
+  #  {
+  #     '$inc': { "movie_rating": 1 }
+  #  }, upsert=False)
     
   return render_template("movies.html", movies=movies)
 
 
 
-# @app.route('/upvote/<post_id>', methods=["GET", "POST"])
-# def upvote(post_id):
-#     print('%s upvoted' % post_id)
-#     # do your db update here and return a json encoded object
-#     #current_val = mongo.db.movies.find_one("_id": post_id)
-#     submit = {
-#             "movie_rating": "1"
-#         } 
-#     mongo.db.movies.update({"_id": ObjectId(post_id)}, submit)
+@app.route('/upvote/<movie_id>')
+def upvote(movie_id):
+  #movieid = request.form["movie-input"]
+  
+  mongo.db.movies.update({ "_id": ObjectId(movie_id) },
+  {
+    '$inc': { "movie_rating": 1 }
+  }, upsert=False)
 
 
 # @app.route('/upvote', methods=['POST'])

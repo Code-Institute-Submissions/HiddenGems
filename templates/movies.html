@@ -71,10 +71,10 @@
                 <p class="card-text">{{ movie.category_name }}</p>
                 <p class="card-text">{{ movie.movie_review }}</p>
                 <p class="card-text">{{ movie.movie_rating }}</p>
-                <form method="POST" action="{{ url_for('get_movies') }}">
+                
                   <input type="hidden" value="{{ movie._id }}"name="movie-input"></input>
-                  <button type="submit" id="agree-button" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
-                </form>
+                  <button id="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                
               </div>
             </div>
           {% endif %}
