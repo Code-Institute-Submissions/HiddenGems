@@ -21,15 +21,6 @@ mongo = PyMongo(app)
 @app.route("/get_movies", methods=["GET", "POST"])
 def get_movies():
   movies = list(mongo.db.movies.find())
-  # if request.method == "POST":
-  #   movieid = request.form["movie-input"]
-  #   # submit = {
-  #   #         "movie_rating": 1
-  #   #     } 
-  #   mongo.db.movies.update({ "_id": ObjectId(movieid) },
-  #  {
-  #     '$inc': { "movie_rating": 1 }
-  #  }, upsert=False)
     
   return render_template("movies.html", movies=movies)
 
@@ -45,30 +36,6 @@ def upvote(movie_id):
   }, upsert=False)
   return 'OK'
   #change return here.
-
-
-
-# @app.route('/upvote', methods=['POST'])
-# def upvote_post():
-#     if request.method == "POST":
-
-#         data_received = json.loads(request.data) 
-        
-#         post= mongo.db.movies.find_one(
-#       {"_id": data_received['postid'].first()}
-#     )
-        
-#         if post:
-#             mongo.db.update({
-#               "_id": ObjectId(post._id)
-#             },
-#             {
-#               "$inc": { "movie_rating": 1 }
-#             })
-                 
-#             return json.dumps({'status' : 'success'})
-#         return json.dumps({'status' : 'no post found'})
-#     return redirect(url_for('index'))
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -98,7 +65,11 @@ def login():
   return render_template("login.html")
 
 
-#logout
+
+@app.route("/logout")
+def logout():
+    session.pop("user")
+    return redirect(url_for("login"))
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
