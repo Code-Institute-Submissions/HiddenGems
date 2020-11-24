@@ -27,12 +27,12 @@ body {
   height: 100px;
 }
 
-#agree-button {
+.agree-button {
   color: orange;
   background-color: transparent;
   border: none;
 }
 
-#agree-button:hover {
+.agree-button:hover {
   color: orangered;
 }

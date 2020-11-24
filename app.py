@@ -39,7 +39,7 @@ def get_movies():
 def upvote(movie_id):
   #movieid = request.form["movie-input"]
   
-  mongo.db.movies.update({ "_id": ObjectId(movie_id) },
+  mongo.db.movies.update_one({ "_id": ObjectId(movie_id) },
   {
     '$inc': { "movie_rating": 1 }
   }, upsert=False)
@@ -151,7 +151,8 @@ def find_movie():
             "movie_year": request.form.get("movieyear"),
             "movie_image": request.form.get("movieimage"),
             "category_name": request.form.get("category_name"),
-            "movie_actors": request.form.get("movieactors") 
+            "movie_actors": request.form.get("movieactors"),
+            "movie_rating": 0 
         }
         mongo.db.movies.insert_one(movie)
         return redirect(url_for("get_movies"))
