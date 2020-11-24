@@ -47,6 +47,37 @@
                 <p class="card-text">{{ movie.movie_review }}</p>
                 <p id="rating{{ movie._id }}"class="card-text">{{ movie.movie_rating }}</p>
                 
+                  <input type="hidden" value="{{ movie._id }}"name="movie-input"></input>
+                  <button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                  
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+<div class="top-content">
+      <div>Highest Rated</div>
+    </div>
+    <div class="deck-wrapper">
+      <div class="card-deck">
+        {% for movie in movies|sort(attribute='movie_rating', reverse = True) %}
+          {% if loop.index <= 5 %}
+            <div class="card flex-row flex-wrap" >
+              <div class="card-header border-0">
+                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
+              </div>
+              <div class="card-block px-2">
+                <h4 class="card-title">{{ movie.movie_name }}</h4>
+                <p class="card-text">{{ movie.movie_year }}</p>
+                <p class="card-text">{{ movie.movie_actors }}</p>
+                <p class="card-text">{{ movie.category_name }}</p>
+                <p class="card-text">{{ movie.movie_review }}</p>
+                <p id="rating{{ movie._id }}"class="card-text">{{ movie.movie_rating }}</p>
+                
+                  <input type="hidden" value="{{ movie._id }}"name="movie-input"></input>
+                  <button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                   
               </div>
             </div>
