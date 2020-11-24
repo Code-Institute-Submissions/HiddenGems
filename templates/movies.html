@@ -45,7 +45,7 @@
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
                 <p class="card-text">{{ movie.movie_review }}</p>
-                <p id="rating{{ movie._id }}"class="card-text">{{ movie.movie_rating }}</p>
+                <p class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</p>
                 
                   <input type="hidden" value="{{ movie._id }}"name="movie-input"></input>
                   <button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
@@ -74,7 +74,7 @@
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
                 <p class="card-text">{{ movie.movie_review }}</p>
-                <p id="rating{{ movie._id }}"class="card-text">{{ movie.movie_rating }}</p>
+                <p class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</p>
                 
                   <input type="hidden" value="{{ movie._id }}"name="movie-input"></input>
                   <button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
@@ -104,9 +104,9 @@
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
                 <p class="card-text">{{ movie.movie_review }}</p>
-                <p id="rating{{ movie._id }}"class="card-text">{{ movie.movie_rating }}</p>
+                <p class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</p>
                 
-                  <input type="hidden" value="{{ movie._id }}"name="movie-input"></input>
+                  
                   <button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 
               </div>

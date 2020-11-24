@@ -144,9 +144,9 @@ function setDetails() {
 $('.agree-button').click(function(ev){
     var id = $(ev.currentTarget).attr('data-id');
     var upvoteId = "rating" + id;
-    var upvoteCount = $("#" + upvoteId).text();
+    var upvoteCount = $("." + upvoteId).first().text();
     $.post( "/upvote/" + id, function( data ) {
-    $("#" + upvoteId).text(parseInt(upvoteCount) + 1);
+    $("." + upvoteId).text(parseInt(upvoteCount) + 1);
       // change your button here, and remove its upvote_button class
     });
 });
