@@ -101,9 +101,11 @@ def profile(username):
     #get the session username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    #get their movies
+    movies = list(mongo.db.movies.find({"added_by": username}))
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, movies=movies)
 
     return redirect(url_for("login"))
 
@@ -111,7 +113,12 @@ def profile(username):
 
 @app.route("/add_movie")
 def add_movie():
-  return render_template("add_movie.html")
+  if session:
+    return render_template("add_movie.html")
+  
+  return redirect(url_for("login"))
+
+  
 
 
 @app.route("/find_movie", methods=["GET", "POST"])
@@ -123,7 +130,8 @@ def find_movie():
             "movie_image": request.form.get("movieimage"),
             "category_name": request.form.get("category_name"),
             "movie_actors": request.form.get("movieactors"),
-            "movie_rating": 0 
+            "movie_rating": 0,
+            "added_by": session["user"]
         }
         mongo.db.movies.insert_one(movie)
         return redirect(url_for("get_movies"))

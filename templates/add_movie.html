@@ -6,11 +6,12 @@
 <form>
   <div class="form-group">
     <label for="movietitle">Movie Title</label>
-    <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
+    <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" pattern="^[a-zA-Z0-9]$" title="Please only use letters and numbers." required>
+    <button id="searchMovie" type="submit" onclick="getIMDB()" class="btn btn-primary">Search Film</button>
   </div>
   
 </form>
-<button id="searchMovie" onclick="getIMDB()" class="btn btn-primary">Search Film</button>
+
 
 
 <!-- <body onload="getIMDB()"> -->
