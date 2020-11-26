@@ -146,6 +146,9 @@ https://stackoverflow.com/questions/1966503/does-imdb-provide-an-api
 - Assistance with jinja list sorting:
 https://stackoverflow.com/questions/1959386/how-do-you-sort-a-list-in-jinja2
 
+- countDocument help found at:
+https://stackoverflow.com/questions/25163658/mongodb-return-true-if-document-exists
+
 
 
 
