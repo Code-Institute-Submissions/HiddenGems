@@ -142,7 +142,7 @@ def find_movie():
             "movie_rating": 0,
             "added_by": session["user"]
         }
-        if mongo.db.movies.find({"movie_name": request.form.get("movietitle")}).count() == 0:
+        if mongo.db.movies.find({"movie_name": request.form.get("movietitle"), "movie_year": request.form.get("movieyear")}).count() == 0:
           mongo.db.movies.insert_one(movie)
           return redirect(url_for("get_movies"))
         else:
