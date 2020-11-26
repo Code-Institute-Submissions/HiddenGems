@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, render_template, redirect, request, session, url_for
+from flask import Flask, render_template, redirect, request, session, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -142,8 +142,12 @@ def find_movie():
             "movie_rating": 0,
             "added_by": session["user"]
         }
-        mongo.db.movies.insert_one(movie)
-        return redirect(url_for("get_movies"))
+        if mongo.db.movies.find({"movie_name": request.form.get("movietitle")}).count() == 0:
+          mongo.db.movies.insert_one(movie)
+          return redirect(url_for("get_movies"))
+        else:
+          flash("Movie already exists")
+          return redirect(url_for("add_movie"))
   
   categories = mongo.db.categories.find().sort("category_name", 1)
   return render_template("find_movie.html", categories=categories)

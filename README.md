@@ -118,7 +118,7 @@ Mobile
 
 
 ## Future improvements
-- Making the upvoting system not need a page refresh to reflect. Perhaps using an AJAX request. 
+- Improve the search function. Take it from it's basic movie name form now to including actors, year etc. This could be done through a more in-depth index on the database, however the page would need to be revamped to handle the results. The current format fulfils the basic user need.
 
 
 ## Deployment Procedure
