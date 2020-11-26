@@ -38,6 +38,15 @@ def upvote(movie_id):
   #change return here.
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.method == "POST":
+      query = request.form.get("query")
+      movies = list(mongo.db.movies.find({"$text": {"$search": query}}))
+      return render_template("search.html", movies=movies)
+    return render_template("search.html")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
   if request.method == "POST":

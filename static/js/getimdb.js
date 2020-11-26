@@ -141,6 +141,8 @@ function setDetails() {
   $("#movieimage").val(movieimage);
 }
 
+
+// move to new file.
 $('.agree-button').click(function(ev){
     var id = $(ev.currentTarget).attr('data-id');
     var upvoteId = "rating" + id;

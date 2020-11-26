@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Search for a Movie</h1>
+
+
+<div class="row card-panel">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix teal-text text-darken-4"></i>
+                    <input type="text" name="query" minlength="3" id="query" class="validate" required>
+                    <label for="query">Search Tasks</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_movies') }}" class="red btn">Reset</a>
+                    <button type="submit" class="teal darken-1 btn">Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+<div class="top-content">
+      <div>New</div>
+    </div>
+    <div class="deck-wrapper">
+      <div class="card-deck">
+        {% for movie in movies|sort(attribute='_id', reverse = True) %}
+          {% if loop.index <= 5 %}
+            <div class="card flex-row flex-wrap" >
+              <div class="card-header border-0">
+                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
+              </div>
+              <div class="card-block px-2">
+                <h4 class="card-title">{{ movie.movie_name }}</h4>
+                <p class="card-text">{{ movie.movie_year }}</p>
+                <p class="card-text">{{ movie.movie_actors }}</p>
+                <p class="card-text">{{ movie.category_name }}</p>
+                <p class="card-text">{{ movie.movie_review }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+
+
+{% endblock %}
