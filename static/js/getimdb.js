@@ -39,8 +39,7 @@ function getIMDB(){
                 <p id="movie-year-${[i]}"class="card-text"></p>
                 <p id="movie-actors-${[i]}"class="card-text"></p>
               </div>
-              <button id="select-button-${[i]}" onclick="getDetails(this.id)" class="btn-sm btn-primary">This One!</button>
-              <a href="/find_movie" class="btn-sm btn-primary">Go!</a>
+              <a id="select-button-${[i]}" onclick="return getDetails(this.id)" href="/find_movie" class="btn-sm btn-primary">Go!</a>
             </div>`);
             //Add select button which pulls info into dict.
       clickCounter++;
@@ -127,6 +126,7 @@ function getDetails(id){
   localStorage.setItem("movieyear", year);
   localStorage.setItem("movieactors", actors);
   localStorage.setItem("movieimage", image);
+  return True;
 }
 
 
