@@ -152,3 +152,7 @@ $('.agree-button').click(function(ev){
       // change your button here, and remove its upvote_button class
     });
 });
+
+$('[data-toggle="collapse"]').click(function() {
+  $('.collapse.in').collapse('hide')
+});
