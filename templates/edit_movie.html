@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Require a function to take the innerhtml from the card, load it into localstorage and unload it here. -->
+
  <body onload="setDetails()"> 
-<h1>Is this correct?</h1>
+<h1>Edit Your Movie</h1>
 
 <form method="POST" action="{{ url_for('find_movie')}}">>
   <div class="form-group">
@@ -13,7 +15,7 @@
     <label for="movieactors"></label>
     <input type="text" name="movieactors" class="form-control" id="movieactors" placeholder="Add Movie Actors here">
     <label for="movieimage"></label>
-    <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image here" disabled>
+    <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image here">
     <label for="category_name">Movie Genre</label>
     <select id="category_name" name="category_name" class="validate" required>
       <option value="" disabled selected>Choose category</option>
@@ -24,7 +26,6 @@
     <button id="searchMovie" type="submit" class="btn btn-primary">Go ahead, add my Movie.</button>
   </div>
 </form>
-
 
 
 {% endblock %}
