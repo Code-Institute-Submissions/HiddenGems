@@ -155,21 +155,22 @@ def find_movie():
 @app.route("/edit_movie/<movie_id>", methods=["GET", "POST"])
 def edit_movie(movie_id):
     if request.method == "POST":
-        movie = {
-            "movie_name": request.form.get("movietitle"),
-            "movie_year": request.form.get("movieyear"),
-            "movie_image": request.form.get("movieimage"),
-            "category_name": request.form.get("category_name"),
-            "movie_actors": request.form.get("movieactors"),
-            "movie_rating": 0,
-            "added_by": session["user"]
-        }
-        mongo.db.movies.update({"_id": ObjectId(movie_id)}, movie)
-        return redirect(url_for("profile"))
+        update = {
+              "movie_name": request.form.get("movietitle"),
+              "movie_year": request.form.get("movieyear"),
+              "movie_image": request.form.get("movieimage"),
+              "category_name": request.form.get("category_name"),
+              "movie_actors": request.form.get("movieactors")
+        }  
+        mongo.db.movies.update_one(
+          {"_id": ObjectId(movie_id)},
+          { "$set": update })
+        return redirect(url_for("profile", username=session["user"]))
         flash("Task Successfully Updated")
-        
+
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)}) 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_movie.html", categories=categories)
+    return render_template("edit_movie.html", movie=movie, categories=categories)
 
 #app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', '8000')), debug=True)
 

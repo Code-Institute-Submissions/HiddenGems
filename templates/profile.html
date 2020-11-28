@@ -13,13 +13,13 @@
             {% if loop.index <= 5 %}
               <div class="card flex-row flex-wrap" >
                 <div class="card-header border-0">
-                  <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
+                  <img id="{{ movie._id }}_image" class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
                 </div>
                 <div class="card-block px-2">
                   <h4 id="{{ movie._id }}_title" class="card-title">{{ movie.movie_name }}</h4>
                   <p id="{{ movie._id }}_year" class="card-text">{{ movie.movie_year }}</p>
                   <p id="{{ movie._id }}_actors" class="card-text">{{ movie.movie_actors }}</p>
-                  <p class="card-text">{{ movie.category_name }}</p>
+                  <p id="{{ movie._id }}_category" class="card-text">{{ movie.category_name }}</p>
                   <p class="card-text">{{ movie.movie_review }}</p>
                   <p class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</p>
                 </div>

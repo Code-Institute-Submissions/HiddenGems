@@ -139,6 +139,8 @@ function setDetails() {
   $("#movieactors").val(movieactors);
   var movieimage = localStorage.getItem("movieimage");
   $("#movieimage").val(movieimage);
+  var moviecategory = localStorage.getItem("moviecategory");
+  $("#category_name").val(moviecategory);
 }
 
 
@@ -160,14 +162,17 @@ $('[data-toggle="collapse"]').click(function() {
 
 function editEntry(id){
     var movieId = id;
-    //var movieId = $(id).attr('class').split(' ')[0];
     var movietitle = $('#' + movieId + '_title').text();
     var movieyear = $('#' + movieId + '_year').text();
     var movieactors = $('#' + movieId + '_actors').text();
+    var movieimage = $('#' + movieId + '_image').attr('src');
+    var moviecategory = $('#' + movieId + '_category').text();
 
     localStorage.setItem("movietitle", movietitle);
     localStorage.setItem("movieyear", movieyear);
     localStorage.setItem("movieactors", movieactors);
+    localStorage.setItem("movieimage", movieimage);
+    localStorage.setItem("moviecategory", moviecategory);
 
     return True;  
  };
