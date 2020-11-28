@@ -172,6 +172,13 @@ def edit_movie(movie_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_movie.html", movie=movie, categories=categories)
 
+
+@app.route("/delete_movie/<movie_id>")
+def delete_movie(movie_id):
+    mongo.db.movies.remove({"_id": ObjectId(movie_id)})
+    flash("Entry Deleted")
+    return redirect(url_for("profile", username=session["user"]))
+
 #app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', '8000')), debug=True)
 
 if __name__ == "__main__":
