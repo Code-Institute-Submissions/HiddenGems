@@ -150,6 +150,9 @@ https://stackoverflow.com/questions/1959386/how-do-you-sort-a-list-in-jinja2
 - countDocument help found at:
 https://stackoverflow.com/questions/25163658/mongodb-return-true-if-document-exists
 
+- Information for a single button to run JS, then load a href found at:
+https://stackoverflow.com/questions/14867558/html-tag-a-want-to-add-both-href-and-onclick-working
+
 
 
 

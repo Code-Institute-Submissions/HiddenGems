@@ -16,13 +16,14 @@
                   <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
                 </div>
                 <div class="card-block px-2">
-                  <h4 class="card-title">{{ movie.movie_name }}</h4>
-                  <p class="card-text">{{ movie.movie_year }}</p>
-                  <p class="card-text">{{ movie.movie_actors }}</p>
+                  <h4 id="{{ movie._id }}_title" class="card-title">{{ movie.movie_name }}</h4>
+                  <p id="{{ movie._id }}_year" class="card-text">{{ movie.movie_year }}</p>
+                  <p id="{{ movie._id }}_actors" class="card-text">{{ movie.movie_actors }}</p>
                   <p class="card-text">{{ movie.category_name }}</p>
                   <p class="card-text">{{ movie.movie_review }}</p>
                   <p class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</p>
                 </div>
+                <a onclick="return editEntry(this.id)" href="/edit_movie/{{ movie._id }}" id="{{ movie._id }}" class="btn-sm btn-primary editButton">Edit</a>
               </div>
             {% endif %}
           

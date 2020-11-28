@@ -156,3 +156,18 @@ $('.agree-button').click(function(ev){
 $('[data-toggle="collapse"]').click(function() {
   $('.collapse.in').collapse('hide')
 });
+
+
+function editEntry(id){
+    var movieId = id;
+    //var movieId = $(id).attr('class').split(' ')[0];
+    var movietitle = $('#' + movieId + '_title').text();
+    var movieyear = $('#' + movieId + '_year').text();
+    var movieactors = $('#' + movieId + '_actors').text();
+
+    localStorage.setItem("movietitle", movietitle);
+    localStorage.setItem("movieyear", movieyear);
+    localStorage.setItem("movieactors", movieactors);
+
+    return True;  
+ };
