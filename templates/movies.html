@@ -1,7 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
 
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080')">
+        <div class="carousel-caption">
+          <h3 class="display-4">Welcome to Hidden Gems</h3>
+          <p class="lead">Here you can submit and vote for lesser-known movie classics</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
+        <div class="carousel-caption">
+          <h3 class="display-4">What can I contribute here?</h3>
+          <p class="lead">Sign up and add your gems using the selections above</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080')">
+        <div class="carousel-caption">
+          <h3 class="display-4">Vote if you agree</h3>
+          <p class="lead">Upvote the entries you agree with. You can also search for something specific using 'Search' above.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
+
+
+
+
+
   <h1>Current Gems</h1>
+
+
+  <!-- <div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h2 class="display-4">Welcome to Hidden Gems </h1>
+    <p class="lead">Here you can submit and vote for lesser-known movie classics.</p>
+    <p>Sign up and add your movies using the selections above</p>
+    <p>Vote for your preferred content below, or search for something specific using the searchbar above</p>
+    <p>Enjoy!</p>
+  </div>
+  </div> -->
 
   <div class="top-content">
     <h2>New</h2>
@@ -11,7 +67,7 @@
       {% for movie in movies|sort(attribute='_id', reverse = True) %}
         {% if loop.index <= 5 %}
           <div class="card flex-row flex-wrap card-entry ">
-            <div class="card-header border-0">
+            <div class="card-header border-0 ">
               <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
             </div>
             <div class="card-block px-2">
@@ -28,13 +84,13 @@
       {% endfor %}
     </div>
   </div>
-      <div>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseNew" aria-expanded="false" aria-controls="collapseNew">
+      <div class="see-more-container">
+        <button class="btn see-more-btn" type="button" data-toggle="collapse" data-target="#collapseNew" aria-expanded="false" aria-controls="collapseNew">
           See More
         </button>
       </div>
       <div class="collapse" id="collapseNew">
-        <div class="card card-body">
+        <div class="card card-body ">
           <div class="card-deck">
             {% for movie in movies|sort(attribute='_id', reverse = True) %}
               {% if loop.index > 5 and loop.index <= 10 %}
@@ -83,8 +139,8 @@
       {% endfor %}
     </div>
   </div>
-      <div>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseRated" aria-expanded="false" aria-controls="collapseRated">
+      <div class="see-more-container">
+        <button class="btn see-more-btn" type="button" data-toggle="collapse" data-target="#collapseRated" aria-expanded="false" aria-controls="collapseRated">
           See More
         </button>
       </div>
