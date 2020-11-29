@@ -11,7 +11,7 @@
         {% for movie in movies %}
           
             {% if loop.index <= 5 %}
-              <div class="card flex-row flex-wrap" >
+              <div class="card flex-row flex-wrap card-entry" >
                 <div class="card-header border-0">
                   <img id="{{ movie._id }}_image" class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
                 </div>

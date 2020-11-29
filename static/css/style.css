@@ -22,9 +22,15 @@ body {
   padding: 10px;
 }
 
+.card-entry {
+  max-width: 300px;
+  max-height: 600px;
+}
+
 .thumbnail-image {
-  width: 100px;
-  height: 100px;
+  width: 80%;
+  height: 90%;
+  text-align: center;
 }
 
 .agree-button {
@@ -35,4 +41,68 @@ body {
 
 .agree-button:hover {
   color: orangered;
+}
+
+
+/* ----------------------------------------------------- Cards */
+
+.card-header {
+    background:#676767;
+    text-align: center;
+}
+
+.card-header button {
+    color: #fff;
+}
+
+
+/* ------------------------------------------------Icons - social */
+
+.social-networks {
+  text-align: center;
+}
+
+.social-networks li{
+  display: inline;
+}
+
+.social-networks li a i {
+  font-size: 160%;
+  margin: 2%;
+  
+  color: #fff;
+}
+
+
+
+/* ---------------------------------------------------Footer */
+
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+.footer-container {
+  background-color: #595959;
+  
+}
+
+#logo-footer {
+  font-family: "Big Shoulders Stencil Display", sans-serif;
+  text-align: center;
+  font-size: 150%;
+  padding-top: 20px;
+  color: #fff;
+
+}
+
+.footer-container p {
+  color: #fff;
+  text-align: center;
+  font-size: 80%;
 }

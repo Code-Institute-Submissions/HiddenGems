@@ -29,7 +29,7 @@
       <div class="card-deck">
         {% for movie in movies|sort(attribute='_id', reverse = True) %}
           {% if loop.index <= 5 %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry " >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>

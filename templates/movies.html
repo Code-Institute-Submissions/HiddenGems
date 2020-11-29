@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <h1>Test Show Movies</h1>
+  <h1>Current Gems</h1>
 
   <div class="top-content">
     <h2>New</h2>
@@ -10,7 +10,7 @@
     <div class="card-deck">
       {% for movie in movies|sort(attribute='_id', reverse = True) %}
         {% if loop.index <= 5 %}
-          <div class="card flex-row flex-wrap">
+          <div class="card flex-row flex-wrap card-entry ">
             <div class="card-header border-0">
               <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
             </div>
@@ -38,7 +38,7 @@
           <div class="card-deck">
             {% for movie in movies|sort(attribute='_id', reverse = True) %}
               {% if loop.index > 5 and loop.index <= 10 %}
-                <div class="card flex-row flex-wrap">
+                <div class="card flex-row flex-wrap card-entry ">
                   <div class="card-header border-0">
                     <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
                   </div>
@@ -65,7 +65,7 @@
     <div class="card-deck">
       {% for movie in movies|sort(attribute='movie_rating', reverse = True) %}
           {% if loop.index <= 5 %}
-          <div class="card flex-row flex-wrap">
+          <div class="card flex-row flex-wrap card-entry ">
             <div class="card-header border-0">
               <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
             </div>
@@ -93,7 +93,7 @@
           <div class="card-deck">
             {% for movie in movies|sort(attribute='movie_rating', reverse = True) %}
               {% if loop.index > 5 and loop.index <= 10 %}
-                <div class="card flex-row flex-wrap">
+                <div class="card flex-row flex-wrap card-entry ">
                   <div class="card-header border-0">
                     <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
                   </div>
@@ -138,7 +138,7 @@
           <div class="card-deck">
             {% for movie in movies %}
               {% if movie.category_name == "Action" %}
-                <div class="card flex-row flex-wrap" >
+                <div class="card flex-row flex-wrap card-entry " >
                   <div class="card-header border-0">
                     <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
                   </div>
@@ -173,7 +173,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Comedy" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -208,7 +208,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Crime" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -243,7 +243,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Drama" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -278,7 +278,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Fantasy" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -313,7 +313,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Historical" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -348,7 +348,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Horror" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -383,7 +383,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Romance" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -418,7 +418,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Science Fiction" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -453,7 +453,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Thriller" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -488,7 +488,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Western" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
@@ -523,7 +523,7 @@
       <div class="card-deck">
         {% for movie in movies %}
           {% if movie.category_name == "Other" %}
-            <div class="card flex-row flex-wrap" >
+            <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
               </div>
