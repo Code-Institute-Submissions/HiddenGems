@@ -20,12 +20,20 @@ body {
   background-color: #2b2a2a;
 }
 
-.nav-link {
+.navbar-light .navbar-nav .nav-link {
   color: #fff;
 }
 
 .card-deck{
   padding: 10px;
+}
+
+.card-body {
+  background-color: #252424;
+}
+
+.accordion-card {
+  background-color: #252424;
 }
 
 .card-entry {
@@ -34,8 +42,9 @@ body {
 }
 
 .thumbnail-image {
-  width: 80%;
-  height: 90%;
+  width: 80%; 
+  height: 90%; 
+  
   text-align: center;
 }
 
@@ -113,7 +122,7 @@ body {
 /* ----------------------------------------------------- Cards */
 
 .card-header {
-    background:#676767;
+    background:#252424;
     text-align: center;
 }
 
