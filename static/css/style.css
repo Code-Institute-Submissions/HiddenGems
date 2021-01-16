@@ -8,6 +8,7 @@
 
 body {
   background-color: #707070;
+  text-align: center;
 }
 
 .top-content{
@@ -54,16 +55,14 @@ body {
 }
 
 .gems-title-div {
-  align-items: center;
-  justify-content: center;
-  position: absolute;
   margin: 0 auto;
+  text-align: center;
 }
 
 .gems-title {
   margin-top: 30px;
   text-align: center;
-  position: relative;
+  
 }
 
 /* --------------------------------------------------- Buttons */
