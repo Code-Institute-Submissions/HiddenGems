@@ -157,6 +157,13 @@ https://stackoverflow.com/questions/14867558/html-tag-a-want-to-add-both-href-an
 - Flexible footer - needed as content is dynamically generated onto the pages:
 https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 
+### images
 
+VHS tape image - From Anthony on Pexels:
+https://www.pexels.com/photo/3-vhs-tape-on-top-of-table-157543/
 
+Assorted cameras image - From Free Creative Stuff on Pexels:
+https://www.pexels.com/photo/assorted-camera-lot-on-surface-in-grayscale-photo-1422223/
 
+Single video camera image - From Abet Llacer on Pexels:
+https://www.pexels.com/photo/close-up-photography-of-video-camera-927444/

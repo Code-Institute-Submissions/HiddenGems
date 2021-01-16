@@ -53,6 +53,19 @@ body {
   background-size: cover;
 }
 
+.gems-title-div {
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 0 auto;
+}
+
+.gems-title {
+  margin-top: 30px;
+  text-align: center;
+  position: relative;
+}
+
 /* --------------------------------------------------- Buttons */
 
 .see-more-btn {
@@ -74,6 +87,22 @@ body {
   justify-content: center;
 }
 
+/* --------------------------------------------- Horizontal Rules */
+
+.block-divider {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 1px;
+  width: 20%;
+  background-color: #777777;
+}
+
+.block-divider-bottom-margin {
+  margin-bottom: 20px;
+}
 
 /* ----------------------------------------------------- Cards */
 
