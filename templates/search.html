@@ -1,25 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Search for a Movie</h1>
+<div class="gems-title-div">
+  <h2 class="gems-title">Search for a Movie</h2>
+  <hr class="block-divider block-divider-bottom-margin">
+</div>
 
+<div class="search-movie-container">
+  <div class="search-movie">
+      <form action="{{ url_for('search') }}" method="post">
+        <div class="input-group">
+          <input type="text" name="query" id="query" minlength="3" placeholder="Enter Movie Title" aria-label="Movie Title Search Box" class="search-movie validate" required>
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary" >Search</button>
+            <a href="{{ url_for('get_movies') }}" class="btn btn-outline-secondary" type="button">Reset</a>
+          </div>
+        </div>
+      </form>
+  </div>
+<div>
 
-<div class="row card-panel">
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix teal-text text-darken-4"></i>
-                    <input type="text" name="query" minlength="3" id="query" class="validate" required>
-                    <label for="query">Search Tasks</label>
-                </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('get_movies') }}" class="red btn">Reset</a>
-                    <button type="submit" class="teal darken-1 btn">Search
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
+<!-- <div class="gems-title-div">
+  <hr class="block-divider block-divider-bottom-margin">
+</div> -->
 
 
 <div class="top-content">

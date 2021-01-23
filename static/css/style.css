@@ -81,16 +81,32 @@ body {
   
 }
 
+.category-title {
+  color: #fff;
+}
+
+/*---------------------------------------------- Search */
+
+.search-movie-container{
+  
+  text-align: center;
+}
+
+.search-movie {
+  width: 80%;
+  /* margin: 0 auto; */
+}
+
 /* --------------------------------------------------- Buttons */
 
 .see-more-btn {
   background-color: #fff;
-  color: #696969;
+  color: #252424;
   text-align: center;
 }
 
 .see-more-btn:hover {
-  background-color: #696969;
+  background-color: #252424;
   color: #fff;
 }
 
@@ -112,7 +128,7 @@ body {
   margin-right: auto;
   border-width: 1px;
   width: 20%;
-  background-color: #333232;
+  background-color: #fff;
 }
 
 .block-divider-bottom-margin {
@@ -164,6 +180,7 @@ body {
 
 .footer-container {
   background-color: #595959;
+  /* margin-top: 50px; */
   
 }
 
