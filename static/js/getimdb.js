@@ -38,8 +38,8 @@ function getIMDB(){
                 <h4 id="movie-title-${[i]}" class="card-title"></h4>
                 <p id="movie-year-${[i]}"class="card-text"></p>
                 <p id="movie-actors-${[i]}"class="card-text"></p>
+                <a id="select-button-${[i]}" onclick="return getDetails(this.id)" href="/find_movie" class="btn-sm btn-primary">Go!</a>
               </div>
-              <a id="select-button-${[i]}" onclick="return getDetails(this.id)" href="/find_movie" class="btn-sm btn-primary">Go!</a>
             </div>`);
             //Add select button which pulls info into dict.
       clickCounter++;

@@ -37,7 +37,7 @@ body {
 }
 
 .card-entry {
-  max-width: 300px;
+  max-width: 200px;
   max-height: 600px;
 }
 
@@ -88,6 +88,12 @@ body {
 
 .category-title {
   color: #fff;
+}
+
+#insertMovie {
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
 }
 
 /*---------------------------------------------- Search */
@@ -156,6 +162,7 @@ body {
 
 .social-networks {
   text-align: center;
+  padding-left: 0;
 }
 
 .social-networks li{
@@ -184,7 +191,7 @@ body {
 }
 
 .footer-container {
-  background-color: #595959;
+  background-color: #1e1d1d;
   /* margin-top: 50px; */
   
 }
