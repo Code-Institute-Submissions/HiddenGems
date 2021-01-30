@@ -1,10 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Register</h1>
+<div class="gems-title-div">
+  <h2 class="gems-title">Register</h2>
+  <hr class="block-divider block-divider-bottom-margin">
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <form class="form-signin" method="POST" action="{{ url_for('register') }}">
+              <div class="form-label-group">
+                <label for="username" class="gems-body text-center">Username</label>
+                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate form-control" placeholder="Username" required>
+              </div>
+
+              <div class="form-label-group">
+                <label for="password" class="gems-body text-center">Password</label>
+                <input  id="password" name="password" class="form-control validate" type="password" placeholder="Password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+              </div>
+              <hr class="block-divider block-divider-bottom-margin">
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+              <hr class="block-divider block-divider-bottom-margin">
+              <a class="nav-link text-center" href="{{ url_for('login') }}">Already have an account? Login Here</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-<div class="row">
+<!-- <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
         <div class="card-panel">
             <div class="row">
@@ -29,7 +58,7 @@
     </div>
 
 
-<a class="nav-link" href="{{ url_for('login') }}">Log In</a>
+<a class="nav-link" href="{{ url_for('login') }}">Log In</a> -->
 
 
 {% endblock %}
