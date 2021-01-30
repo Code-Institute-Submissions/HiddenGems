@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+<div class="gems-title-div">
+  <h2 class="gems-title">{{ username|capitalize }}'s Profile</h2>
+  <hr class="block-divider block-divider-bottom-margin">
+</div>
 <h1>{{ username|capitalize }}'s Profile</h1>
 
 
-<p>My Added Films</p>
+<h3 class="gems-body">My Added Films</h3>
 
     <div class="deck-wrapper">
       <div class="card-deck">
