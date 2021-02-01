@@ -37,13 +37,17 @@ def upvote(movie_id):
   return 'OK'
   #change return here.
 
-
+#something here flashed to say no movies found?
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
       query = request.form.get("query")
       movies = list(mongo.db.movies.find({"$text": {"$search": query}}))
-      return render_template("search.html", movies=movies)
+      if len(movies) > 0:
+        return render_template("search.html", movies=movies)
+      else:
+        flash("Doesn't look like we have that one!")
+        return render_template ("search.html")
     return render_template("search.html")
 
 
@@ -79,6 +83,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop("user")
+    flash("Logged Out")
     return redirect(url_for("login"))
 
 @app.route("/register", methods=["GET", "POST"])
@@ -89,7 +94,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            print("Username already exists")
+            flash("Username already exists")
             return redirect(url_for("register"))
 
         register = {
@@ -100,7 +105,7 @@ def register():
 
         #put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        print("Registration Successful")
+        flash("Registration Successful")
         return redirect(url_for("profile", username=session["user"]))
 
   return render_template("register.html")
@@ -126,6 +131,7 @@ def add_movie():
   if session:
     return render_template("add_movie.html")
   
+  flash("Please login or register first")
   return redirect(url_for("login"))
 
   
@@ -167,7 +173,7 @@ def edit_movie(movie_id):
           {"_id": ObjectId(movie_id)},
           { "$set": update })
         return redirect(url_for("profile", username=session["user"]))
-        flash("Task Successfully Updated")
+        flash("Entry Successfully Updated")
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)}) 
     categories = mongo.db.categories.find().sort("category_name", 1)
