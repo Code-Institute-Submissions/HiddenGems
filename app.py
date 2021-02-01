@@ -60,15 +60,16 @@ def login():
           session["user"] = request.form.get("username").lower()
           print("Successful login {}".format(request.form.get("username")))
           #add flash here?
+          flash("Login Successful!")
           return redirect(url_for("profile", username=session["user"] ))
       else:
         #invalid password#flash message
-        print("invalid password")
+        flash("Invalid Username or Password")
         return redirect(url_for("login")) 
     
     else:
       #username not in database
-      print("invalid username")
+      flash("Invalid Username or Password")
       return redirect(url_for("login"))
 
   return render_template("login.html")

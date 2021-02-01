@@ -24,6 +24,15 @@ body {
   color: #fff;
 }
 
+.navbar-light .navbar-toggler {
+  color: #fff;
+  border-color: #fff;
+}
+
+.fas fa bars {
+  color: #fff;
+}
+
 .card-deck{
   padding: 10px;
 }
@@ -128,6 +137,15 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* ------------------------------------------ Messages */
+
+.flashes {
+  display: block;
+  background-color: #938b1a33;
+  
+}
+
 
 /* --------------------------------------------- Horizontal Rules */
 
