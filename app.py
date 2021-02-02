@@ -151,6 +151,7 @@ def find_movie():
         }
         if mongo.db.movies.count_documents({"movie_name": request.form.get("movietitle"), "movie_actors": request.form.get("movieactors")}) == 0:
           mongo.db.movies.insert_one(movie)
+          flash("Movie added successfully")
           return redirect(url_for("get_movies"))
         else:
           flash("Movie already exists")
