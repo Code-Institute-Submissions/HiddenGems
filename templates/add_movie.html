@@ -24,7 +24,7 @@
             <form class="form-signin" method="POST" action="{{ url_for('login') }}">
               <div class="form-label-group">
                 <label for="username" class="gems-body text-center">Movie Title</label>
-                <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" pattern="[A-Za-z]" title="Please only use letters and numbers." required>
+                <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" pattern="[a-zA-Z0-9]+" title="Please only use letters and numbers." required>
               </div>
               <hr class="block-divider block-divider-bottom-margin">
               <button id="searchMovie" type="submit" onclick="getIMDB()" class="btn btn-lg btn-success btn-block text-uppercase">Search Film</button>
