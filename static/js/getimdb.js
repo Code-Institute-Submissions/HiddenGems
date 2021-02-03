@@ -176,3 +176,12 @@ function editEntry(id){
 
     return True;  
  };
+
+// function getValidation() {
+//    var txt = "";
+//   if (document.getElementById("movietitle").validity.patternMismatch) {
+//     txt = "Value too large";
+//   }
+//   document.getElementById("demo").innerHTML = txt;
+//   else (getIMDB());
+//  }

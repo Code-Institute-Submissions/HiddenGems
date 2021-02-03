@@ -7,33 +7,43 @@
   <hr class="block-divider block-divider-bottom-margin">
 </div>
 
-<!-- <form>
-  <div class="form-group">
-    <label for="movietitle">Movie Title</label>
-    <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" pattern="[A-Za-z]" title="Please only use letters and numbers." required>
-    <button id="searchMovie" type="submit" onclick="getIMDB()" class="btn btn-primary">Search Film</button>
-  </div>
-  
-</form> -->
-
 <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
-        <div class="card card-signin my-5">
+        <div class="card my-5">
           <div class="card-body">
-            <form class="form-signin" method="POST" action="{{ url_for('login') }}">
-              <div class="form-label-group">
-                <label for="username" class="gems-body text-center">Movie Title</label>
-                <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" pattern="[a-zA-Z0-9]+" title="Please only use letters and numbers." required>
+            <form>
+              <div class="form-group">
+                <label for="movietitle"class="gems-body">Movie Title</label>
+                <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" pattern="[A-Za-z]" title="Please only use letters and numbers." required>
+                <hr class="block-divider block-divider-bottom-margin">
+                <button id="searchMovie" type="submit" onclick="getIMDB()" class="btn btn-success btn-block text-uppercase">Search Film</button>
               </div>
-              <hr class="block-divider block-divider-bottom-margin">
-              <button id="searchMovie" type="submit" onclick="getIMDB()" class="btn btn-lg btn-success btn-block text-uppercase">Search Film</button>
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
+        <div class="card my-5">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="movietitle" class="gems-body text-center">Movie Title</label>
+                <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" required>
+              </div>
+              <hr class="block-divider block-divider-bottom-margin">
+              <button id="searchMovie" type="submit" onclick="getIMDB()" class="btn btn-success btn-block text-capitalize">Search Film</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
 
 
