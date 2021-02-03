@@ -120,7 +120,9 @@ Mobile
 ## Future improvements
 - Improve the search function. Take it from it's basic movie name form now to including actors, year etc. This could be done through a more in-depth index on the database, however the page would need to be revamped to handle the results. The current format fulfils the basic user need.
 - The main movies page is quite repetitive code-wise. This could be cleaned up with storing the movie cards as a block variable, for example. Inital tests of this principle found getting the 'movie.*' notation difficult. Finding another method to clean this up would be an excellent improvement going forward.
-- Currently, the upvote system is subject to users not utilising it correctly - someone with an intent to upvote their own movie multiple times could do so. Restricting the upvote to logged in users, and registering who has upvoted then blocking future upvotes from them would be a way around this. This would also require a revamp of the current JavaScript which increments the vote without page refresh also - the button could be disabled to represent this.
+- Currently, the upvote system is subject to users not utilising it correctly - someone with an intent to upvote their own movie multiple times could do so. Restricting the upvote to logged in users, and registering who has upvoted then blocking future upvotes from them would be a way around this. This would also require a revamp of the current JavaScript which increments the vote without page refresh also.
+
+The user at present is disabled from upvoting the movie again without a page reload. This will deter some people, but those who wish to continuously upvote could do so with a refresh.
 
 
 ## Deployment Procedure

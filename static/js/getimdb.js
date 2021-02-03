@@ -25,7 +25,7 @@ function getIMDB(){
     var year = []
     var image = []
 
-    //add 'DId you mean, here'
+    
     
     for (i=0; i < results.d.length; i++) {
       if (clickCounter < results.d.length) {
@@ -151,7 +151,7 @@ $('.agree-button').click(function(ev){
     var upvoteCount = $("." + upvoteId).first().text();
     $.post( "/upvote/" + id, function( data ) {
     $("." + upvoteId).text(parseInt(upvoteCount) + 1);
-      // change your button here, and remove its upvote_button class
+    $(ev.currentTarget).addClass('upvoted').attr('disabled','disabled');
     });
 });
 
