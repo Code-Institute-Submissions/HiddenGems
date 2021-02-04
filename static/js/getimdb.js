@@ -177,11 +177,19 @@ function editEntry(id){
     return True;  
  };
 
-// function getValidation() {
-//    var txt = "";
-//   if (document.getElementById("movietitle").validity.patternMismatch) {
-//     txt = "Value too large";
-//   }
-//   document.getElementById("demo").innerHTML = txt;
-//   else (getIMDB());
-//  }
+
+
+function getValidation() {
+  var letters = /^[0-9a-zA-Z]+$/;
+   if(document.getElementById("movietitle").value.match(letters))
+     {
+      getIMDB();
+      return true;
+     }
+   else
+     {
+     alert("Please only use numbers and letters.");
+     return false;
+     }
+  
+};

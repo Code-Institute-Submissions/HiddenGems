@@ -159,6 +159,9 @@ https://stackoverflow.com/questions/14867558/html-tag-a-want-to-add-both-href-an
 - Flexible footer - needed as content is dynamically generated onto the pages:
 https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 
+Validation assistance on Add Movies:
+https://www.w3resource.com/javascript/form/letters-numbers-field.php
+
 ### images
 
 VHS tape image - From Anthony on Pexels:
