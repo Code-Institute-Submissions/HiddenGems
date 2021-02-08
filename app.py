@@ -147,7 +147,8 @@ def find_movie():
             "category_name": request.form.get("category_name"),
             "movie_actors": request.form.get("movieactors"),
             "movie_rating": 0,
-            "added_by": session["user"]
+            "added_by": session["user"],
+            "imdbID": request.form.get("imdbID")
         }
         if mongo.db.movies.count_documents({"movie_name": request.form.get("movietitle"), "movie_actors": request.form.get("movieactors")}) == 0:
           mongo.db.movies.insert_one(movie)
