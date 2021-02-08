@@ -187,6 +187,14 @@ def delete_movie(movie_id):
     flash("Entry Deleted")
     return redirect(url_for("profile", username=session["user"]))
 
+
+@app.route("/movie_details/<movie_id>")
+def movie_details(movie_id):
+  movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+  return render_template("movie_details.html", movie=movie)
+
+
+
 #app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', '8000')), debug=True)
 
 if __name__ == "__main__":
