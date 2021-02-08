@@ -39,7 +39,7 @@ function getIMDB(){
                 <h4 id="movie-title-${[i]}" class="card-title"></h4>
                 <p id="movie-year-${[i]}"class="card-text"></p>
                 <p id="movie-actors-${[i]}"class="card-text"></p>
-                <p id="imdbID-${[i]}"class="card-text"></p>
+                <p id="imdbID-${[i]}"class="not-visible card-text"></p>
                 <a id="select-button-${[i]}" onclick="return getDetails(this.id)" href="/find_movie" class="btn btn-md btn-success btn-block text-uppercase">This One!</a>
               </div>
             </div>`);

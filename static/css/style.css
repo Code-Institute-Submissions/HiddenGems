@@ -109,6 +109,10 @@ body {
   width: 60%;
 }
 
+.not-visible {
+  visibility: hidden;
+}
+
 /*---------------------------------------------- Search */
 
 .search-movie-container{

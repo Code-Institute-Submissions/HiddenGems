@@ -148,6 +148,7 @@ def find_movie():
             "movie_actors": request.form.get("movieactors"),
             "movie_rating": 0,
             "added_by": session["user"],
+            "movie_review": request.form.get("moviereview"),
             "imdbID": request.form.get("imdbID")
         }
         if mongo.db.movies.count_documents({"movie_name": request.form.get("movietitle"), "movie_actors": request.form.get("movieactors")}) == 0:

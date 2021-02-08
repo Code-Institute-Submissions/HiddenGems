@@ -71,6 +71,7 @@
               <p class="card-text">{{ movie.category_name }}</p>
               <p class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</p>
               <button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+              <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
             </div>
           </div>
         {% endif %}
