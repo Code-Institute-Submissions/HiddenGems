@@ -180,7 +180,7 @@ function editEntry(id){
 
 
 function getValidation() {
-  var letters = /^[0-9a-zA-Z]+$/;
+  var letters = /^[0-9a-zA-Z ]+$/;
    if(document.getElementById("movietitle").value.match(letters))
      {
       getIMDB();
