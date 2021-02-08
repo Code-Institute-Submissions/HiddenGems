@@ -140,17 +140,31 @@ def add_movie():
 @app.route("/find_movie", methods=["GET", "POST"])
 def find_movie():
   if request.method == "POST":
-        movie = {
-            "movie_name": request.form.get("movietitle"),
-            "movie_year": request.form.get("movieyear"),
-            "movie_image": request.form.get("movieimage"),
-            "category_name": request.form.get("category_name"),
-            "movie_actors": request.form.get("movieactors"),
-            "movie_rating": 0,
-            "added_by": session["user"],
-            "movie_review": request.form.get("moviereview"),
-            "imdbID": request.form.get("imdbID")
-        }
+        if len(request.form.get("moviereview")) == 0:
+          movie = {
+              "movie_name": request.form.get("movietitle"),
+              "movie_year": request.form.get("movieyear"),
+              "movie_image": request.form.get("movieimage"),
+              "category_name": request.form.get("category_name"),
+              "movie_actors": request.form.get("movieactors"),
+              "movie_rating": 0,
+              "added_by": session["user"],
+              "movie_review": "Didn't have much to say about it, but we're sure it's excellent!",
+              "imdbID": request.form.get("imdbID")
+          }
+        else:
+          movie = {
+              "movie_name": request.form.get("movietitle"),
+              "movie_year": request.form.get("movieyear"),
+              "movie_image": request.form.get("movieimage"),
+              "category_name": request.form.get("category_name"),
+              "movie_actors": request.form.get("movieactors"),
+              "movie_rating": 0,
+              "added_by": session["user"],
+              "movie_review": request.form.get("moviereview"),
+              "imdbID": request.form.get("imdbID")
+          }
+
         if mongo.db.movies.count_documents({"movie_name": request.form.get("movietitle"), "movie_actors": request.form.get("movieactors")}) == 0:
           mongo.db.movies.insert_one(movie)
           flash("Movie added successfully")
