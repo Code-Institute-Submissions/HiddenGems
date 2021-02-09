@@ -211,3 +211,7 @@ function getValidation() {
      }
   
 };
+
+function goBack() {
+  window.history.back();
+}

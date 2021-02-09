@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
         <div class="card card-signin my-5">
-          <div class="card-body">
+          <div class="card-body text-center">
             <form method="POST" action="{{ url_for('edit_movie', movie_id=movie._id) }}">
               <div class="form-group">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}"></img>
@@ -22,9 +22,10 @@
                 <p class="gems-body">{{ movie.movie_year }}</p>
                 <p class="gems-body">{{ movie.movie_actors }}</p>
                 <p class="gems-body">{{ movie.movie_genre }}</p>
-                <p class="gems-body">{{ movie.movie_review }}</p>  
+                <p class="gems-body">What did {{ movie.added_by.capitalize() }} say?: {{ movie.movie_review }}</p>  
                 <hr class="block-divider block-divider-bottom-margin">
                             <a href="https://www.imdb.com/title/{{ movie.imdbID}}" target="_blank" id="imdbPage"class="btn btn-lg btn-success btn-block text-uppercase" type="button">Go to IMDB Page</a>
+                            <button class="btn btn-lg btn-success btn-block text-uppercase" onclick="goBack()">Go Back</button>
               </div>
             </form>
           </div>
