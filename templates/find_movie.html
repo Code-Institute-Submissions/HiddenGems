@@ -15,19 +15,19 @@
           <div class="card-body">
             <form method="POST" action="{{ url_for('find_movie')}}">
               <div class="form-group">
-                <label for="movietitle"></label>
+                <label class="gems-body" for="movietitle">Movie Title</label>
                 <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
-                <label for="movieyear"></label>
+                <label class="gems-body" for="movieyear">Year of Release</label>
                 <input type="text" name="movieyear" class="form-control" id="movieyear" placeholder="Add Movie Year here">
-                <label for="movieactors"></label>
+                <label class="gems-body" for="movieactors">Main Actors</label>
                 <input type="text" name="movieactors" class="form-control" id="movieactors" placeholder="Add Movie Actors here">
-                <label for="movieimage"></label>
-                <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image url here">
-                <input type="text" name="imdbID" class="form-control" id="imdbID" placeholder="Add IMDB ID here">
+                <!-- <label class="gems-body" for="movieimage">Cover Image</label> -->
+                <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image url here" hidden>
+                <input type="text" name="imdbID" class="form-control" id="imdbID" placeholder="Add IMDB ID here" hidden>
                 <hr class="block-divider block-divider-bottom-margin">
-                <label for="category_name" class="gems-body">Movie Genre</label>
+                <label for="category_name" class="gems-body">Choose the Movie Genre</label>
                 <select id="category_name" name="category_name" class="validate form-control" required>
-                  <option value="" disabled selected>Choose category</option>
+                  <option value="" selected disabled>Choose category</option>
                   {% for category in categories %}
                       <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                   {% endfor %}

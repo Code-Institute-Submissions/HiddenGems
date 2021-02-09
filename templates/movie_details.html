@@ -22,10 +22,10 @@
                 <p class="gems-body">{{ movie.movie_year }}</p>
                 <p class="gems-body">{{ movie.movie_actors }}</p>
                 <p class="gems-body">{{ movie.movie_genre }}</p>
-                <p class="gems-body">What did {{ movie.added_by.capitalize() }} say?: {{ movie.movie_review }}</p>  
+                <p class="gems-body">What did {{ movie.added_by.capitalize() }} say?:  {{ movie.movie_review }}</p>  
                 <hr class="block-divider block-divider-bottom-margin">
                             <a href="https://www.imdb.com/title/{{ movie.imdbID}}" target="_blank" id="imdbPage"class="btn btn-lg btn-success btn-block text-uppercase" type="button">Go to IMDB Page</a>
-                            <button class="btn btn-lg btn-success btn-block text-uppercase" onclick="goBack()">Go Back</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="goBack()">Go Back</button>
               </div>
             </form>
           </div>

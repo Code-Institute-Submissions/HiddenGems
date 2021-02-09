@@ -47,7 +47,7 @@ function getIMDB(){
       clickCounter++;
       };
       title[i] = document.getElementById("movie-title-" + [i]);
-      title[i].innerHTML="<a href='#'>" + results.d[i].l + "</a>";
+      title[i].innerHTML= results.d[i].l;
       actors[i] = document.getElementById("movie-actors-" + [i]);
       actors[i].innerHTML= results.d[i].s;
       year[i] = document.getElementById("movie-year-" + [i]);
