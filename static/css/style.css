@@ -50,6 +50,10 @@ body {
   max-height: 600px;
 }
 
+.card-text {
+  font-size: 10pt;
+}
+
 .thumbnail-image {
   width: 80%; 
   height: 90%; 
