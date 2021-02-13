@@ -34,11 +34,12 @@
                 </select>
                 <label class="gems-body"for="moviereview">Would you like to tell people why?</label>
                 <input type="text" name="moviereview" class="form-control" id="moviereview" placeholder="140 Characters of Convincing" onKeyDown="textCounter(this,140);" onKeyUp="textCounter(this,'moviereview-length' ,140)">
+                  
+                <input class="character-counter float-right round-corners" readonly type="text" id='moviereview-length' name="moviereview-length" size="3" maxlength="3" value="140">
+                <label for="moviereview-length"class="gems-body float-right"> Characters Remaining: </label>
                 
-                  <input class="float-right round-corners" style="color:red;font-size:12pt;font-style:italic;" readonly type="text" id='moviereview-length' name="moviereview-length" size="3" maxlength="3" value="140">
-                  <!-- Amend this span here - it changes the HR -->
-                  <span class="gems-body float-right"> Characters Remaining</span>
-                
+                <!-- hr added to stop the white hr from encroaching on the 'Characters Remaining' line -->
+                <hr class="hr-background">
                 
                 <hr class="block-divider block-divider-bottom-margin">
                 <button id="searchMovie"class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Go ahead, add my Movie.</button>

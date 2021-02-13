@@ -162,6 +162,10 @@ https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 Validation assistance on Add Movies:
 https://www.w3resource.com/javascript/form/letters-numbers-field.php
 
+Javascript for the character count on find_movie.html from vittore:
+https://stackoverflow.com/questions/19962608/javascript-character-count
+
+
 ### images
 
 VHS tape image - From Anthony on Pexels:
