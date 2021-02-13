@@ -65,7 +65,7 @@ def login():
           print("Successful login {}".format(request.form.get("username")))
           #add flash here?
           flash("Login Successful!")
-          return redirect(url_for("profile", username=session["user"] ))
+          return redirect(url_for("manage_movies", username=session["user"] ))
       else:
         #invalid password#flash message
         flash("Invalid Username or Password")
@@ -106,13 +106,13 @@ def register():
         #put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("manage_movies", username=session["user"]))
 
   return render_template("register.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/manage_movies/<username>", methods=["GET", "POST"])
+def manage_movies(username):
     #get the session username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -120,7 +120,7 @@ def profile(username):
     movies = list(mongo.db.movies.find({"added_by": username}))
 
     if session["user"]:
-        return render_template("profile.html", username=username, movies=movies)
+        return render_template("manage_movies.html", username=username, movies=movies)
 
     return redirect(url_for("login"))
 
@@ -189,7 +189,7 @@ def edit_movie(movie_id):
         mongo.db.movies.update_one(
           {"_id": ObjectId(movie_id)},
           { "$set": update })
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("manage_movies", username=session["user"]))
         flash("Entry Successfully Updated")
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)}) 
@@ -201,7 +201,7 @@ def edit_movie(movie_id):
 def delete_movie(movie_id):
     mongo.db.movies.remove({"_id": ObjectId(movie_id)})
     flash("Entry Deleted")
-    return redirect(url_for("profile", username=session["user"]))
+    return redirect(url_for("manage_movies", username=session["user"]))
 
 
 @app.route("/movie_details/<movie_id>")
