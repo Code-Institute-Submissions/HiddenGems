@@ -113,6 +113,10 @@ body {
   visibility: hidden;
 }
 
+.round-corners {
+  border-radius: 5px;
+}
+
 /*---------------------------------------------- Search */
 
 .search-movie-container{
