@@ -1,17 +1,19 @@
+
+// The IMDB API needs the name of the movie, formatting in a particular way in order to search. getMovieName handles this
 function getMovieName(){
   var movieblank = document.getElementById("movietitle").value;
   var movieunderscore = movieblank.split(" ").join("_").toLowerCase();
   var moviename = "imdb$" + movieunderscore;
   return moviename
 };
-// Add special character handling
+// this ensures the IMDB link to the API is formatted correctly
 function getMovieLink(){
   var movieblank = document.getElementById("movietitle").value;
   var movielink = movieblank.split(" ").join("+").toLowerCase();
   return movielink
 }
 
-
+// Get the movie name and link correctly, then collect the appropriate movie details and display on the page as a repeating card.
 var clickCounter = 0;
 
 function getIMDB(){
@@ -63,11 +65,10 @@ function getIMDB(){
 
   
 };
-// should call imdb only after html is loaded. Race issue.
 
 
 
-// push data into a form and ask to confirm. Then have python pull data. Ask how you would categorise the film?
+// Decided to utilise a switch statement here. Elsewhere I have used loops but this works due to the IMDB API only sending back a fixed number of results. getDetails is reponsible for transferring the imdb card data to local storage, in order to edit/save it.
 
 function getDetails(id){
     switch(id){
@@ -134,6 +135,8 @@ function getDetails(id){
             var actors = $("#movie-actors-8").text();
             var imdbID = $("#imdbID-8").text();
             break;
+        default:
+            break;
     }
   localStorage.setItem("movietitle", title);
   localStorage.setItem("movieyear", year);
@@ -143,7 +146,7 @@ function getDetails(id){
   return True;
 }
 
-
+// setDetails follows getDetails and deposits the localstorage movie data into the appropriate form fields for submission.
 function setDetails() {
   var movietitle = localStorage.getItem("movietitle");
   $("#movietitle").val(movietitle);
@@ -160,68 +163,7 @@ function setDetails() {
 }
 
 
-// move to new file.
-$('.agree-button').click(function(ev){
-    var id = $(ev.currentTarget).attr('data-id');
-    var upvoteId = "rating" + id;
-    var upvoteCount = $("." + upvoteId).first().text();
-    $.post( "/upvote/" + id, function( data ) {
-    $("." + upvoteId).text(parseInt(upvoteCount) + 1);
-    $(ev.currentTarget).addClass('upvoted').attr('disabled','disabled');
-    });
-});
-
-$('[data-toggle="collapse"]').click(function() {
-  $('.collapse.in').collapse('hide')
-});
-
-
-function editEntry(id){
-    var movieId = id;
-    var movietitle = $('#' + movieId + '_title').text();
-    var movieyear = $('#' + movieId + '_year').text();
-    var movieactors = $('#' + movieId + '_actors').text();
-    var movieimage = $('#' + movieId + '_image').attr('src');
-    var moviecategory = $('#' + movieId + '_category').text();
-    var imdbID = $('#' + movieId + 'imdbID').text();
-
-    localStorage.setItem("movietitle", movietitle);
-    localStorage.setItem("movieyear", movieyear);
-    localStorage.setItem("movieactors", movieactors);
-    localStorage.setItem("movieimage", movieimage);
-    localStorage.setItem("moviecategory", moviecategory);
-    localStorage.SetItem("imdbID", imdbID);
-
-    return True;  
- };
 
 
 
-function getValidation() {
-  var letters = /^[0-9a-zA-Z ]+$/;
-   if(document.getElementById("movietitle").value.match(letters))
-     {
-      getIMDB();
-      return true;
-     }
-   else
-     {
-     alert("Please only use numbers and letters.");
-     return false;
-     }
-  
-};
 
-function goBack() {
-  window.history.back();
-}
-
-
-function textCounter(field,cnt, maxlimit) {         
-	var cntfield = document.getElementById(cnt)	
-     if (field.value.length > maxlimit) // if too long...trim it!
-		field.value = field.value.substring(0, maxlimit);
-		// otherwise, update 'characters left' counter
-		else
-		cntfield.value = maxlimit - field.value.length;
-}
