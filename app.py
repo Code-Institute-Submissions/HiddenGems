@@ -189,8 +189,9 @@ def edit_movie(movie_id):
         mongo.db.movies.update_one(
           {"_id": ObjectId(movie_id)},
           { "$set": update })
-        return redirect(url_for("manage_movies", username=session["user"]))
         flash("Entry Successfully Updated")
+        return redirect(url_for("manage_movies", username=session["user"]))
+        
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)}) 
     categories = mongo.db.categories.find().sort("category_name", 1)
