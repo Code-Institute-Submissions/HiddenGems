@@ -24,7 +24,7 @@
                   <p id="{{ movie._id }}_actors" class="card-text">{{ movie.movie_actors }}</p>
                   <p id="{{ movie._id }}_category" class="card-text">{{ movie.category_name }}</p>
                   <p class="card-text">{{ movie.movie_review }}</p>
-                  <span>Gem Rating: </span>
+                  <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
                 </div>
                 <a onclick="return editEntry(this.id)" href="/edit_movie/{{ movie._id }}" id="{{ movie._id }}" class="btn-block btn btn-primary editButton ">Edit</a>
@@ -78,7 +78,7 @@
                   <p id="{{ movie._id }}_actors" class="card-text">{{ movie.movie_actors }}</p>
                   <p id="{{ movie._id }}_category" class="card-text">{{ movie.category_name }}</p>
                   <p class="card-text">{{ movie.movie_review }}</p>
-                  <span>Gem Rating: </span>
+                  <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
                 </div>
                 <a onclick="return editEntry(this.id)" href="/edit_movie/{{ movie._id }}" id="{{ movie._id }}" class="btn-block btn btn-primary editButton ">Edit</a>

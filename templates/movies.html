@@ -99,9 +99,9 @@
                     <p class="card-text">{{ movie.movie_year }}</p>
                     <p class="card-text">{{ movie.movie_actors }}</p>
                     <p class="card-text">{{ movie.category_name }}</p>
-                    <span>Gem Rating: </span>
+                    <span class="card-text">Gem Rating: </span>
                     <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                    <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                    <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                     <br>
                     <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
                   </div>
@@ -130,9 +130,9 @@
               <p class="card-text">{{ movie.movie_year }}</p>
               <p class="card-text">{{ movie.movie_actors }}</p>
               <p class="card-text">{{ movie.category_name }}</p>
-              <span>Gem Rating: </span>
+              <span class="card-text">Gem Rating: </span>
               <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-              <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+              <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
               <br>
               <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
             </div>
@@ -160,9 +160,9 @@
                     <p class="card-text">{{ movie.movie_year }}</p>
                     <p class="card-text">{{ movie.movie_actors }}</p>
                     <p class="card-text">{{ movie.category_name }}</p>
-                    <span>Gem Rating: </span>
+                    <span class="card-text">Gem Rating: </span>
                     <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                    <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                    <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                     <br>
                     <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
                   </div>
@@ -194,8 +194,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
           <div class="card-deck">
-            {% for movie in movies %}
-              {% if movie.category_name == "Action" %}
+            {% for movie in movies if movie.category_name == "Action" %}
+              {% if loop.index <= 5 %}
                 <div class="card flex-row flex-wrap card-entry " >
                   <div class="card-header border-0">
                     <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -205,9 +205,9 @@
                     <p class="card-text">{{ movie.movie_year }}</p>
                     <p class="card-text">{{ movie.movie_actors }}</p>
                     <p class="card-text">{{ movie.category_name }}</p>
-                    <span>Gem Rating: </span>
+                    <span class="card-text">Gem Rating: </span>
                     <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                    <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                    <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                     <br>
                     <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
                   </div>
@@ -231,8 +231,8 @@
       <div class="card-body">
     <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Comedy" %}
+        {% for movie in movies if movie.category_name == "Comedy" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -242,9 +242,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>   
               </div>
@@ -268,8 +268,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Crime" %}
+        {% for movie in movies if movie.category_name == "Crime" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -279,9 +279,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -305,8 +305,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Drama" %}
+        {% for movie in movies if movie.category_name == "Drama" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -316,9 +316,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -342,8 +342,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Fantasy" %}
+        {% for movie in movies if movie.category_name == "Fantasy" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -353,9 +353,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -379,8 +379,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Historical" %}
+        {% for movie in movies if movie.category_name == "Historical" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -390,9 +390,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -416,8 +416,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Horror" %}
+        {% for movie in movies if movie.category_name == "Horror" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -427,9 +427,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -453,8 +453,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Romance" %}
+        {% for movie in movies if movie.category_name == "Romance" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -464,9 +464,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -490,8 +490,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Science Fiction" %}
+        {% for movie in movies if movie.category_name == "Science Fiction" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -501,9 +501,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -527,8 +527,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Thriller" %}
+        {% for movie in movies if movie.category_name == "Thriller" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -538,9 +538,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -564,8 +564,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Western" %}
+        {% for movie in movies if movie.category_name == "Western" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -575,9 +575,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
@@ -601,8 +601,8 @@
       <div class="card-body">
         <div class="deck-wrapper">
       <div class="card-deck">
-        {% for movie in movies %}
-          {% if movie.category_name == "Other" %}
+        {% for movie in movies if movie.category_name == "Other" %}
+              {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry" >
               <div class="card-header border-0">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
@@ -612,9 +612,9 @@
                 <p class="card-text">{{ movie.movie_year }}</p>
                 <p class="card-text">{{ movie.movie_actors }}</p>
                 <p class="card-text">{{ movie.category_name }}</p>
-                <span>Gem Rating: </span>
+                <span class="card-text">Gem Rating: </span>
                 <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <label for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
                 <br>
                 <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
