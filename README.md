@@ -165,6 +165,9 @@ https://www.w3resource.com/javascript/form/letters-numbers-field.php
 Javascript for the character count on find_movie.html from vittore:
 https://stackoverflow.com/questions/19962608/javascript-character-count
 
+The Javascript "back a page" command found here:
+https://www.w3schools.com/jsref/met_his_back.asp
+
 
 ### images
 
@@ -176,3 +179,11 @@ https://www.pexels.com/photo/assorted-camera-lot-on-surface-in-grayscale-photo-1
 
 Single video camera image - From Abet Llacer on Pexels:
 https://www.pexels.com/photo/close-up-photography-of-video-camera-927444/
+
+### Movie and User details
+
+Users added utilising a random name generator: 
+https://jimpix.co.uk/
+
+The majority of the movies came from the following list:
+https://www.scoopwhoop.com/Lesser-Known-Movies-To-Binge-On-This-Long-Weekend/
