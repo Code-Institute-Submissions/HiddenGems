@@ -191,7 +191,8 @@ def edit_movie(movie_id):
               "movie_year": request.form.get("movieyear"),
               "movie_image": request.form.get("movieimage"),
               "category_name": request.form.get("category_name"),
-              "movie_actors": request.form.get("movieactors")
+              "movie_actors": request.form.get("movieactors"),
+              "movie_review": request.form.get("moviereview")
         }  
         mongo.db.movies.update_one(
           {"_id": ObjectId(movie_id)},

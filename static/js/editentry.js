@@ -8,13 +8,15 @@ function editEntry(id){
     var movieimage = $('#' + movieId + '_image').attr('src');
     var moviecategory = $('#' + movieId + '_category').text();
     var imdbID = $('#' + movieId + 'imdbID').text();
+    var moviereview = $('#' + movieId + '_review').text();
 
     localStorage.setItem("movietitle", movietitle);
     localStorage.setItem("movieyear", movieyear);
     localStorage.setItem("movieactors", movieactors);
     localStorage.setItem("movieimage", movieimage);
     localStorage.setItem("moviecategory", moviecategory);
-    localStorage.SetItem("imdbID", imdbID);
+    localStorage.setItem("imdbID", imdbID);
+    localStorage.setItem("moviereview", moviereview);
 
     return True;  
  };

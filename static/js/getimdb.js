@@ -160,6 +160,8 @@ function setDetails() {
   $("#category_name").val(moviecategory);
   var imdbID = localStorage.getItem("imdbID");
   $("#imdbID").val(imdbID);
+  var moviereview = localStorage.getItem("moviereview");
+  $("#moviereview").val(moviereview);
 }
 
 
