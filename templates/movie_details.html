@@ -22,7 +22,8 @@
                 <p class="gems-body"><strong>Year of Release: </strong>{{ movie.movie_year }}</p>
                 <p class="gems-body"><strong>Lead Actors: </strong>{{ movie.movie_actors }}</p>
                 <p class="gems-body"><strong>Genre: </strong>{{ movie.category_name }}</p>
-                <p class="gems-body"><strong>What did {{ movie.added_by.capitalize() }} say?:</strong>  <em>{{ movie.movie_review }}</em></p>  
+                <p class="gems-body"><strong>Added by: </strong>{{ movie.added_by.capitalize() }}</p>
+                <p class="gems-body"><strong>What did they have to say?:</strong>  <em>{{ movie.movie_review }}</em></p>  
                 <hr class="block-divider block-divider-bottom-margin">
                             <a href="https://www.imdb.com/title/{{ movie.imdbID}}" target="_blank" id="imdbPage"class="btn btn-lg btn-success btn-block text-uppercase" type="button">Go to IMDB Page</a>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="goBack()">Go Back</button>
