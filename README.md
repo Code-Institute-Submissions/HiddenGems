@@ -171,6 +171,9 @@ https://www.w3schools.com/jsref/met_his_back.asp
 Dark filter for the carousel images found here:
 https://stackoverflow.com/questions/46819577/bootstrap-4-beta-carousel-dark-overlay
 
+Assistance with card-deck media-query functionality (cards would compress to be unreadable before stacking ontop of one another) from FrankieDoodie:
+https://stackoverflow.com/questions/36487389/bootstrap-4-card-deck-table-cell-columns-responsive-based-on-viewport/36499275#36499275
+
 
 ### images
 
