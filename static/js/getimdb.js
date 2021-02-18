@@ -162,6 +162,8 @@ function setDetails() {
   $("#imdbID").val(imdbID);
   var moviereview = localStorage.getItem("moviereview");
   $("#moviereview").val(moviereview);
+
+  localStorage.clear();
 }
 
 
