@@ -17,14 +17,14 @@
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('static/img/tape2.jpg')">
+      <div class="carousel-item" style="background-image: url('static/img/vhs-image.jpg')">
         <div class="carousel-caption">
           <h3 class="display-4">What can I contribute here?</h3>
           <p class="lead">Sign up and add your gems using the selections above</p>
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('static/img/cameras4.jpg')">
+      <div class="carousel-item" style="background-image: url('static/img/cameras.jpg')">
         <div class="carousel-caption">
           <h3 class="display-4">Vote if you agree</h3>
           <p class="lead">Upvote the entries you agree with. You can also search for something specific using 'Search' above.</p>
@@ -66,8 +66,8 @@
             </div>
             <div class="card-block px-2">
               <h4 class="card-title">{{ movie.movie_name }}</h4>
-              <p class="card-text">{{ movie.movie_year }}</p>
-              <p class="card-text">{{ movie.movie_actors }}</p>
+              <!-- <p class="card-text">{{ movie.movie_year }}</p>
+              <p class="card-text">{{ movie.movie_actors }}</p> -->
               <p class="card-text">{{ movie.category_name }}</p>
               <span class="card-text">Gem Rating: </span>
               <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>

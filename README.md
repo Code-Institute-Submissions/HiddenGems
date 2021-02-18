@@ -168,6 +168,9 @@ https://stackoverflow.com/questions/19962608/javascript-character-count
 The Javascript "back a page" command found here:
 https://www.w3schools.com/jsref/met_his_back.asp
 
+Dark filter for the carousel images found here:
+https://stackoverflow.com/questions/46819577/bootstrap-4-beta-carousel-dark-overlay
+
 
 ### images
 
