@@ -10,6 +10,7 @@ The site owner is then able to build their own database of great movies, with a 
 A side benefit will be the addition of a voting system so that users can agree or disagree with other peoples contribution. Using this, the site owner will generate a list of 'top voted' movies to fine-tune future movie choices.
 
 The site-owner will want for users to create accounts, both for data capture and in order to keep the voting fair. A user will only be able to vote on a particular film once. 
+Update - Validation has been added to prevent upvotes from being continually clicked however it has not been limited to one per user - See 'Future Updates'
 
 The site-owner will also want to keep content clean, meaning the owner will look at restricting certain words to attempt to facilitate this.
 
@@ -42,11 +43,36 @@ These Stories will be brief touchpoints of what the user is looking for from thi
 
 
 ## Site Layout
+It was decided to go with a darker theme on this occasion. This was partly inspired by IMDBs dark format, where the bright movies stand out and the background doesn't detract from the viewing experience. 
+
+The site uses Flask's template model, where the base.html holds the brand, navigation and footer. These features follow traditional web conventions where the logo is top left, and can be used to navigate to the home page, the navigation to it's left for navigating across the site.
+
+Where previous projects have seen a static explanation for how to utilise the site, I decided to have several images on a scrolling carousel. This moves automatically or at the user's prompting to allow information to be presented at the user's speed.
+
+The main content is directly below, where the user can see the newest movies (AKA 'Gems') added to the site. The cards present basic identifying information for a casual glance, with a link to see more information. Should they click this, they can see additional details such as the name of the user who added the movie, along with their review if they chose to leave their opinion. Links to the imdb page for even more information, along with the option to go back are found at the base of this information card.
+
+Back on the main cards, should the user agree with the movie as a good choice, they have the option to click and upvote. This pushes the movie up the rankings as popular, where the most popular choices can be seen in the next category down the page.
+
+On both of these categories, there is a 'see more' button, where they can view an additional row of movies should they wish to.
+
+Below this, movies of each of the sites named categories can be found,should the user be wanting to look at a particular genre.
+
+If the 'Consumer' type user wishes to see if a particular movie exists on the site, or a 'Contributor' wishes to check the same before they add their recommendation - they are able to search by title on the 'Search' option in the navigation.
+
+Once logged in on the 'Login' page, or 'Register' for first-time users, additional options are made available.
+
+Contributors can then head to 'Add Movie', where they can type some or all of the movie name and get the top results from the IMDb API. They simply select their intended listing, choose from a category list, add a review if they wish and submit to have the movie showing on the site. They can navigate to 'Manage Movies' to see their listings, along with editing and deleting if required.
 
 
 ## Design Decisions
 
 ### General Design
+As mentioned above, a darker theme was selected, with the movie cards and the text across the site standing out in white. The intention was to be eye-catching and engaging, which i believe has been achieved.
+
+I have stuck with the Lato text throughout as a professional-looking font and utilised bootstrap cards throughout the site to ensure that where content is generated, it looks consistent and is responsive on as many types of device as possible.
+
+Early on in the design stage, I wanted to try to make it as easy as possible for users to submit information. Linking up to the IMDB API seemed like a good way to do this, meaning that users are easily able to add their recommendations, whilst the site appears filled with content with no large gaps in information. I could imagine a site where people fill the required gaps with incomplete, or incorrect information and wanted to try and stay away from this, if possible.
+
 
 
 

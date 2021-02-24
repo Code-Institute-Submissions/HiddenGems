@@ -13,14 +13,14 @@
       <div class="carousel-item active" style="background-image: url('static/img/single-camera.jpg')">
         <div class="carousel-caption">
           <h3 class="display-4">Welcome to Hidden Gems</h3>
-          <p class="lead">Here you can submit and vote for lesser-known movie classics</p>
+          <p class="lead">Here you can submit and vote for lesser-known movie classics - We call them 'Gems'.</p>
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('static/img/vhs-image.jpg')">
         <div class="carousel-caption">
           <h3 class="display-4">What can I contribute here?</h3>
-          <p class="lead">Sign up and add your gems using the selections above</p>
+          <p class="lead">Sign up and add your Gems using the selections above</p>
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
@@ -66,8 +66,8 @@
             </div>
             <div class="card-block px-2">
               <h4 class="card-title">{{ movie.movie_name }}</h4>
-              <!-- <p class="card-text">{{ movie.movie_year }}</p>
-              <p class="card-text">{{ movie.movie_actors }}</p> -->
+              <!-- <p class="card-text">{{ movie.movie_year }}</p> -->
+              <!-- <p class="card-text">{{ movie.movie_actors }}</p> -->
               <p class="card-text">{{ movie.category_name }}</p>
               <span class="card-text">Gem Rating: </span>
               <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
@@ -92,21 +92,22 @@
             {% for movie in movies|sort(attribute='_id', reverse = True) %}
               {% if loop.index > 5 and loop.index <= 10 %}
                 <div class="card flex-row flex-wrap card-entry ">
-                  <div class="card-header border-0">
-                    <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
-                  </div>
-                  <div class="card-block px-2">
-                    <h4 class="card-title">{{ movie.movie_name }}</h4>
-                    <!-- <p class="card-text">{{ movie.movie_year }}</p>
-                    <p class="card-text">{{ movie.movie_actors }}</p> -->
-                    <p class="card-text">{{ movie.category_name }}</p>
-                    <span class="card-text">Gem Rating: </span>
-                    <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                    <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
-                    <br>
-                    <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
-                  </div>
-                </div>
+            <div class="card-header border-0 ">
+              <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
+            </div>
+            <div class="card-block px-2">
+              <h4 class="card-title">{{ movie.movie_name }}</h4>
+              <!-- <p class="card-text">{{ movie.movie_year }}</p> -->
+              <!-- <p class="card-text">{{ movie.movie_actors }}</p> -->
+              <p class="card-text">{{ movie.category_name }}</p>
+              <span class="card-text">Gem Rating: </span>
+              <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
+              <br>
+              <label class="card-text" for="agree-button">Click to Agree! </label><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+              <br>
+              <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
+            </div>
+          </div>
               {% endif %}
             {% endfor %}
           </div>
@@ -629,5 +630,6 @@
 
   </div>
   </div>
+
 
 {% endblock %}
