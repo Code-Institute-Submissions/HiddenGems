@@ -78,13 +78,54 @@ Early on in the design stage, I wanted to try to make it as easy as possible for
 
 ### Wireframes
 
-Desktop
+As you can see from the wireframes, the dark theme was decided afterwards but the main feel for the site remains the same as the early mockups.
+
+While a downvote options can be noted on the wireframes, it was decided to forego this to try to promote a more positive environment.
+
+There was also going to be images on most of the pages, but this idea was dropped for a cleaner look.
+
+#### Desktop
+
+HomePage
+
+![image](https://user-images.githubusercontent.com/61311614/109068574-f8492c00-76e7-11eb-9d87-2801b20cb655.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109068635-08f9a200-76e8-11eb-8d33-dd998e476345.png)
+
+Search 
+
+![image](https://user-images.githubusercontent.com/61311614/109068765-32b2c900-76e8-11eb-9d06-85de01110d22.png)
+
+
+Profile
+
+![image](https://user-images.githubusercontent.com/61311614/109068829-4a8a4d00-76e8-11eb-9636-c53df72a96be.png)
 
 
 
 
 
-Mobile
+#### Mobile
+
+HomePage
+
+![image](https://user-images.githubusercontent.com/61311614/109070582-976f2300-76ea-11eb-8673-8e11dc4f96f6.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109070630-a2c24e80-76ea-11eb-872a-0c5b338b7cf2.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109070666-b077d400-76ea-11eb-8c44-b18ea87654b8.png)
+
+Add Movie Page
+
+![image](https://user-images.githubusercontent.com/61311614/109072002-5c6def00-76ec-11eb-88ad-396838736cda.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109071860-2d577d80-76ec-11eb-882b-63a93fc1c102.png)
+
+
+
+
+
+
 
 
 
@@ -96,6 +137,7 @@ Mobile
 - JQuery addon used for rich function searching in order to appropriately target html and CSS for site functionality.
 - GitHub - utilised for cloud backups and project progression.
 - Realfavicongenerator.net - used to correctly generate site favicon
+- Mockplus Classic - Used for wireframes of the project - possibly the best free option so far in my opinion.
 
 
 ## Testing
