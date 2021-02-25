@@ -110,8 +110,6 @@ Profile
 
 
 
-
-
 #### Mobile
 
 HomePage
@@ -130,13 +128,6 @@ Add Movie Page
 
 
 
-
-
-
-
-
-
-
 ### Technologies used
 
 - Repl.it - this was the chosen development platform.
@@ -145,6 +136,7 @@ Add Movie Page
 - GitHub - utilised for cloud backups and project progression.
 - Realfavicongenerator.net - used to correctly generate site favicon
 - Mockplus Classic - Used for wireframes of the project - possibly the best free option so far in my opinion.
+- Heroku - for deploying and hosting the application.  
 
 
 ## Testing
@@ -171,6 +163,52 @@ Add Movie Page
 
 ### Page links
 
+#### Hidden Gems logo 
+
+Should navigate back to home page - confirmed.
+
+#### Navigation bar 
+
+Home - Should lead back to homepage - confirmed.
+
+Add Movie - Should lead to add_movie when logged in - confirmed.
+Should redirect to login with appropriate flash message - confirmed.
+
+Search - Should lead to search - confirmed.
+
+My Movies - Should lead to manage_movies when logged in - confirmed.
+Link should be absent when logged out - confirmed.
+
+Login/Register - Should lead to Login - confirmed.
+Should be replaced with logout, when logged out - confirmed.
+
+Navbar should collapse to a 'Menu' with three bar display on smaller devices - confirmed.
+On click, should drop the same menu options as above as a submenu, and retract dropdown on second click - confirmed.
+
+#### Footer
+
+Facebook logo - Should lead to Facebook.com (would be the actual facebook of the company if real-world) - confirmed.
+
+Twitter logo - Should lead to Twitter.com (would be the actual twitter of the company if real-world) - confirmed.
+
+Instagram logo - Should lead to Instagram.com (would be the actual instagram of the company if real-world) - confirmed.
+
+
+#### Homepage Buttons
+
+Several of the homepage buttons are repeated across the homepage for individual movies/sections of movies. Each one has been confirmed to work however they will only be recorded here once, for brevity.
+
+Carousel (images at the top of the page) left and right scroll buttons - should navigate left and right respectively across the three images - confirmed.
+
+More Details button - Should lead to movie_details where the respective movie details are loaded into the card - confirmed.
+
+See More button - Should drop down a hidden row of movies for their respective category. A second click should hide the row - confirmed.
+
+Movies by Category Accordian - should drop down a row of their respective category movies. Second click should close the row. Clicking on another category name should close any other open rows. Confirmed.
+
+#### Movie_details page buttons
+
+ADD DETAILS HERE.
 
 
 ### Responsiveness 
@@ -197,6 +235,8 @@ The user at present is disabled from upvoting the movie again without a page rel
 - On the 'Movie Details' page, a 'go back' function was implemented so that the user does not get stuck in a dead end. If the user has navigated from one of the 'See More' dropdowns, then they return to it in the closed state rather than it's previous open state.
 
 - The amount of data that the site can display is quite limited at present. You have 10 movies per feature and only 10 movies allowed to be viewed on the 'Manage Movies' page also. If the site were to increase in scale, at present the data handling is not able to scale with it. This is mentioned in depth in the 'Future Improvements' section below however successful utilisation of the jinja templating would lead to an improvement here. You would then be able to loop the data displays to match however much data the user required. This would be a much preferred way, however I was unable to get the templating to function as needed.
+
+- Pressing the browser 'back' button after logging out from my_movies page leads to a 'key_error' - where the site tries to get your movies but won't allow it due to not being logged in. Custom error pages would solve this.
 
 
 ## Future improvements
