@@ -21,8 +21,11 @@ mongo = PyMongo(app)
 @app.route("/get_movies", methods=["GET", "POST"])
 def get_movies():
   movies = list(mongo.db.movies.find())
+  random_movies = list(mongo.db.movies.aggregate(
+    [ { '$sample': { 'size': 10 } } ]
+  ))
     
-  return render_template("movies.html", movies=movies)
+  return render_template("movies.html", movies=movies, random_movies=random_movies)
 
 
 # this should be a post or a put.
