@@ -208,7 +208,21 @@ Movies by Category Accordian - should drop down a row of their respective catego
 
 #### Movie_details page buttons
 
-ADD DETAILS HERE.
+Go to IMDB button - Should take you to the current movie's imdb page, opened in a new window - confirmed.
+
+Go back button - should take you back to the main page, emulating the browser back button - confirmed.
+
+#### Login page buttons
+
+Login button - should take the input from the username and password fields and log in the specified user and take them to 'manage_movies' confirmed.
+If details are incorrect, should flash that the details are incorrect - confirmed.
+
+Register link - should take you to the 'register' page - confirmed. 
+
+#### Register page buttons
+
+Register button - should take the entered username, email and password and create a new user on the database, then take you to the homepage - Registration took you to an empty 'manage_movies' page. This could be seen by some as a call to action, to add movies however personally I think it looks bare.
+Update - revised the manage_movies page to have a prompt when there are no movies to add movies. Re
 
 
 ### Responsiveness 

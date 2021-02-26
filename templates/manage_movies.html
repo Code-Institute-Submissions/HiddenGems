@@ -10,6 +10,24 @@
 
 <h3 class="gems-body">My Added Films</h3>
 
+  {% if movies|length < 1 %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card my-3">
+          <div class="card-body">
+              <div class="form-label-group">
+                <p class="gems-title">You don't appear to have any movies just yet</p>
+              </div>
+              <hr class="block-divider block-divider-bottom-margin">
+              <a href="{{ url_for('add_movie') }}" class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Add a Movie</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
     <div class="deck-wrapper">
       <div class="card-deck">
         {% for movie in movies|sort(attribute='_id', reverse = True) %}
