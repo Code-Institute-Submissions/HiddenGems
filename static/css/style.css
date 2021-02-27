@@ -182,6 +182,14 @@ body {
   max-height: 50px;
 }
 
+.btn-success {
+  background-color: #208337;
+}
+
+.btn-primary {
+  background-color: #0071EB;
+}
+
 /* ------------------------------------------ Messages */
 
 .flashes {

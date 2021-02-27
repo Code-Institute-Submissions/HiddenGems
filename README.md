@@ -221,6 +221,58 @@ All that remains are 'undefined' or 'unused' variables, which is expected as the
 
 #### Wave(WebAIM) validator
 
+Although this isn't a necessary step, I found in my previous project that a user-experience validator, both for screenreaders and users who are partially sighted, is very useful.
+
+As we are making websites that aim to be used by the largest audience possible, I like to add this as an additional check.
+
+The following website was used to assess compatibility with screenreaders https://wave.webaim.org/
+
+It located the following on the following pages:
+
+Get_Movies: 
+- Several 'empty buttons', referring to the upvote buttons due to their lack of text. Aria-labels were added to all of these to fix this error.
+- Contrast Errors - These have been located on the 'More Details' buttons where the bootstrap standard colours do not meet readability standards.
+
+Using the wave validator, darker colours were chosen and implemented so that the buttons passed AA rating for normal text. AAA was deemed to be too dark in my opinion so AA value was deemed to be enough.
+
+Before:
+![image](https://user-images.githubusercontent.com/61311614/109398342-481c3300-7934-11eb-97a7-8c277ef40ab4.png)
+
+After (just the one changed at the time):
+![image](https://user-images.githubusercontent.com/61311614/109398481-240d2180-7935-11eb-93df-f17fd0fab374.png)
+
+- The main page saw a skipped header (h2 -> h4) so the h4 tags were amended to h3, for consistency. 
+
+- The links to 'More Details' were classed as suspicious, as they pass the long movie id through - not much can be done about this.
+
+- Multiple alt tags were left empty, this was amended.
+
+-The remaining points were all positive.
+
+
+
+Add_movie:
+
+
+Find_Movie:
+
+
+Search:
+
+
+Manage_Movies:
+
+
+Login:
+
+
+Register:
+
+
+Movie_Details:
+
+
+
 
 
 #### Internal custom validation
