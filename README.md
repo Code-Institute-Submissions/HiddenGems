@@ -222,7 +222,47 @@ Register link - should take you to the 'register' page - confirmed.
 #### Register page buttons
 
 Register button - should take the entered username, email and password and create a new user on the database, then take you to the homepage - Registration took you to an empty 'manage_movies' page. This could be seen by some as a call to action, to add movies however personally I think it looks bare.
-Update - revised the manage_movies page to have a prompt when there are no movies to add movies. Re
+Update - revised the manage_movies page to have a prompt when there are no movies to add movies. Registration now takes you back to the manage_movies page which prompts the user to start to add their recommendations.
+
+Login link - should take you to the 'login' page - confirmed.
+
+#### Manage movies page buttons
+
+Add movies button - only should appear when no movies are present for the logged in user - confirmed. Button should take you to 'add_movies' - confirmed.
+
+Edit Movie button - should take you to the edit_movie page with the correct movie details loaded  - confirmed.
+
+Delete Movie button - should launch a modal for deletion confirmation - confirmed.
+
+Modal buttons - 
+  'X' close in the top right corner - should close the modal - confiremd.
+
+  Close button - should close the modal - confirmed.
+
+  Delete button - should remove the movie from the database - confirmed.
+
+
+#### Edit movies page buttons
+
+Edit listing button - should update the current movie with the revised information from the form directly above the button - confirmed.
+
+#### Add movies page buttons
+
+Search film button - should send a call to the IMDB API with the search query from the 'movie title' box, with the cards below then populating the search results - confirmed.
+
+This One button - should direct to the find_movie page with the correct movie details loading into the correct form boxes. 
+
+#### Find movie page buttons
+
+Category dropdown - should be populated with the list of categories on the category database - confirmed.
+
+Go ahead, add my movie button - should update the movie database with the form details displayed above the button - confirmed. The user should then be directed back to the homepage with an appropriate flash message - confirmed.
+
+#### Search page buttons
+
+Search button - should search the movie database for the movie title input in the form box above, triggering the results loading into the cards below - confirmed.
+
+Reset button - should refresh the page and clear any search results in the cards on the page - confirmed.
 
 
 ### Responsiveness 
@@ -230,6 +270,9 @@ Update - revised the manage_movies page to have a prompt when there are no movie
 
 ### JavaScript tests
 
+Check form fills here.
+
+character counter on find_movie and edit_movie
 
 
 ### Browsers
