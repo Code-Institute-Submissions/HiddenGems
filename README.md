@@ -147,8 +147,8 @@ Add Movie Page
 
 The HTML Validator picked up several errors, such as:
 
-- A missing heading for a section
-- Duplication of an ID 
+- A missing heading for a section - on inspection this turned out to the the section for flash messages on base.html - this was left as intended behaviour.
+- Duplication of an ID - where the collapse was copied for the new random category. The ID was amended for the random category.
 - Several missing end </div> tags - these were added.
 
 #### CSS
