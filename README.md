@@ -476,6 +476,56 @@ On coming back to the project to implement improvements, rewriting the logic of 
 
 ## User story walkthroughs
 
+![image](https://user-images.githubusercontent.com/61311614/109399805-e4e2ce80-793c-11eb-9c61-9697c9adb647.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399815-ee6c3680-793c-11eb-928e-5dd621353e14.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399826-f9bf6200-793c-11eb-9e26-945a519e6344.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399832-06dc5100-793d-11eb-8033-70535c80d0b0.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399839-0fcd2280-793d-11eb-9a94-b55f1e9e2d49.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399850-25424c80-793d-11eb-97ca-5574960a7cab.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399851-2e331e00-793d-11eb-9dd1-b38eaf994bac.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399854-37bc8600-793d-11eb-981e-d6febc95c0fe.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399885-718d8c80-793d-11eb-9213-22cb20e8ddf8.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399905-8ec25b00-793d-11eb-9ba1-8b2124db18e8.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399916-a3065800-793d-11eb-957d-53125687fc02.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399939-ccbf7f00-793d-11eb-83e2-e09475ded0c5.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399946-d517ba00-793d-11eb-99a0-2de9b2fe9b3d.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399967-ec56a780-793d-11eb-9045-615dcd5067ef.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399982-faa4c380-793d-11eb-8548-d6caaa8eb091.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109399992-05f7ef00-793e-11eb-95a4-89256e27490e.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400001-1314de00-793e-11eb-86d9-ed680600bbb3.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400041-46576d00-793e-11eb-8397-21ebf9e97e71.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400049-57a07980-793e-11eb-93b1-b366bb8ecc38.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400052-5ec78780-793e-11eb-81f7-a92ece4a9156.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400062-68e98600-793e-11eb-96bd-95ec2b9c8462.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400081-8880ae80-793e-11eb-9aed-fdc91a6fa289.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400089-933b4380-793e-11eb-89ba-10b35db22bba.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400096-9b937e80-793e-11eb-8185-25f3c2795966.png)
+
+![image](https://user-images.githubusercontent.com/61311614/109400103-a3532300-793e-11eb-8266-b933c0f6fb2d.png)
+
 
 
 
