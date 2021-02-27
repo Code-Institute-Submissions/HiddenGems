@@ -145,6 +145,11 @@ Add Movie Page
 
 #### HTML
 
+The HTML Validator picked up several errors, such as:
+
+- A missing heading for a section
+- Duplication of an ID 
+- Several missing end </div> tags - these were added.
 
 #### CSS
 
@@ -202,9 +207,12 @@ Carousel (images at the top of the page) left and right scroll buttons - should 
 
 More Details button - Should lead to movie_details where the respective movie details are loaded into the card - confirmed.
 
+Upvote button - Should post an upvote to the gems_rating in the database. The controlling javascript should also trigger a '+1' to the gems_rating, then block the button from being clicked again, adding a green colour - confirmed.
+
 See More button - Should drop down a hidden row of movies for their respective category. A second click should hide the row - confirmed.
 
 Movies by Category Accordian - should drop down a row of their respective category movies. Second click should close the row. Clicking on another category name should close any other open rows. Confirmed.
+
 
 #### Movie_details page buttons
 
@@ -264,22 +272,56 @@ Search button - should search the movie database for the movie title input in th
 
 Reset button - should refresh the page and clear any search results in the cards on the page - confirmed.
 
+More details button - appears on the card in the search results.
+
 
 ### Responsiveness 
 
+Due to the heavy use of the bootstrap cards across the website, the site handles different device sizes well. The cards on the main page stack well, though don't sit completely central in the page, which could be improved.
+
+Small changes to the spacing of the page items would also lend an aesthetic improvement - but generally speaking the responsiveness is satisfactory across the site.
 
 ### JavaScript tests
 
+editentry.js:
+- When called, the function should take the text from the respective form fields and add them to the user's localstorage.
+
+getimdb.js:
+- getMovieName function should take the movie title as a search parameter, and format it to be compatible with the imdb seach conventions.
+- getMovieLink should format the search title to be compatible with the imdb url needed for the imdb search.
+- getIMDB function returns the imdb results and loads them into a repeated bootstrap card.
+- getDetails utilises a switch statement due to the known amount of results from the imdb return. It loads the selected movie details into localstorage for use in the setDetails function.
+- setDetails should load the needed cards with the correct movie details.
+
+upvote.js:
+- should post an upvote to the database, set the upvote count an additional vote and amend the upvote button to be both disabled and an amended colour.
+
+validation.js:
+- getValidation function should ensure that there are no characters that will break the imdb search present in the search term, and alert the user if that is the case.
+- goBack should replicate the browser back button.
+- textCounter should give a real-time character count for the associated field and ensure the user cannot type more characters than the allowed amount.
+- The datatoggle javascript didn't seem big enough to warrant it's own file, but it is useful to ensure that the collapse behaviour of the category accordian is as expected - only one category open at a time.
+
+
+
 Check form fills here.
 
-character counter on find_movie and edit_movie
 
 
 ### Browsers
 
+The below browsers have had the website opened, navigated through and confirmed to be functional, alongside going through the above testing points:
+
+- Firefox
+- Chrome
+- Microsoft Edge
 
 
-### Testing that GitHub pages matches development version.
+### Testing that Heroku version matches development version.
+
+The Heroku version links very well with Github publishes, deploying a new version on each commit which is wonderful functionality.
+
+It was noted that the cards display slightly differently between the repl.it version and the heroku version. There was an issue where the 'gems-rating' value and name would not stay on the same line, but was solved with some minor additional formatting.
 
 
 
@@ -324,6 +366,10 @@ On coming back to the project to implement improvements, rewriting the logic of 
 
 
 ## Conclusion
+
+Does the journey satisfy the user stories?
+
+On a personal note - I found the flask framework to be quite effective at some aspects of the project, but also quite limiting in others. I'm looking forward to utilising Django, which is meant to be a more powerful framework. 
 
 
 
