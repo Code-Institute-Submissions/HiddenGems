@@ -247,7 +247,6 @@ After (just the one changed at the time):
 
 - Multiple alt tags were left empty, this was amended.
 
--The remaining points were all positive.
 
 Search:
 - A missing h1 tag, which was then added.
@@ -266,10 +265,19 @@ The below entries require logging in, which doesn't appear possible within the v
 
 
 
+The remaining points were all positive across the site.
+
 
 
 #### Internal custom validation
 
+There are several aspects of custom validation across the site. The main one involved in continuing site functionality is the pattern recognition for the add_movie page, found in validation.js.
+
+Due to the IMDB API needing the search in a very exact way, with no characters outside of letters, numbers and spaces - this was vital to get working, and working correctly.
+
+I was also wanting short, snappy reviews for the site. As such the character counter and limiter was a great addition. This should prevent the user from bloating the clean movie entries with long-winded reviews.
+
+This will be covered in depth in 'Known Issues' below, however there is a limited validation on the upvote button onsite. Previously, a user would be able to continuously press this button to spam upvotes. This was far from the desired functionality. Also within validation.js, there is a function which disables the button on click, so that page refreshes are needed to vote again. This still isn't ideal, but it is far better.
 
 
 
