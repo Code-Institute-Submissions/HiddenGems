@@ -17,7 +17,7 @@
           <div class="card-body text-center">
             <form method="POST" action="{{ url_for('edit_movie', movie_id=movie._id) }}">
               <div class="form-group">
-                <img class="thumbnail-image" src="{{ movie.movie_image }}"></img>
+                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Image for {{ movie.movie_name }}"></img>
                 <p class="gems-body"><strong>Movie Title: </strong>{{ movie.movie_name }}</p>
                 <p class="gems-body"><strong>Year of Release: </strong>{{ movie.movie_year }}</p>
                 <p class="gems-body"><strong>Lead Actors: </strong>{{ movie.movie_actors }}</p>
@@ -25,7 +25,7 @@
                 <p class="gems-body"><strong>Added by: </strong>{{ movie.added_by.capitalize() }}</p>
                 <p class="gems-body"><strong>What did they have to say?:</strong>  <em>{{ movie.movie_review }}</em></p>  
                 <hr class="block-divider block-divider-bottom-margin">
-                            <a href="https://www.imdb.com/title/{{ movie.imdbID}}" target="_blank" id="imdbPage"class="btn btn-lg btn-success btn-block text-uppercase" type="button">Go to IMDB Page</a>
+                            <a href="https://www.imdb.com/title/{{ movie.imdbID}}" target="_blank" id="imdbPage"class="btn btn-lg btn-success btn-block text-uppercase" >Go to IMDB Page</a>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="goBack()">Go Back</button>
               </div>
             </form>

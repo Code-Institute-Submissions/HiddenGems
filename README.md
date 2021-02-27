@@ -147,14 +147,76 @@ Add Movie Page
 
 The HTML Validator picked up several errors, such as:
 
+Get_Movies: 
 - A missing heading for a section - on inspection this turned out to the the section for flash messages on base.html - this was left as intended behaviour.
 - Duplication of an ID - where the collapse was copied for the new random category. The ID was amended for the random category.
 - Several missing end </div> tags - these were added.
 
+Add_movie:
+The html needed to be copied and pasted into the validator as the page is only accessible once logged in - no errors found.
+
+Find_Movie:
+The html needed to be copied and pasted into the validator as the page is only accessible once logged in - no errors found.
+
+Search:
+- The value of 'type' for the reset button was incorrect - this has been amended.
+- There was an incorrect label use in two locations - these were amended.
+
+Manage_Movies:
+- An ID on the modals was replicated, this was amended to include the dynamic movie id, therefore making the id unique.
+
+Login:
+No issues found.
+
+Register:
+No issues found.
+
+Movie_Details:
+- alt attribute required for main image - this was added.
+- type was incorrect for 'Go to IMDB page' button - this was amended.
+
+Every page therefore passes the validation, with only the singular and expected warning on the main get_movies homepage:
+
+![image](https://user-images.githubusercontent.com/61311614/109396004-4c8e1f00-7927-11eb-831d-de69023ca805.png)
+
+
+
 #### CSS
+
+The CSS Jigsaw validator was shown to pass with no issues found:
+
+![image](https://user-images.githubusercontent.com/61311614/109396061-aa226b80-7927-11eb-87ac-61ff4eab026a.png)
+
 
 
 #### JavaScript
+
+editentry.js:
+- One uneeded semicolon was located - this was removed.
+- A return 'True' was used for testing - this was replaced.
+- The JQuery $ notation was flagged as unknown - this is expected behaviour.
+
+getimdb.js:
+- Several uneeded or missing semicolons were identified - these were all amended.
+- JShint shows the following warning: 	'template literal syntax' is only available in ES6 (use 'esversion: 6') - various Stackoverflow articles (such as https://stackoverflow.com/questions/27441803/why-does-jshint-throw-a-warning-if-i-am-using-const) suggest that this is a JShint particular, rather than incorrect JavaScript - decided to leave the JavaScript in place. 
+- The remaining warnings are all concerned with the Switch statement - suggesting that the variables are already defined - this is expected and the switch statement can remain unchanged.
+
+An example of the remaining can be seen here:
+![image](https://user-images.githubusercontent.com/61311614/109396663-8e6c9480-792a-11eb-9c1f-31f7b8024b1b.png)
+
+upvote.js
+Only displays the JQuery $ notation as a warning - this is expected behaviour.
+
+
+validation.js
+- Two missing semicolons were identified - these were added.
+- One unnecessary semicolon was identifed - this was removed.
+
+
+All that remains are 'undefined' or 'unused' variables, which is expected as the Javascript was tested in batches and JShint does not have access to where the JavaScript is being utilised within the project.
+
+![image](https://user-images.githubusercontent.com/61311614/109396853-78130880-792b-11eb-931f-e4dd9f1d6956.png)
+
 
 
 #### Wave(WebAIM) validator

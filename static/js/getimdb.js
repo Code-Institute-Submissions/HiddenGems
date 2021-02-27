@@ -4,13 +4,13 @@ function getMovieName(){
   var movieblank = document.getElementById("movietitle").value;
   var movieunderscore = movieblank.split(" ").join("_").toLowerCase();
   var moviename = "imdb$" + movieunderscore;
-  return moviename
-};
+  return moviename;
+}
 // this ensures the IMDB link to the API is formatted correctly
 function getMovieLink(){
   var movieblank = document.getElementById("movietitle").value;
   var movielink = movieblank.split(" ").join("+").toLowerCase();
-  return movielink
+  return movielink;
 }
 
 // Get the movie name and link correctly, then collect the appropriate movie details and display on the page as a repeating card.
@@ -22,11 +22,11 @@ function getIMDB(){
 
   function addScript(src) { var s = document.createElement('script'); s.src = src; document.head.appendChild(s); }
   window[moviename] = function (results) {
-    var title = []
-    var actors = []
-    var year = []
-    var image = []
-    var imdbID = []
+    var title = [];
+    var actors = [];
+    var year = [];
+    var image = [];
+    var imdbID = [];
 
     
     
@@ -47,7 +47,7 @@ function getIMDB(){
             </div>`);
             //Add select button which pulls info into dict.
       clickCounter++;
-      };
+      }
       title[i] = document.getElementById("movie-title-" + [i]);
       title[i].innerHTML= results.d[i].l;
       actors[i] = document.getElementById("movie-actors-" + [i]);
@@ -64,7 +64,7 @@ function getIMDB(){
   addScript('https://sg.media-imdb.com/suggests/' + movielink[0] + '/' + movielink + '.json'); 
 
   
-};
+}
 
 
 

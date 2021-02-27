@@ -19,4 +19,4 @@ function editEntry(id){
     localStorage.setItem("moviereview", moviereview);
 
     return True;  
- };
+ }
