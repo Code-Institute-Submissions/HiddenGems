@@ -249,27 +249,20 @@ After (just the one changed at the time):
 
 -The remaining points were all positive.
 
-
-
-Add_movie:
-
-
-Find_Movie:
-
-
 Search:
-
-
-Manage_Movies:
-
+- A missing h1 tag, which was then added.
 
 Login:
-
+- A missing h1 tag, which was then added.
 
 Register:
+- A missing h1 tag, which was then added.
 
-
-Movie_Details:
+The below entries require logging in, which doesn't appear possible within the validator. The above issues were used as a guide for issues across the site, which were remedied on the below pages.
+- Movie_Details
+- Add_movie
+- Manage_Movies
+- Find_Movie
 
 
 

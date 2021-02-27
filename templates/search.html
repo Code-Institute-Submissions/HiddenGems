@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="gems-title-div">
-  <h2 class="gems-title">Search for a Movie</h2>
+  <h1 class="gems-title">Search for a Movie</h1>
   <p class = "gems-body"> See if your pick is already on our site.</p>
   <hr class="block-divider block-divider-bottom-margin">
 </div>
@@ -56,7 +56,7 @@
           {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry " >
               <div class="card-header border-0">
-                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
+                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
               </div>
               <div class="card-block px-2">
                 <h4 class="card-title">{{ movie.movie_name }}</h4>
