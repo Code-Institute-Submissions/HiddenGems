@@ -12,8 +12,6 @@ A side benefit will be the addition of a voting system so that users can agree o
 The site-owner will want for users to create accounts, both for data capture and in order to keep the voting fair. A user will only be able to vote on a particular film once. 
 Update - Validation has been added to prevent upvotes from being continually clicked however it has not been limited to one per user - See 'Future Updates'
 
-The site-owner will also want to keep content clean, meaning the owner will look at restricting certain words to attempt to facilitate this.
-
 
 ## User Stories
 Two main user types are envisioned. One type, henceforth known as a contributor, is interested in adding to the site, having their recommendations known.
@@ -412,7 +410,8 @@ getimdb.js:
 
 For reference - the getimdb javascript utilises key/value notation to read information returned from the imdb database. The Json file comes back in the following format (this search is for the Intouchables, as a reference):
 
-![image](https://user-images.githubusercontent.com/61311614/109425318-98040400-79df-11eb-9373-dd8d39ebf0cf.png)
+![image](https://user-images.githubusercontent.com/61311614/109425593-dea62e00-79e0-11eb-8fc5-28c9fbfeb522.png)
+
 
 
 upvote.js:
@@ -559,19 +558,35 @@ On entry and 'Search', the below repeaters populate with the interpreted informa
 
 ![image](https://user-images.githubusercontent.com/61311614/109400001-1314de00-793e-11eb-86d9-ed680600bbb3.png)
 
+Once the user selects their entry of choice, they are directed to the next page where JavaScript has uploaded the details to localstorage, and loaded a form for them with the relevant details. They are free to change the majority of these (images and imdb link has been disallowed - explained in 'Design Decisions'), are expected to add the appropriate category from a dropdown list, and are encouraged to leave a short review:
+
 ![image](https://user-images.githubusercontent.com/61311614/109400041-46576d00-793e-11eb-8397-21ebf9e97e71.png)
+
+Once added, a success confirmation message is displayed on the homepage that they are directed back to:
 
 ![image](https://user-images.githubusercontent.com/61311614/109400049-57a07980-793e-11eb-93b1-b366bb8ecc38.png)
 
+If they are then to scroll down, they can see their listing as the first entry in 'New', hopefully finding that to be a satisfying 'Create' journey:
+
 ![image](https://user-images.githubusercontent.com/61311614/109400052-5ec78780-793e-11eb-81f7-a92ece4a9156.png)
+
+If for example, they were to want to edit their listing to add detail to their review, the user would go to 'My Movies' in the navbar, where they can view the details of the listing that they added:
 
 ![image](https://user-images.githubusercontent.com/61311614/109400062-68e98600-793e-11eb-96bd-95ec2b9c8462.png)
 
+On clicking 'Edit', they are presented with a similar form to when they initially added the movie. Their changes can be made here and submitted:
+
 ![image](https://user-images.githubusercontent.com/61311614/109400081-8880ae80-793e-11eb-9aed-fdc91a6fa289.png)
+
+Their changes are immediately reflected in the movie details:
 
 ![image](https://user-images.githubusercontent.com/61311614/109400089-933b4380-793e-11eb-89ba-10b35db22bba.png)
 
+If, for any reason the user is inclined to remove their listing, they are able to click delete. They are presented a modal which states that their action cannot be undone and given two options to cancel out. If they are sure however, they can remove the entry:
+
 ![image](https://user-images.githubusercontent.com/61311614/109400096-9b937e80-793e-11eb-8185-25f3c2795966.png)
+
+The user is once again presented with a success message and once again they are encouraged to add their recommendations to the website:
 
 ![image](https://user-images.githubusercontent.com/61311614/109400103-a3532300-793e-11eb-8266-b933c0f6fb2d.png)
 
