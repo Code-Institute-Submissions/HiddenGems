@@ -1,25 +1,21 @@
+/*---------------------------------------------- Fonts */
+/* Used for the logo */
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display&display=swap');
+/* Used for the remainder of the text sitewide*/
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
+/*----------------------------------------------  Nav */
 #logo {
   font-family: "Big Shoulders Stencil Display", sans-serif;
   font-size: 280%;
   color: #fff;
 }
 
-body {
-  background-color: #252424;
-  
-}
-
-.top-content{
-  margin-top: 50px;
-}
-
 #mainNav {
   background-color: #2b2a2a;
 }
 
+/* These below are necessary to view the text on the dark background. It isn't sitewide as the card text is still dark. */
 .navbar-light .navbar-nav .nav-link {
   color: #fff;
 }
@@ -32,6 +28,210 @@ body {
 .fas fa bars {
   color: #fff;
 }
+
+
+/*---------------------------------------------Main Body */
+body {
+  background-color: #252424;
+  
+}
+
+/* To ensure things like titles have appropriate spacing */
+.top-content{
+  margin-top: 50px;
+}
+
+.gems-title-div {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.gems-title {
+  margin-top: 30px;
+  font-size: 24pt;
+  text-align: center;
+  color: #fff;
+  
+}
+
+.gems-body {
+  color: #fff;
+}
+
+.category-title {
+  color: #fff;
+}
+
+/* Ensure spacing for the respective card on the page*/
+#insertMovie {
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+}
+
+/* For when users don't need to see various items */
+.not-visible {
+  visibility: hidden;
+}
+
+/* The below two are primarily used for the character counter styling, to fit with the surroundings */
+.round-corners {
+  border-radius: 5px;
+}
+
+.character-counter {
+  font-style:italic;
+}
+
+/* Ensure the display is the same sitewide.*/
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+
+/*----------------------------------------------  Images */
+
+/* Ensure that the images fit in the cards */
+.thumbnail-image {
+  width: 80%; 
+  height: 90%; 
+  max-width: 200px;
+  max-height: 350px;
+  text-align: center;
+}
+
+/* Responsible for the main page images remaining consistent */
+.carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Adds the dark filter over the carousel images, so that the text can be read */
+.carousel-item:after {
+  content:"";
+  display:block;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.7);
+}
+
+
+
+/*---------------------------------------------- Search */
+
+.search-movie-container{
+  text-align: center;
+}
+
+.search-movie {
+  width: 80%;
+}
+
+/* --------------------------------------------------- Buttons */
+
+/* Ensure the See More buttons fit the theme*/
+.see-more-btn {
+  background-color: #fff;
+  color: #252424;
+  text-align: center;
+}
+
+.see-more-btn:hover {
+  background-color: #252424;
+  color: #fff;
+}
+
+.see-more-container {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The below two buttons often varied in height - here to ensure consistency */
+.editButton {
+  max-height: 50px;
+}
+
+.deleteButton {
+  max-height: 50px;
+}
+
+/* Amend the bootstrap button colours to be complaint with screenreader ratings */
+.btn-success {
+  background-color: #208337;
+}
+
+.btn-primary {
+  background-color: #0071EB;
+}
+
+/* Responsible for user feedback on the upvote button - ensure they know the image is a button that can be clicked */
+.agree-button {
+  color: orange;
+  background-color: transparent;
+  border: none;
+}
+
+.agree-button:hover {
+  color: orangered;
+}
+
+.upvoted {
+  color: green;
+}
+
+/* ------------------------------------------ Messages */
+
+/* Colour tested to stand out well against the dark background */
+.flashes {
+  display: block;
+  background-color: #938b1a33;
+  
+}
+
+
+/* --------------------------------------------- Horizontal Rules */
+
+/* Creates excellent division between different elements */
+.block-divider {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 1px;
+  width: 20%;
+  background-color: #fff;
+}
+
+/* Ensure that the below content doesn't intrude into the dividers space */
+.block-divider-bottom-margin {
+  margin-bottom: 20px;
+}
+
+/* Used to create space without being too obvious */
+.hr-background {
+  background-color: #2b2828;
+}
+
+/* ----------------------------------------------------- Cards */
 
 .card-deck{
   padding: 10px;
@@ -58,171 +258,6 @@ body {
   font-size: 10pt;
 }
 
-.thumbnail-image {
-  width: 80%; 
-  height: 90%; 
-  max-width: 200px;
-  max-height: 350px;
-  text-align: center;
-}
-
-.agree-button {
-  color: orange;
-  background-color: transparent;
-  border: none;
-}
-
-.agree-button:hover {
-  color: orangered;
-}
-
-.upvoted {
-  color: green;
-}
-
-.carousel-item {
-  height: 65vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.carousel-item:after {
-  content:"";
-  display:block;
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(0,0,0,0.7);
-}
-
-.gems-title-div {
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-
-.gems-title {
-  margin-top: 30px;
-  font-size: 24pt;
-  text-align: center;
-  color: #fff;
-  
-}
-
-.gems-body {
-  color: #fff;
-}
-
-.category-title {
-  color: #fff;
-}
-
-#insertMovie {
-  margin: 0 auto;
-  text-align: center;
-  width: 60%;
-}
-
-.not-visible {
-  visibility: hidden;
-}
-
-.round-corners {
-  border-radius: 5px;
-}
-
-.character-counter {
-  /* color:red; */
-  font-style:italic;
-}
-
-/*---------------------------------------------- Search */
-
-.search-movie-container{
-  
-  text-align: center;
-}
-
-.search-movie {
-  width: 80%;
-  /* margin: 0 auto; */
-}
-
-/* --------------------------------------------------- Buttons */
-
-.see-more-btn {
-  background-color: #fff;
-  color: #252424;
-  text-align: center;
-}
-
-.see-more-btn:hover {
-  background-color: #252424;
-  color: #fff;
-}
-
-.see-more-container {
-  padding-top: 10px;
-  padding-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.editButton {
-  max-height: 50px;
-}
-
-.deleteButton {
-  max-height: 50px;
-}
-
-.btn-success {
-  background-color: #208337;
-}
-
-.btn-primary {
-  background-color: #0071EB;
-}
-
-/* ------------------------------------------ Messages */
-
-.flashes {
-  display: block;
-  background-color: #938b1a33;
-  
-}
-
-
-/* --------------------------------------------- Horizontal Rules */
-
-.block-divider {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  border-width: 1px;
-  width: 20%;
-  background-color: #fff;
-}
-
-.block-divider-bottom-margin {
-  margin-bottom: 20px;
-}
-
-.hr-background {
-  background-color: #2b2828;
-}
-
-/* ----------------------------------------------------- Cards */
-
 .card-header {
     background:#252424;
     text-align: center;
@@ -232,6 +267,8 @@ body {
     color: #fff;
 }
 
+
+/* Ensure that the cards stack appropriately on changing screen sizes */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .card-deck .card {
     -ms-flex: 0 0 48.7%;
@@ -268,29 +305,17 @@ body {
 
 /* ---------------------------------------------------Footer */
 
-.Site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.Site-content {
-  flex: 1;
-}
-
 .footer-container {
   background-color: #1e1d1d;
-  /* margin-top: 50px; */
-  
 }
 
+/* Keep the footer logo the same, but smaller than the main logo */
 #logo-footer {
   font-family: "Big Shoulders Stencil Display", sans-serif;
   text-align: center;
   font-size: 150%;
   padding-top: 20px;
   color: #fff;
-
 }
 
 .footer-container p {
