@@ -18,6 +18,7 @@ function getValidation() {
 // Very basic function to allow the user to bring themselves back from the 'More Details' page, which other than the navigation bar is a dead end as the imdb link is target _blank.
 function goBack() {
   window.history.go(-1);
+  return false;
 }
 
 // Attribution to this function is given to vittore on Stackoverflow. Simple way to count characters on the review field when adding a movie. Stop the user from submitting anything other than a short review. 

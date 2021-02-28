@@ -396,6 +396,8 @@ Due to the heavy use of the bootstrap cards across the website, the site handles
 
 Small changes to the spacing of the page items would also lend an aesthetic improvement - but generally speaking the responsiveness is satisfactory across the site.
 
+This has been tested using the following settings on Firefox Developer Tools: Galaxy S9/S9+, iPad, iPhone 8 Plus, iPhone X/XS, Kindle Fire HDX as well as a physical Galaxy Note 9.
+
 ### JavaScript tests
 
 editentry.js:
@@ -429,6 +431,9 @@ The below browsers have had the website opened, navigated through and confirmed 
 
 - Firefox
 - Chrome
+
+Chrome had an odd issue where the JavaScript for the back button on movie_details required a modification, described and solved by Chibueze Opata on stackoverflow - see attribution section.
+
 - Microsoft Edge
 
 
@@ -437,6 +442,10 @@ The below browsers have had the website opened, navigated through and confirmed 
 The Heroku version links very well with Github publishes, deploying a new version on each commit which is wonderful functionality.
 
 It was noted that the cards display slightly differently between the repl.it version and the heroku version. There was an issue where the 'gems-rating' value and name would not stay on the same line, but was solved with some minor additional formatting.
+
+Further to this, a missed form element on movie_details.html caused a bug where the movie details would be inadvertently amended to 'Null'. This didn't show up on desktop tests, highlighting the need for both alternative device testing, and care when utilising code that was originally written for elsewhere on the site. The form element was removed and the bug did not reappear.
+
+
 
 
 
@@ -572,6 +581,9 @@ https://stackoverflow.com/questions/46819577/bootstrap-4-beta-carousel-dark-over
 
 Assistance with card-deck media-query functionality (cards would compress to be unreadable before stacking ontop of one another) from FrankieDoodie:
 https://stackoverflow.com/questions/36487389/bootstrap-4-card-deck-table-cell-columns-responsive-based-on-viewport/36499275#36499275
+
+Assistance with the difference in the chrome browser regarding the goBack JavaScript function from Chibueze Opata:
+https://stackoverflow.com/questions/9423439/can-i-get-the-history-back-function-to-work-in-chrome-when-using-the-file-p
 
 
 ### images
