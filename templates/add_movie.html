@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Page is responsible for finding a movie to add to the database -->
 <div class="gems-title-div">
   <h1 class="gems-title">Add Movie</h1>
   <p class = "gems-body"> Add your recommendation to our site.</p>
   <hr class="block-divider block-divider-bottom-margin">
 </div>
 
+<!-- Form to search for the movie title -->
 <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
@@ -26,33 +28,6 @@
     </div>
   </div>
 
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
-        <div class="card my-5">
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label for="movietitle" class="gems-body text-center">Movie Title</label>
-                <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here" required>
-              </div>
-              <hr class="block-divider block-divider-bottom-margin">
-              <button id="searchMovie" type="submit" onclick="getIMDB()" class="btn btn-success btn-block text-capitalize">Search Film</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-
-<!-- <body onload="getIMDB()"> -->
-
-
-
 <div id="insertMovie"></div>
-
-
 
 {% endblock %}
