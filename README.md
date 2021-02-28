@@ -406,13 +406,13 @@ editentry.js:
 - When called, the function should take the text from the respective form fields and add them to the user's localstorage.
 
 getimdb.js:
-- getMovieName function should take the movie title as a search parameter, and format it to be compatible with the imdb seach conventions.
-- getMovieLink should format the search title to be compatible with the imdb url needed for the imdb search.
-- getIMDB function returns the imdb results and loads them into a repeated bootstrap card.
-- getDetails utilises a switch statement due to the known amount of results from the imdb return. It loads the selected movie details into localstorage for use in the setDetails function.
+- getMovieName function should take the movie title as a search parameter, and format it to be compatible with the IMDB seach conventions.
+- getMovieLink should format the search title to be compatible with the IMDB url needed for the imdb search.
+- getIMDB function returns the IMDB results and loads them into a repeated bootstrap card.
+- getDetails utilises a switch statement due to the known amount of results from the IMDB return. It loads the selected movie details into localstorage for use in the setDetails function.
 - setDetails should load the needed cards with the correct movie details.
 
-For reference - the getimdb javascript utilises key/value notation to read information returned from the imdb database. The Json file comes back in the following format (this search is for the Intouchables, as a reference):
+For reference - the getimdb javascript utilises key/value notation to read information returned from the IMDB database. The Json file comes back in the following format (this search is for the Intouchables, as a reference):
 
 ![image](https://user-images.githubusercontent.com/61311614/109425593-dea62e00-79e0-11eb-8fc5-28c9fbfeb522.png)
 
@@ -422,10 +422,10 @@ upvote.js:
 - should post an upvote to the database, set the upvote count an additional vote and amend the upvote button to be both disabled and an amended colour.
 
 validation.js:
-- getValidation function should ensure that there are no characters that will break the imdb search present in the search term, and alert the user if that is the case.
+- getValidation function should ensure that there are no characters that will break the IMDB search present in the search term, and alert the user if that is the case.
 - goBack should replicate the browser back button.
 - textCounter should give a real-time character count for the associated field and ensure the user cannot type more characters than the allowed amount.
-- The datatoggle javascript didn't seem big enough to warrant it's own file, but it is useful to ensure that the collapse behaviour of the category accordian is as expected - only one category open at a time.
+- The datatoggle JavaScript didn't seem big enough to warrant it's own file, but it is useful to ensure that the collapse behaviour of the category accordion is as expected - only one category open at a time.
 
 Further to this, there are pattern validations in the html across the site, where usernames only have a certain character cap and email addresses must be in an email format (word@word.word) - these all appear to function as expected through the user journey.
 
@@ -446,14 +446,11 @@ Unfortunately, this, or other methods did not have the desired results in testin
 
 ### Testing that Heroku version matches development version.
 
-The Heroku version links very well with Github publishes, deploying a new version on each commit which is wonderful functionality.
+The Heroku version links very well with GitHub publishes, deploying a new version on each commit which is wonderful functionality.
 
-It was noted that the cards display slightly differently between the repl.it version and the heroku version. There was an issue where the 'gems-rating' value and name would not stay on the same line, but was solved with some minor additional formatting.
+It was noted that the cards display slightly differently between the repl.it version and the Heroku version. There was an issue where the 'gems-rating' value and name would not stay on the same line, but was solved with some minor additional formatting.
 
 Further to this, a missed form element on movie_details.html caused a bug where the movie details would be inadvertently amended to 'Null'. This didn't show up on desktop tests, highlighting the need for both alternative device testing, and care when utilising code that was originally written for elsewhere on the site. The form element was removed and the bug did not reappear.
-
-
-
 
 
 ## Known issues
@@ -464,29 +461,60 @@ The user at present is disabled from upvoting the movie again without a page rel
 
 - On the 'Movie Details' page, a 'go back' function was implemented so that the user does not get stuck in a dead end. If the user has navigated from one of the 'See More' dropdowns, then they return to it in the closed state rather than it's previous open state.
 
-- The amount of data that the site can display is quite limited at present. You have 10 movies per feature and only 10 movies allowed to be viewed on the 'Manage Movies' page also. If the site were to increase in scale, at present the data handling is not able to scale with it. This is mentioned in depth in the 'Future Improvements' section below however successful utilisation of the jinja templating would lead to an improvement here. You would then be able to loop the data displays to match however much data the user required. This would be a much preferred way, however I was unable to get the templating to function as needed.
+- The amount of data that the site can display is quite limited at present. You have 10 movies per feature and only 10 movies allowed to be viewed on the 'Manage Movies' page also. If the site were to increase in scale, at present the data handling is not able to scale with it. This is mentioned in depth in the 'Future Improvements' section below however successful utilisation of the Jinja templating would lead to an improvement here. You would then be able to loop the data displays to match however much data the user required. This would be a much preferred way, however I was unable to get the templating to function as needed.
 
 - Pressing the browser 'back' button after logging out from my_movies page leads to a 'key_error' - where the site tries to get your movies but won't allow it due to not being logged in. Custom error pages would solve this.
 
 
 ## Future improvements
 - Improve the search function. Take it from it's basic movie name form now to including actors, year etc. This could be done through a more in-depth index on the database, however the page would need to be revamped to handle the results. The current format fulfils the basic user need.
-- The main movies page is quite repetitive code-wise. This could be cleaned up with storing the movie cards as a block variable, for example. Inital tests of this principle found getting the 'movie.*' notation difficult. Finding another method to clean this up would be an excellent improvement going forward.
+- The main movies page is quite repetitive code-wise. This could be cleaned up with storing the movie cards as a block variable, for example. Initial tests of this principle found getting the 'movie.*' notation difficult. Finding another method to clean this up would be an excellent improvement going forward.
 
-As an update to this point - a mentor note reinforced that one of the strengths of the Jinja notation is the use of templates, and a further effort should be made to implement this. Further testing was carried out using the 'Set Assignments' function of jinja, and the 'Macro' function of jinja to store the code for the cards and reuse it elsewhere - see https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments.
+As an update to this point - a mentor note reinforced that one of the strengths of the Jinja notation is the use of templates, and a further effort should be made to implement this. Further testing was carried out using the 'Set Assignments' function of jinja, and the 'Macro' function of Jinja to store the code for the cards and reuse it elsewhere - see https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments.
 
-Once again, the card block could be captured, but on use the 'movie.*' variables were returning as 'undefined'. It very well could be an implementation issue that i'm coming across, but for now I'll keep this listed as a future improvement in the knowledge that the project would be much cleaner with the successful implementation of this templating.
+Once again, the card block could be captured, but on use the 'movie.*' variables were returning as 'undefined'. It very well could be an implementation issue that I'm coming across, but for now I'll keep this listed as a future improvement in the knowledge that the project would be much cleaner with the successful implementation of this templating.
 
-- Similar to the above point, how I have built the movie cards has progressed across the project. My early card creation uses Javascript when loading the information in from IMDB. I then moved onto using python/jinja loops and filters when displaying the data in card format from the database. A mentor note then pointed out that a much better way is to follow the MVC coding method, where the filtering is performed in the controller (in this case app.py) rather than in the view (movie.html).
+- Similar to the above point, how I have built the movie cards has progressed across the project. My early card creation uses JavaScript when loading the information in from IMDB. I then moved onto using Python/Jinja loops and filters when displaying the data in card format from the database. A mentor note then pointed out that a much better way is to follow the MVC coding method, where the filtering is performed in the controller (in this case app.py) rather than in the view (movie.html).
 
 As such, one of the final things added to this project was the 'Random' category. I still loop through the information in the view however the filtering and capturing of the movies to present uses the 'sample' method of MongoDB - https://docs.mongodb.com/manual/reference/operator/aggregation/sample/
 
-On coming back to the project to implement improvements, rewriting the logic of the cards to reflect this across the board would be a worthwhile investment, giving a cleaner structure and better seperation of concerns.
+On coming back to the project to implement improvements, rewriting the logic of the cards to reflect this across the board would be a worthwhile investment, giving a cleaner structure and better separation of concerns.
 
 - One suggested by Can, my mentor also - the site would feel more social if the users were able to also leave reviews on the movies, instead of just being able to agree with upvotes. While the current format does fulfil the user stories in my opinion - I can see the value of having additional ways to interact with the site and leave your mark and opinion. I believe this would be a worthwhile future addition.
 
 
 ## Deployment Procedure
+
+### Local Deployment
+
+There are several vital steps needed for local deployment of this kind of project, they are as follows:
+- Create an account with MongoDB and create the database cluster.
+- Within this cluster, create the tables appropriate for your website, in this particular case - categories, movies and users.
+- Note down the access details for the database, they will be required in the application.
+- Create the app.py file for the application controls within the chosen IDE - in this case it is repl.it.
+- Create the env.py file to store sensitive information such as the aforementioned MongoDB login details, and your project environment details (Port, IP, Secret Key)
+- Create a .gitignore file so that the env.py information is not stored publically on git.
+- Link your app.py and env.py files by importing env.py and then utilising .get commands to retrieve held details there. - Add a route to your app.py file.
+- Create a requirements.txt file, which lists the dependencies of the project.
+- Create a Procfile, which sets where the application should commence.
+
+Once these are in place, you can import the tools that you will require (such as Flask and PyMongo) and then begin to add templates to the project.
+
+From here, running the app via your IDE will start up a version of the application that can be viewed, and built upon.
+
+
+### Deployment via Heroku
+
+Inital setup was the trickiest part of getting this project working, once set up locally then deployment via Heroku is incredibly simple.
+
+- Ensure that the project is linked to a GitHub repository.
+- Create a Heroku Login.
+- Create a Heroku application - it must have a unique name.
+- Under 'Deploy', click 'Connect to GitHub' and link it to the repository.
+- Under 'Settings', 'Reveal Config Vars' and add your IP, Port, Secret Key and Mongo details.
+-  Back under 'Deploy', 'Enable Automatic Deploys' can be now be selected so the project will deploy every time there is a new GitHub commit.
+
+From here it's as simple as clicking 'Open App' for a instance of the application to run. 
 
 
 
@@ -524,11 +552,11 @@ Below this, they can view the movies that have got the highest number of votes -
 
 ![image](https://user-images.githubusercontent.com/61311614/109399850-25424c80-793d-11eb-97ca-5574960a7cab.png)
 
-Should the user be searching for something of a particular genre, they are presented with the categories offered by the site below this. They are presented in a bootstrap accordian so that on click the movies are presented and not all shown immediately on the page, which could be overwhelming:
+Should the user be searching for something of a particular genre, they are presented with the categories offered by the site below this. They are presented in a bootstrap accordion so that on click the movies are presented and not all shown immediately on the page, which could be overwhelming:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399851-2e331e00-793d-11eb-9dd1-b38eaf994bac.png)
 
-Below this is a simple footer, reinforcing the site name but also with subtle links to social pages. In this version they go to the generic social media sites, but this is only a standin for where real social media listings would be:
+Below this is a simple footer, reinforcing the site name but also with subtle links to social pages. In this version they go to the generic social media sites, but this is only a stand-in for where real social media listings would be:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399854-37bc8600-793d-11eb-981e-d6febc95c0fe.png)
 
@@ -545,7 +573,7 @@ They then have the option to go back to the homepage, but if they were to be loo
 ![image](https://user-images.githubusercontent.com/61311614/109399916-a3065800-793d-11eb-957d-53125687fc02.png)
 
 ### Customer described as a 'Contributor'
-If, for example the user now wishes to contribute to the site or has an exisiting login - they can go to the login page. Exisiting users will login here, else new users can click on the registration link:
+If, for example the user now wishes to contribute to the site or has an existing login - they can go to the login page. Existing users will login here, else new users can click on the registration link:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399939-ccbf7f00-793d-11eb-83e2-e09475ded0c5.png)
 
@@ -567,7 +595,7 @@ On entry and 'Search', the below repeaters populate with the interpreted informa
 
 ![image](https://user-images.githubusercontent.com/61311614/109400001-1314de00-793e-11eb-86d9-ed680600bbb3.png)
 
-Once the user selects their entry of choice, they are directed to the next page where JavaScript has uploaded the details to localstorage, and loaded a form for them with the relevant details. They are free to change the majority of these (images and imdb link has been disallowed - explained in 'Design Decisions'), are expected to add the appropriate category from a dropdown list, and are encouraged to leave a short review:
+Once the user selects their entry of choice, they are directed to the next page where JavaScript has uploaded the details to localstorage, and loaded a form for them with the relevant details. They are free to change the majority of these (images and IMDB link has been disallowed - explained in 'Design Decisions'), are expected to add the appropriate category from a dropdown list, and are encouraged to leave a short review:
 
 ![image](https://user-images.githubusercontent.com/61311614/109400041-46576d00-793e-11eb-8397-21ebf9e97e71.png)
 
@@ -600,15 +628,13 @@ The user is once again presented with a success message and once again they are 
 ![image](https://user-images.githubusercontent.com/61311614/109400103-a3532300-793e-11eb-8266-b933c0f6fb2d.png)
 
 
-
-
-
 ## Conclusion
 
-Does the journey satisfy the user stories?
+In my opinion, the journey satisfies the expectations set out at the beginning of the project. Users are able to utilise the site well and the owner achieves new movies to watch along with a user database. 
 
-On a personal note - I found the flask framework to be quite effective at some aspects of the project, but also quite limiting in others. I'm looking forward to utilising Django, which is meant to be a more powerful framework. 
+There are several features in the 'Future Improvements' section which will increase this even further - and my intention is to return, as a movie lover.
 
+On a personal note regarding the technologies used - I found the flask framework to be quite effective at some aspects of the project, but also quite limiting in others. I'm looking forward to utilising Django, due to it's nature as a more powerful framework.
 
 
 ## Attribution
