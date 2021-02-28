@@ -511,6 +511,11 @@ They are also able to see another rows worth of movies if they desire by utilisi
 
 ![image](https://user-images.githubusercontent.com/61311614/109399839-0fcd2280-793d-11eb-9a94-b55f1e9e2d49.png)
 
+If they already knew, for example that 'The Crying Game' was an excellent recommendation - they are able to click the thumbs-up upvote button. This changes colour to red on hover, to show interactivity and green once clicked. The Gem Rating is updated and the user is blocked from clicking the button again until a page refresh - details on this can be found in 'Known Issues':
+
+![image](https://user-images.githubusercontent.com/61311614/109425974-f088d080-79e2-11eb-957c-12baa8804054.png)
+
+
 Below this, they can view the movies that have got the highest number of votes - the 'Gem Rating' in the same manner as 'New'. The next one down is 'Random', which as the name suggests selects random entries from the database to add a little more variety to this frontpage:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399850-25424c80-793d-11eb-97ca-5574960a7cab.png)
