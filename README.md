@@ -433,6 +433,7 @@ The below browsers have had the website opened, navigated through and confirmed 
 - Chrome
 
 Chrome had an odd issue where the JavaScript for the back button on movie_details required a modification, described and solved by Chibueze Opata on stackoverflow - see attribution section.
+Unfortunately, this, or other methods did not have the desired results in testing. As such, the 'goBack' function was replaced with a link to home. This is not the desired result, but is better than a large proportion of users having a button that did not take them anywhere.
 
 - Microsoft Edge
 

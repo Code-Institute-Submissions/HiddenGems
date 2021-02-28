@@ -16,6 +16,7 @@ function getValidation() {
 }
 
 // Very basic function to allow the user to bring themselves back from the 'More Details' page, which other than the navigation bar is a dead end as the imdb link is target _blank.
+// This function remains here as it is referred to by the Readme, however it is not utilised on movie_details as the Chrome browser blocks it's use.
 function goBack() {
   window.history.go(-1);
   return false;
