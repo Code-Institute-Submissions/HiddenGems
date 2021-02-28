@@ -410,6 +410,11 @@ getimdb.js:
 - getDetails utilises a switch statement due to the known amount of results from the imdb return. It loads the selected movie details into localstorage for use in the setDetails function.
 - setDetails should load the needed cards with the correct movie details.
 
+For reference - the getimdb javascript utilises key/value notation to read information returned from the imdb database. The Json file comes back in the following format (this search is for the Intouchables, as a reference):
+
+![image](https://user-images.githubusercontent.com/61311614/109425318-98040400-79df-11eb-9373-dd8d39ebf0cf.png)
+
+
 upvote.js:
 - should post an upvote to the database, set the upvote count an additional vote and amend the upvote button to be both disabled and an amended colour.
 
@@ -419,9 +424,7 @@ validation.js:
 - textCounter should give a real-time character count for the associated field and ensure the user cannot type more characters than the allowed amount.
 - The datatoggle javascript didn't seem big enough to warrant it's own file, but it is useful to ensure that the collapse behaviour of the category accordian is as expected - only one category open at a time.
 
-
-
-Check form fills here.
+Further to this, there are pattern validations in the html across the site, where usernames only have a certain character cap and email addresses must be in an email format (word@word.word) - these all appear to function as expected through the user journey.
 
 
 
@@ -486,37 +489,73 @@ On coming back to the project to implement improvements, rewriting the logic of 
 
 ## User story walkthroughs
 
+### Customer described as a 'Consumer'
+As described at the beginning of the readme, it is expected that one type of user will be those looking to visit the site in order to obtain movie recommendations for their own perusal, without adding their opinions.
+
+They are immediately presented with the get_movies homepage. Prominent text welcomes them to the site and explains what 'Gems' are - something that my mentor did not find immediately apparent:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399805-e4e2ce80-793c-11eb-9c61-9697c9adb647.png)
+
+The carousel will then either scroll automatically after a set time period, or they can interact with it themselves, but the following image explains how they can contribute to the site, if desired:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399815-ee6c3680-793c-11eb-928e-5dd621353e14.png)
 
+The carousel then explains the next interaction point of the site, that should they agree with a movie listing, they can vote to agree with the submitter. They are also prompted to use the search function if they have a listing in mind:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399826-f9bf6200-793c-11eb-9e26-945a519e6344.png)
+
+On scrolling down, they are presented with the newest five movies added to the site:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399832-06dc5100-793d-11eb-8033-70535c80d0b0.png)
 
+They are also able to see another rows worth of movies if they desire by utilising the 'See More' button underneath, which is a toggleable dropdown: 
+
 ![image](https://user-images.githubusercontent.com/61311614/109399839-0fcd2280-793d-11eb-9a94-b55f1e9e2d49.png)
+
+Below this, they can view the movies that have got the highest number of votes - the 'Gem Rating' in the same manner as 'New'. The next one down is 'Random', which as the name suggests selects random entries from the database to add a little more variety to this frontpage:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399850-25424c80-793d-11eb-97ca-5574960a7cab.png)
 
+Should the user be searching for something of a particular genre, they are presented with the categories offered by the site below this. They are presented in a bootstrap accordian so that on click the movies are presented and not all shown immediately on the page, which could be overwhelming:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399851-2e331e00-793d-11eb-9dd1-b38eaf994bac.png)
+
+Below this is a simple footer, reinforcing the site name but also with subtle links to social pages. In this version they go to the generic social media sites, but this is only a standin for where real social media listings would be:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399854-37bc8600-793d-11eb-981e-d6febc95c0fe.png)
 
+On seeing a movie that they like the look of, they are able to click on a 'More Details' button. This will take them to a page where they can see some additional details, along with a short justification as to why the contributor rates this film, should they have left one:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399885-718d8c80-793d-11eb-9213-22cb20e8ddf8.png)
+
+On clicking the prominent 'Go to IMDB page' button, they are able to access the IMDB repository of details for the particular film if they are in need of further information:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399905-8ec25b00-793d-11eb-9ba1-8b2124db18e8.png)
 
+They then have the option to go back to the homepage, but if they were to be looking for a particular film to see if it has been recommended already, they could access the 'Search' navigation button in the navbar, allowing them to query the movie database for a title, accessing further details or upvoting as per the main page:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399916-a3065800-793d-11eb-957d-53125687fc02.png)
 
+### Customer described as a 'Contributor'
+If, for example the user now wishes to contribute to the site or has an exisiting login - they can go to the login page. Exisiting users will login here, else new users can click on the registration link:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399939-ccbf7f00-793d-11eb-83e2-e09475ded0c5.png)
+
+Here they are prompted to enter a username, their email address and a password. Prompts will show if the names are too long, in the incorrect format or if the username/email already exists on the website:
 
 ![image](https://user-images.githubusercontent.com/61311614/109399946-d517ba00-793d-11eb-99a0-2de9b2fe9b3d.png)
 
 ![image](https://user-images.githubusercontent.com/61311614/109399967-ec56a780-793d-11eb-9045-615dcd5067ef.png)
 
+Assuming they are successful however, they are giving a message informing them of success and directed to their 'Manage_movies' page. As they are new however, no movies are present and they are presented with a prompt to remedy this by adding a movie:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399982-faa4c380-793d-11eb-8548-d6caaa8eb091.png)
 
+Here they are presented with a simple search box for their movie title:
+
 ![image](https://user-images.githubusercontent.com/61311614/109399992-05f7ef00-793e-11eb-95a4-89256e27490e.png)
+
+On entry and 'Search', the below repeaters populate with the interpreted information returned from the IMDB API. These results are then displayed to the user and they can select which result was their desired movie (or search again with another query if they were not specific enough):
 
 ![image](https://user-images.githubusercontent.com/61311614/109400001-1314de00-793e-11eb-86d9-ed680600bbb3.png)
 
