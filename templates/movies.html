@@ -358,33 +358,42 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionCategories">
       <div class="card-body">
-    <div class="deck-wrapper">
-      <div class="card-deck">
-        {% for movie in movies if movie.category_name == "Comedy" %}
-              {% if loop.index <= 5 %}
-            <div class="card flex-row flex-wrap card-entry" >
-              <div class="card-header border-0">
-                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
+        <div class="deck-wrapper">
+          <div class="card-deck">
+          <!-- Select movies where genre is Comedy -->
+          {% for movie in movies if movie.category_name == "Comedy" %}
+            <!-- Take first five movies -->
+            {% if loop.index <= 5 %}
+              <div class="card flex-row flex-wrap card-entry" >
+                <div class="card-header border-0">
+                  <!-- Movie Image -->
+                  <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
+                </div>
+                <div class="card-block px-2">
+                  <!-- Movie Name -->
+                  <h3 class="card-title">{{ movie.movie_name }}</h3>
+                  <!-- Movie Category -->
+                  <p class="card-text">{{ movie.category_name }}</p>
+                  <!-- Movie Upvotes -->
+                  <span class="card-text">Gem Rating: </span>
+                  <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
+                  <!-- Page break to ensure split between the spans -->
+                  <br>
+                  <!-- Upvote call to action and button -->
+                  <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
+                  <br>
+                  <!-- Link to movie details -->
+                  <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>   
+                </div>
               </div>
-              <div class="card-block px-2">
-                <h3 class="card-title">{{ movie.movie_name }}</h3>
-                <p class="card-text">{{ movie.category_name }}</p>
-                <span class="card-text">Gem Rating: </span>
-                <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <br>
-                <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
-                <br>
-                <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>   
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
   </div>
 </div>
-  <!-- 3 -->
+  <!-- 3 - Crime Movies-->
   <div class="card accordion-card">
     <div class="card-header" id="headingThree">
       <h2 class="mb-0">
@@ -396,105 +405,134 @@
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionCategories">
       <div class="card-body">
         <div class="deck-wrapper">
-      <div class="card-deck">
-        {% for movie in movies if movie.category_name == "Crime" %}
+          <div class="card-deck">
+            <!-- Select movies where category is Crime -->
+            {% for movie in movies if movie.category_name == "Crime" %}
+              <!-- Select first five movies -->
               {% if loop.index <= 5 %}
-            <div class="card flex-row flex-wrap card-entry" >
-              <div class="card-header border-0">
-                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
-              </div>
-              <div class="card-block px-2">
-                <h3 class="card-title">{{ movie.movie_name }}</h3>
-                <p class="card-text">{{ movie.category_name }}</p>
-                <span class="card-text">Gem Rating: </span>
-                <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <br>
-                <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
-                <br>
-                <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+                <div class="card flex-row flex-wrap card-entry" >
+                  <div class="card-header border-0">
+                    <!-- Movie Image -->
+                    <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
+                  </div>
+                  <div class="card-block px-2">
+                    <!-- Movie Name -->
+                    <h3 class="card-title">{{ movie.movie_name }}</h3>
+                    <!-- Movie Category -->
+                    <p class="card-text">{{ movie.category_name }}</p>
+                    <!-- Movie Upvotes -->
+                    <span class="card-text">Gem Rating: </span>
+                    <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
+                    <!-- Page break to ensure split between the spans -->
+                    <br>
+                    <!-- Upvote call to action and button -->
+                    <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
+                    <br>
+                    <!-- Link to more details -->
+                    <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </div>
-    </div>
-    <!-- 4 -->
-    <div class="card accordion-card">
+  </div>
+  <!-- 4 - Drama Movies -->
+  <div class="card accordion-card">
     <div class="card-header" id="headingFour">
       <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Drama
-        </button>
+      <!-- Title button and dropdown control -->
+      <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        Drama
+      </button>
       </h2>
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionCategories">
       <div class="card-body">
         <div class="deck-wrapper">
-      <div class="card-deck">
-        {% for movie in movies if movie.category_name == "Drama" %}
+          <div class="card-deck">
+            <!-- Select movies where category is Drama -->
+            {% for movie in movies if movie.category_name == "Drama" %}
+              <!-- Select five movies -->
               {% if loop.index <= 5 %}
-            <div class="card flex-row flex-wrap card-entry" >
-              <div class="card-header border-0">
-                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
-              </div>
-              <div class="card-block px-2">
-                <h3 class="card-title">{{ movie.movie_name }}</h3>
-                <p class="card-text">{{ movie.category_name }}</p>
-                <span class="card-text">Gem Rating: </span>
-                <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <br>
-                <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
-                <br>
-                <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+                <div class="card flex-row flex-wrap card-entry" >
+                  <div class="card-header border-0">
+                    <!-- Movie Image -->
+                    <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
+                  </div>
+                  <div class="card-block px-2">
+                    <!-- Movie Name -->
+                    <h3 class="card-title">{{ movie.movie_name }}</h3>
+                    <!-- Movie Category -->
+                    <p class="card-text">{{ movie.category_name }}</p>
+                    <!-- Movie Upvotes -->
+                    <span class="card-text">Gem Rating: </span>
+                    <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
+                    <!-- Page break to ensure split between the spans -->
+                    <br>
+                    <!-- Upvote call to action and button -->
+                    <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
+                    <br>
+                    <!-- Link to movie details -->
+                    <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </div>
-    </div>
-    <!-- 5 -->
-    <div class="card accordion-card">
+  </div>
+  <!-- 5 - Fantasy Movies -->
+  <div class="card accordion-card">
     <div class="card-header" id="headingFive">
       <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          Fantasy
-        </button>
+      <!-- Category title and dropdown controls -->
+      <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        Fantasy
+      </button>
       </h2>
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionCategories">
       <div class="card-body">
         <div class="deck-wrapper">
-      <div class="card-deck">
-        {% for movie in movies if movie.category_name == "Fantasy" %}
+          <div class="card-deck">
+            <!-- Select movies where category name is Fantasy -->
+            {% for movie in movies if movie.category_name == "Fantasy" %}
+              <!-- Select five movies -->
               {% if loop.index <= 5 %}
-            <div class="card flex-row flex-wrap card-entry" >
-              <div class="card-header border-0">
-                <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
-              </div>
-              <div class="card-block px-2">
-                <h3 class="card-title">{{ movie.movie_name }}</h3>
-                <p class="card-text">{{ movie.category_name }}</p>
-                <span class="card-text">Gem Rating: </span>
-                <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                <br>
-                <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
-                <br>
-                <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+                <div class="card flex-row flex-wrap card-entry" >
+                  <div class="card-header border-0">
+                    <!-- Movie Image -->
+                    <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
+                  </div>
+                  <div class="card-block px-2">
+                    <!-- Movie Name -->
+                    <h3 class="card-title">{{ movie.movie_name }}</h3>
+                    <!-- Movie Category -->
+                    <p class="card-text">{{ movie.category_name }}</p>
+                    <!-- Movie Upvotes -->
+                    <span class="card-text">Gem Rating: </span>
+                    <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
+                    <!-- Page break to ensure split between the spans -->
+                    <br>
+                    <!-- Upvote call to action and button -->
+                    <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button" aria-label="upvote button"><i class="fa fa-thumbs-up"></i></button>
+                    <br>
+                    <!-- Link to more details -->
+                    <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </div>
-    </div>
+  </div>
     <!-- 6 -->
     <div class="card accordion-card">
     <div class="card-header" id="headingSix">
