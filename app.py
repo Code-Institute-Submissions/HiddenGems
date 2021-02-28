@@ -201,7 +201,11 @@ def edit_movie(movie_id):
           {"_id": ObjectId(movie_id)},
           { "$set": update })
         flash("Entry Successfully Updated")
-        return redirect(url_for("manage_movies", username=session["user"]))
+        if session:
+          return redirect(url_for("manage_movies", username=session["user"]))
+        else:
+          flash("Looks like you've been logged out. Please log in again.")
+          redirect(url_for("login"))
         
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)}) 
