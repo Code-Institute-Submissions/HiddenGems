@@ -82,7 +82,15 @@ As such, this field was made hidden, along with the IMDB reference used to direc
 
 This is predominately covered later in 'Known Issues', but there exists several methods of showing data on demand on the site. HTML generated from JavaScript, repeating card HTML on the main presentation pages and finally aspects of filtering information in the MVC method. These differences exist due to a growing understanding by myself as work has gone on with the project. I hope they are seen as progression in knowledge however it is understandable if the earlier techniques are seen as either outdated, or not as well carried out.
 
+#### Database Schema
 
+MongoDB was selected as the choice of non-relational database provider. It turned out to be effective and user-friendly.
+
+The schema is as follows:
+
+![image](https://user-images.githubusercontent.com/61311614/109430773-df4bbe00-79fa-11eb-87f9-23d76f487271.png)
+
+Created using Creately - https://app.creately.com
 
 
 ### Wireframes
@@ -136,9 +144,11 @@ Add Movie Page
 - Bootstrap for site layout, container code, navbar functions - used throughout for rich content and responsive behaviour.
 - JQuery addon used for rich function searching in order to appropriately target html and CSS for site functionality.
 - GitHub - utilised for cloud backups and project progression.
+MongoDB - used as the non-relational database provider.
 - Realfavicongenerator.net - used to correctly generate site favicons.
 - Mockplus Classic - Used for wireframes of the project - possibly the best free option so far in my opinion.
 - Heroku - for deploying and hosting the application.  
+- Creately - used to document the database schema.
 
 
 ## Testing
@@ -464,6 +474,8 @@ The user at present is disabled from upvoting the movie again without a page rel
 - The amount of data that the site can display is quite limited at present. You have 10 movies per feature and only 10 movies allowed to be viewed on the 'Manage Movies' page also. If the site were to increase in scale, at present the data handling is not able to scale with it. This is mentioned in depth in the 'Future Improvements' section below however successful utilisation of the Jinja templating would lead to an improvement here. You would then be able to loop the data displays to match however much data the user required. This would be a much preferred way, however I was unable to get the templating to function as needed.
 
 - Pressing the browser 'back' button after logging out from my_movies page leads to a 'key_error' - where the site tries to get your movies but won't allow it due to not being logged in. Custom error pages would solve this.
+
+- It has been observed that upon occasion, the site favicon will 404 not found in the console. This error is sporadic and difficult to replicate but the icons have been replaced as an attempt to resolve this issue.
 
 
 ## Future improvements
