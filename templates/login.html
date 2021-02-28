@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Page is responsible for allowing the user to login -->
 <div class="gems-title-div">
   <h1 class="gems-title">Login</h1>
   <hr class="block-divider block-divider-bottom-margin">
@@ -11,13 +12,13 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <!-- <h5 class="gems-body card-title text-center">Login</h5> -->
             <form class="form-signin" method="POST" action="{{ url_for('login') }}">
               <div class="form-label-group">
+                <!-- Username with length and character type validation -->
                 <label for="username" class="gems-body text-center">Username</label>
                 <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate form-control" placeholder="Username" required>
               </div>
-
+              <!-- Password with length and type validation -->
               <div class="form-label-group">
                 <label for="password" class="gems-body text-center">Password</label>
                 <input  id="password" name="password" class="form-control validate" type="password" placeholder="Password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
@@ -25,6 +26,7 @@
               <hr class="block-divider block-divider-bottom-margin">
               <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Login</button>
               <hr class="block-divider block-divider-bottom-margin">
+              <!-- Link to Register page -->
               <a class="nav-link text-center" href="{{ url_for('register') }}">No Account? Register Here</a>
             </form>
           </div>
@@ -32,9 +34,5 @@
       </div>
     </div>
   </div>
-
-
-
-
 
 {% endblock %}
