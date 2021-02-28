@@ -15,7 +15,7 @@
       <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body text-center">
-            <form method="POST" action="{{ url_for('edit_movie', movie_id=movie._id) }}">
+            <form>
               <div class="form-group">
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Image for {{ movie.movie_name }}"></img>
                 <p class="gems-body"><strong>Movie Title: </strong>{{ movie.movie_name }}</p>
