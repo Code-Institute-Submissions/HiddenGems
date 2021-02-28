@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- Require a function to take the innerhtml from the card, load it into localstorage and unload it here. -->
-
- <!-- <body onload="setDetails()">  -->
+<!-- Page is responsible for displaying additional details about the movie. Also allowing users to open a new window to the specific IMDB page. -->
 <div class="gems-title-div">
   <h1 class="gems-title">More Details</h1>
   <hr class="block-divider block-divider-bottom-margin">
@@ -17,16 +15,25 @@
           <div class="card-body text-center">
             <form>
               <div class="form-group">
+                <!-- Movie Image -->
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Image for {{ movie.movie_name }}"></img>
+                <!-- Movie Name -->
                 <p class="gems-body"><strong>Movie Title: </strong>{{ movie.movie_name }}</p>
+                <!-- Year of Release -->
                 <p class="gems-body"><strong>Year of Release: </strong>{{ movie.movie_year }}</p>
+                <!-- Main Actors/Actresses -->
                 <p class="gems-body"><strong>Lead Actors: </strong>{{ movie.movie_actors }}</p>
+                <!-- Movie Category -->
                 <p class="gems-body"><strong>Genre: </strong>{{ movie.category_name }}</p>
+                <!-- Name of user who added the movie -->
                 <p class="gems-body"><strong>Added by: </strong>{{ movie.added_by.capitalize() }}</p>
+                <!-- Adding user's review -->
                 <p class="gems-body"><strong>What did they have to say?:</strong>  <em>{{ movie.movie_review }}</em></p>  
                 <hr class="block-divider block-divider-bottom-margin">
-                            <a href="https://www.imdb.com/title/{{ movie.imdbID}}" target="_blank" id="imdbPage"class="btn btn-lg btn-success btn-block text-uppercase" >Go to IMDB Page</a>
-                            <a href="{{ url_for('get_movies') }}" class="btn btn-lg btn-primary btn-block text-uppercase">Go Back</a>
+                <!-- Link to IMDB -->
+                <a href="https://www.imdb.com/title/{{ movie.imdbID}}" target="_blank" id="imdbPage"class="btn btn-lg btn-success btn-block text-uppercase" >Go to IMDB Page</a>
+                <!-- link to main page. Used to go back but was incompatible with Chrome -->
+                <a href="{{ url_for('get_movies') }}" class="btn btn-lg btn-primary btn-block text-uppercase">Go Back</a>
               </div>
             </form>
           </div>
@@ -34,7 +41,5 @@
       </div>
     </div>
   </div>
-
-
-
+  
 {% endblock %}
