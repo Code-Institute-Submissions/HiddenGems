@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
- <body onload="setDetails()"> 
+<!-- setDetails takes the values from localstorage and unloads it here -->
+
+<body onload="setDetails()"> 
+<!-- Page is responsible for displaying the IMDB details for the movie, allowing the user to check they are correct, choose a category and add a review -->
 <div class="gems-title-div">
   <h1 class="gems-title">Is this Correct?</h1>
   <hr class="block-divider block-divider-bottom-margin">
 </div>
-
-
+<!-- Form where the IMDB data is unloaded -->
 <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-10 mx-auto">
@@ -15,32 +17,37 @@
           <div class="card-body">
             <form method="POST" action="{{ url_for('find_movie')}}">
               <div class="form-group">
+                <!-- Movie Name -->
                 <label class="gems-body" for="movietitle">Movie Title</label>
-                <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
+                  <input type="text" name="movietitle" class="form-control" id="movietitle" placeholder="Add Movie Title here">
+                <!-- Year of Release -->
                 <label class="gems-body" for="movieyear">Year of Release</label>
-                <input type="text" name="movieyear" class="form-control" id="movieyear" placeholder="Add Movie Year here">
+                  <input type="text" name="movieyear" class="form-control" id="movieyear" placeholder="Add Movie Year here">
+                <!-- Main Actors/Actresses -->
                 <label class="gems-body" for="movieactors">Main Actors</label>
-                <input type="text" name="movieactors" class="form-control" id="movieactors" placeholder="Add Movie Actors here">
-                <!-- <label class="gems-body" for="movieimage">Cover Image</label> -->
-                <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image url here" hidden>
-                <input type="text" name="imdbID" class="form-control" id="imdbID" placeholder="Add IMDB ID here" hidden>
+                  <input type="text" name="movieactors" class="form-control" id="movieactors" placeholder="Add Movie Actors here">
+                <!-- Image details, hidden from the user so that they don't amend the unintelligible string -->
+                  <input type="text" name="movieimage" class="form-control" id="movieimage" placeholder="Add Movie Image url here" hidden>
+                <!-- ID from IMDB, needed for movie_details -->
+                  <input type="text" name="imdbID" class="form-control" id="imdbID" placeholder="Add IMDB ID here" hidden>
                 <hr class="block-divider block-divider-bottom-margin">
+                <!-- Movie Category -->
                 <label for="category_name" class="gems-body">Choose the Movie Genre</label>
-                <select id="category_name" name="category_name" class="validate form-control" required>
-                  <option value="" selected disabled>Choose category</option>
-                  {% for category in categories %}
-                      <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                  {% endfor %}
-                </select>
+                  <select id="category_name" name="category_name" class="validate form-control" required>
+                    <option value="" selected disabled>Choose category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                  </select>
+                <!-- Movie Review -->
                 <label class="gems-body"for="moviereview">Would you like to tell people why?</label>
-                <input type="text" name="moviereview" class="form-control" id="moviereview" placeholder="140 Characters of Convincing" onKeyDown="textCounter(this,140);" onKeyUp="textCounter(this,'moviereview-length' ,140)">
-                  
-                <input class="character-counter float-right round-corners" readonly type="text" id='moviereview-length' name="moviereview-length" size="3" maxlength="3" value="140">
+                <!-- Controls for the character counter for the review -->
+                  <input type="text" name="moviereview" class="form-control" id="moviereview" placeholder="140 Characters of Convincing" onKeyDown="textCounter(this,140);" onKeyUp="textCounter(this,'moviereview-length' ,140)">
+                <!-- Character counter input - display remaining characters -->
+                  <input class="character-counter float-right round-corners" readonly type="text" id='moviereview-length' name="moviereview-length" size="3" maxlength="3" value="140">
                 <label for="moviereview-length"class="gems-body float-right"> Characters Remaining: </label>
-                
                 <!-- hr added to stop the white hr from encroaching on the 'Characters Remaining' line -->
                 <hr class="hr-background">
-                
                 <hr class="block-divider block-divider-bottom-margin">
                 <button id="searchMovie"class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Go ahead, add my Movie.</button>
               </div>
@@ -50,7 +57,5 @@
       </div>
     </div>
   </div>
-
-
 
 {% endblock %}
