@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<!-- Page is responsible for allowing a user to view their added films, with links to edit or delete them -->
 <div class="gems-title-div">
   <h1 class="gems-title">{{ username|capitalize }}'s Movies</h1>
   <hr class="block-divider block-divider-bottom-margin">
 </div>
 
-
 <h3 class="gems-body">My Added Films</h3>
-
+  <!-- Only triggers if the user does not have any movies, prompts them to add them and sends them to add_movie -->
   {% if movies|length < 1 %}
   <div class="container">
     <div class="row">
@@ -27,57 +26,67 @@
     </div>
   </div>
   {% endif %}
-
+    <!-- Main card repeater for first card row -->
     <div class="deck-wrapper">
       <div class="card-deck">
+        <!-- Sort them by _id in reverse order -->
         {% for movie in movies|sort(attribute='_id', reverse = True) %}
-              {% if loop.index <= 5 %}
-              <div class="card flex-row flex-wrap card-entry" >
-                <div class="card-header border-0">
-                  <img id="{{ movie._id }}_image" class="thumbnail-image" src="{{ movie.movie_image }}" alt="">
-                </div>
-                <div class="card-block px-2">
-                  <h4 id="{{ movie._id }}_title" class="card-title">{{ movie.movie_name }}</h4>
-                  <p id="{{ movie._id }}_year" class="card-text">{{ movie.movie_year }}</p>
-                  <p id="{{ movie._id }}_actors" class="card-text">{{ movie.movie_actors }}</p>
-                  <p id="{{ movie._id }}_category" class="card-text">{{ movie.category_name }}</p>
-                  <p id="{{ movie._id }}_review" class="card-text">{{ movie.movie_review }}</p>
-                  <span class="card-text">Gem Rating: </span>
-                <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-                </div>
-                <a onclick="return editEntry(this.id)" href="/edit_movie/{{ movie._id }}" id="{{ movie._id }}" class="btn-block btn btn-primary editButton ">Edit</a>
-                <!-- <a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="btn-danger btn-lg">Delete</a> -->
-                <button type="button" class="btn btn-block btn-danger deleteButton" data-toggle="modal" data-target="#deleteModal{{ movie._id }}">
-               Delete
-                </button>
+          <!-- Display first five -->
+          {% if loop.index <= 5 %}
+          <div class="card flex-row flex-wrap card-entry" >
+            <div class="card-header border-0">
+              <!-- Movie Image -->
+              <img id="{{ movie._id }}_image" class="thumbnail-image" src="{{ movie.movie_image }}" alt="Image for {{ movie.movie_name }}">
+            </div>
+            <div class="card-block px-2">
+              <!-- Movie Name -->
+              <h4 id="{{ movie._id }}_title" class="card-title">{{ movie.movie_name }}</h4>
+              <!-- Year of Release -->
+              <p id="{{ movie._id }}_year" class="card-text">{{ movie.movie_year }}</p>
+              <!-- Main Actors/Actresses -->
+              <p id="{{ movie._id }}_actors" class="card-text">{{ movie.movie_actors }}</p>
+              <!-- Movie Category -->
+              <p id="{{ movie._id }}_category" class="card-text">{{ movie.category_name }}</p>
+              <!-- Movie Review -->
+              <p id="{{ movie._id }}_review" class="card-text">{{ movie.movie_review }}</p>
+              <!-- Upvote rating for the movie -->
+              <span class="card-text">Gem Rating: </span>
+              <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
+            </div>
+            <!-- Button to go to edit_movie -->
+            <a onclick="return editEntry(this.id)" href="/edit_movie/{{ movie._id }}" id="{{ movie._id }}" class="btn-block btn btn-primary editButton ">Edit</a>
+            <!-- Button to launch the delete modal below -->
+            <button type="button" class="btn btn-block btn-danger deleteButton" data-toggle="modal" data-target="#deleteModal{{ movie._id }}">
+            Delete
+            </button>
+          </div>
 
-              </div>
-
-              
-
-              <!-- Modal -->
-                <div class="modal fade" id="deleteModal{{ movie._id }}" tabindex="-1" role="dialog" aria-labelledby="deleteLabel{{ movie._id }}" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="deleteLabel{{ movie._id }}">Are you sure you want to delete {{ movie.movie_name }}?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        This action cannot be undone.
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="btn btn-danger ">Delete</a>
-                      </div>
-                    </div>
+            <!-- Delete Modal for above five films -->
+            <div class="modal fade" id="deleteModal{{ movie._id }}" tabindex="-1" role="dialog" aria-labelledby="deleteLabel{{ movie._id }}" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <!-- Ask the 'are you sure' question -->
+                    <h5 class="modal-title" id="deleteLabel{{ movie._id }}">Are you sure you want to delete {{ movie.movie_name }}?</h5>
+                    <!-- 'X' close button in top right corner -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <!-- Ensure the user knows that this is permanent -->
+                  <div class="modal-body">
+                    This action cannot be undone.
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Option to close modal without deleting -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Link to delete -->
+                    <a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="btn btn-danger ">Delete</a>
                   </div>
                 </div>
-              
-            {% endif %}
-          
+              </div>
+            </div> 
+          {% endif %}
         {% endfor %}
       </div>
     </div>
