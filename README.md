@@ -7,25 +7,26 @@ The site owner is looking to bring together a group of like-minded movie lovers.
 
 The site owner is then able to build their own database of great movies, with a user base for possible future ventures also.
 
-A side benefit will be the addition of a voting system so that users can agree or disagree with other peoples contribution. Using this, the site owner will generate a list of 'top voted' movies to fine-tune future movie choices.
+A side benefit will be the addition of a voting system so that users can agree or disagree with other people's contributions. Using this, the site owner will generate a list of 'top voted' movies to fine-tune future movie choices.
 
-The site-owner will want for users to create accounts, both for data capture and in order to keep the voting fair. A user will only be able to vote on a particular film once. 
-Update - Validation has been added to prevent upvotes from being continually clicked however it has not been limited to one per user - See 'Future Updates'
+The site-owner will want users to create accounts, both for data capture and in order to keep the voting fair. A user will only be able to vote on a particular film once. 
+Update - Validation has been added to prevent upvotes from being continually clicked however it has not been limited to one per user - See 'Future Updates'.
 
 
 ## User Stories
-Two main user types are envisioned. One type, henceforth known as a contributor, is interested in adding to the site, having their recommendations known.
+Two main user types are envisioned. One type, henceforth known as 'Contributors', are interested in adding to the site, having their recommendations known.
 
-The other type will be known as consumers, visiting the site in order to browse the exisiting recommendations and use them for their own viewing choices.
+The other type will be known as 'Consumers', visiting the site in order to browse the existing recommendations and use them for their own viewing choices.
 
 Both types will likely vote to agree or disagree with other users contributions.
+Update - Voting has been limited to 'agree' in order to try and promote a positive environment. 
 
 
-These Stories will be brief touchpoints of what the user is looking for from this site. The full walkthrough is later in the readme of the entire completed journey.
+These Stories will be brief touchpoints of what the user is looking for from this site. The full walkthrough can be found later in this readme, showing entire completed journey.
 
 ### Contributor
-- A contributor will visit the site with a primary motivation to add their entry
-- They will want to be able to add their choice in the most straightforward method possible. Anything the site does to make this easier will add to user enjoyment
+- A contributor will visit the site with a primary motivation to add their entry.
+- They will want to be able to add their choice in the most straightforward method possible. Anything the site does to make this easier will add to user enjoyment.
 - They may wish to add a short review of the movie to explain why they see the film as a worthwhile watch.
 - The ability to view their entry after submission would be useful, possibly edit it also.
 - As such, they will look to login, or create an account if they do not have one in order to keep track of their entry/entries and amend them accordingly, if needed.
@@ -37,46 +38,49 @@ These Stories will be brief touchpoints of what the user is looking for from thi
 - They will want this information presented to them in a straightforward manner.
 - They will want to look at the best-voted movies on the site, perhaps along with the newly added ones that they perhaps haven't seen on previous visits.
 - If this doesn't fulfil their need, they may look to browse the movies by genre, or search by name if perhaps they have something specific in mind.
-- The consumer could potentially also wish to vote to agree or disagree with a film that they may have seen here before. They will need to create an accout in order to meet site owner goals.
+- The consumer could potentially also wish to vote to agree or disagree with a film that they may have seen here before. They will need to create an account in order to meet site owner goals.
 
 
 ## Site Layout
 It was decided to go with a darker theme on this occasion. This was partly inspired by IMDBs dark format, where the bright movies stand out and the background doesn't detract from the viewing experience. 
 
-The site uses Flask's template model, where the base.html holds the brand, navigation and footer. These features follow traditional web conventions where the logo is top left, and can be used to navigate to the home page, the navigation to it's left for navigating across the site.
+The site uses Flask's template model, where the base.html holds the brand, navigation and footer. These features follow traditional web conventions where the logo is top left, and can be used to navigate to the home page, the navigation found on the right for navigating across the site.
 
 Where previous projects have seen a static explanation for how to utilise the site, I decided to have several images on a scrolling carousel. This moves automatically or at the user's prompting to allow information to be presented at the user's speed.
 
-The main content is directly below, where the user can see the newest movies (AKA 'Gems') added to the site. The cards present basic identifying information for a casual glance, with a link to see more information. Should they click this, they can see additional details such as the name of the user who added the movie, along with their review if they chose to leave their opinion. Links to the imdb page for even more information, along with the option to go back are found at the base of this information card.
+The main content is directly below, where the user can see the newest movies (AKA 'Gems') added to the site. The cards present basic identifying information for a casual glance, with a link to see more information. Should they click this, they can see additional details such as the name of the user who added the movie, along with their review if they chose to leave their opinion. Links to the IMDB page for even more information, along with the option to go back are found at the base of this information card.
 
 Back on the main cards, should the user agree with the movie as a good choice, they have the option to click and upvote. This pushes the movie up the rankings as popular, where the most popular choices can be seen in the next category down the page.
 
 On both of these categories, there is a 'see more' button, where they can view an additional row of movies should they wish to.
 
-Below this, movies of each of the sites named categories can be found,should the user be wanting to look at a particular genre.
+Below this, movies of each of the sites named categories can be found, should the user be wanting to look at a particular genre.
 
 If the 'Consumer' type user wishes to see if a particular movie exists on the site, or a 'Contributor' wishes to check the same before they add their recommendation - they are able to search by title on the 'Search' option in the navigation.
 
 Once logged in on the 'Login' page, or 'Register' for first-time users, additional options are made available.
 
-Contributors can then head to 'Add Movie', where they can type some or all of the movie name and get the top results from the IMDb API. They simply select their intended listing, choose from a category list, add a review if they wish and submit to have the movie showing on the site. They can navigate to 'Manage Movies' to see their listings, along with editing and deleting if required.
+Contributors can then head to 'Add Movie', where they can type some or all of the movie name and get the top results from the IMDB API. They simply select their intended listing, choose from a category list, add a review if they wish and submit to have the movie showing on the site. They can navigate to 'Manage Movies' to see their listings, along with editing and deleting if required.
 
 
 ## Design Decisions
 
 ### General Design
-As mentioned above, a darker theme was selected, with the movie cards and the text across the site standing out in white. The intention was to be eye-catching and engaging, which i believe has been achieved.
+As mentioned above, a darker theme was selected, with the movie cards and the text across the site standing out in white. The intention was to be eye-catching and engaging, which I believe has been achieved.
 
 I have stuck with the Lato text throughout as a professional-looking font and utilised bootstrap cards throughout the site to ensure that where content is generated, it looks consistent and is responsive on as many types of device as possible.
 
-Early on in the design stage, I wanted to try to make it as easy as possible for users to submit information. Linking up to the IMDB API seemed like a good way to do this, meaning that users are easily able to add their recommendations, whilst the site appears filled with content with no large gaps in information. I could imagine a site where people fill the required gaps with incomplete, or incorrect information and wanted to try and stay away from this, if possible.
+Early on in the design stage, I wanted to try to make it as easy as possible for users to submit information. Linking up to the IMDB API seemed like a good way to do this. This means that users are easily able to add their recommendations, whilst the site appears filled with content with no large gaps in information. I could imagine a site where people fill the required gaps with incomplete, or incorrect information and wanted to try and stay away from this, if possible.
 
 
 ### Data Specific Design
-It may be noticed that users do not get the option to edit the movie images on addition to the site, nor edit them in 'Manage Movies'. This was a conscious design decision for several reasons. Firstly, the ability to upload any image to the site leaves a pretty significant vulnerability to those who would wish to abuse the function.
-Secondly, IMDB provides a link to where they host the movie image, which leads to a nonsensical string address. On a user first seeing this, they may wish to delete or change this, not knowing that it will stop the image from pulling through correctly.
+It may be noticed that users do not get the option to edit the movie images on addition to the site, nor edit them in 'Manage Movies'. This was a conscious design decision for several reasons. Firstly, the ability to upload any image to the site leaves a vulnerability to those who would wish to abuse the function.
 
-As such, this field was made hidden, along with the IMDB reference used to direct users to the specific movie page on the IMDB site. 
+Secondly, IMDB provides a link to where they host the movie image, which presents as a nonsensical string address. On a user first seeing this, they may wish to delete or change this, not knowing that it will stop the image from pulling through correctly.
+
+As such, this field was made hidden, along with the IMDB reference used to direct users to the specific movie page on the IMDB site.
+
+This is predominately covered later in 'Known Issues', but there exists several methods of showing data on demand on the site. HTML generated from JavaScript, repeating card HTML on the main presentation pages and finally aspects of filtering information in the MVC method. These differences exist due to a growing understanding by myself as work has gone on with the project. I hope they are seen as progression in knowledge however it is understandable if the earlier techniques are seen as either outdated, or not as well carried out.
 
 
 
@@ -132,7 +136,7 @@ Add Movie Page
 - Bootstrap for site layout, container code, navbar functions - used throughout for rich content and responsive behaviour.
 - JQuery addon used for rich function searching in order to appropriately target html and CSS for site functionality.
 - GitHub - utilised for cloud backups and project progression.
-- Realfavicongenerator.net - used to correctly generate site favicon
+- Realfavicongenerator.net - used to correctly generate site favicons.
 - Mockplus Classic - Used for wireframes of the project - possibly the best free option so far in my opinion.
 - Heroku - for deploying and hosting the application.  
 
@@ -146,7 +150,7 @@ Add Movie Page
 The HTML Validator picked up several errors, such as:
 
 Get_Movies: 
-- A missing heading for a section - on inspection this turned out to the the section for flash messages on base.html - this was left as intended behaviour.
+- A missing heading for a section - on inspection this turned out to be the section for flash messages on base.html - this was left as intended behaviour.
 - Duplication of an ID - where the collapse was copied for the new random category. The ID was amended for the random category.
 - Several missing end </div> tags - these were added.
 
@@ -161,7 +165,7 @@ Search:
 - There was an incorrect label use in two locations - these were amended.
 
 Manage_Movies:
-- An ID on the modals was replicated, this was amended to include the dynamic movie id, therefore making the id unique.
+- An ID on the modals was replicated - this was amended to include the dynamic movie id, therefore making the id unique.
 
 Login:
 No issues found.
@@ -190,12 +194,12 @@ The CSS Jigsaw validator was shown to pass with no issues found:
 #### JavaScript
 
 editentry.js:
-- One uneeded semicolon was located - this was removed.
+- One unneeded semicolon was located - this was removed.
 - A return 'True' was used for testing - this was replaced.
 - The JQuery $ notation was flagged as unknown - this is expected behaviour.
 
 getimdb.js:
-- Several uneeded or missing semicolons were identified - these were all amended.
+- Several unneeded or missing semicolons were identified - these were all amended.
 - JShint shows the following warning: 	'template literal syntax' is only available in ES6 (use 'esversion: 6') - various Stackoverflow articles (such as https://stackoverflow.com/questions/27441803/why-does-jshint-throw-a-warning-if-i-am-using-const) suggest that this is a JShint particular, rather than incorrect JavaScript - decided to leave the JavaScript in place. 
 - The remaining warnings are all concerned with the Switch statement - suggesting that the variables are already defined - this is expected and the switch statement can remain unchanged.
 
@@ -208,7 +212,7 @@ Only displays the JQuery $ notation as a warning - this is expected behaviour.
 
 validation.js
 - Two missing semicolons were identified - these were added.
-- One unnecessary semicolon was identifed - this was removed.
+- One unnecessary semicolon was identified - this was removed.
 
 
 All that remains are 'undefined' or 'unused' variables, which is expected as the Javascript was tested in batches and JShint does not have access to where the JavaScript is being utilised within the project.
@@ -305,11 +309,11 @@ On click, should drop the same menu options as above as a submenu, and retract d
 
 #### Footer
 
-Facebook logo - Should lead to Facebook.com (would be the actual facebook of the company if real-world) - confirmed.
+Facebook logo - Should lead to Facebook.com (would be the actual Facebook of the company if real-world) - confirmed.
 
-Twitter logo - Should lead to Twitter.com (would be the actual twitter of the company if real-world) - confirmed.
+Twitter logo - Should lead to Twitter.com (would be the actual Twitter of the company if real-world) - confirmed.
 
-Instagram logo - Should lead to Instagram.com (would be the actual instagram of the company if real-world) - confirmed.
+Instagram logo - Should lead to Instagram.com (would be the actual Instagram of the company if real-world) - confirmed.
 
 
 #### Homepage Buttons
@@ -320,16 +324,16 @@ Carousel (images at the top of the page) left and right scroll buttons - should 
 
 More Details button - Should lead to movie_details where the respective movie details are loaded into the card - confirmed.
 
-Upvote button - Should post an upvote to the gems_rating in the database. The controlling javascript should also trigger a '+1' to the gems_rating, then block the button from being clicked again, adding a green colour - confirmed.
+Upvote button - Should post an upvote to the gems_rating in the database. The controlling JavaScript should also trigger a '+1' to the gems_rating, then block the button from being clicked again, adding a green colour - confirmed.
 
 See More button - Should drop down a hidden row of movies for their respective category. A second click should hide the row - confirmed.
 
-Movies by Category Accordian - should drop down a row of their respective category movies. Second click should close the row. Clicking on another category name should close any other open rows. Confirmed.
+Movies by Category Accordion - should drop down a row of their respective category movies. Second click should close the row. Clicking on another category name should close any other open rows. Confirmed.
 
 
 #### Movie_details page buttons
 
-Go to IMDB button - Should take you to the current movie's imdb page, opened in a new window - confirmed.
+Go to IMDB button - Should take you to the current movie's IMDB page, opened in a new window - confirmed.
 
 Go back button - should take you back to the main page, emulating the browser back button - confirmed.
 
@@ -356,7 +360,7 @@ Edit Movie button - should take you to the edit_movie page with the correct movi
 Delete Movie button - should launch a modal for deletion confirmation - confirmed.
 
 Modal buttons - 
-  'X' close in the top right corner - should close the modal - confiremd.
+  'X' close in the top right corner - should close the modal - confirmed.
 
   Close button - should close the modal - confirmed.
 
