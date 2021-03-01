@@ -1,25 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- Page is reponsible for allowing a user to search the Hidden Gems database for exisiting movies by Title -->
 <div class="gems-title-div">
   <h1 class="gems-title">Search for a Movie</h1>
   <p class = "gems-body"> See if your pick is already on our site.</p>
   <hr class="block-divider block-divider-bottom-margin">
 </div>
-
-<!-- <div class="search-movie-container">
-  <div class="search-movie">
-      <form action="{{ url_for('search') }}" method="post">
-        <div class="input-group">
-          <input type="text" name="query" id="query" minlength="3" placeholder="Enter Movie Title" aria-label="Movie Title Search Box" class="search-movie validate" required>
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-outline-secondary" >Search</button>
-            <a href="{{ url_for('get_movies') }}" class="btn btn-outline-secondary" type="button">Reset</a>
-          </div>
-        </div>
-      </form>
-  </div>
-<div> -->
 
 <div class="container">
     <div class="row">
@@ -28,11 +14,15 @@
           <div class="card-body">
             <form class="form-signin" method="POST" action="{{ url_for('search') }}">
               <div class="form-label-group">
+                <!-- Form field for Movie Title -->
                 <label for="query" class="gems-body">Movie Title</label>
+                <!-- Input with a min-length -->
                 <input type="text" name="query" id="query" minlength="3" placeholder="Enter Movie Title" aria-label="Movie Title Search Box" class="validate form-control" required>
               </div>
                 <hr class="block-divider block-divider-bottom-margin">
+                <!-- Submit (search) button -->
                 <button type="submit" class="btn btn-lg btn-success btn-block text-uppercase" >Search</button>
+                <!-- Page reload button -->
                 <a href="{{ url_for('search') }}" class="btn btn-lg btn-danger btn-block text-uppercase">Reset</a>
             </div>
             </form>
@@ -41,39 +31,39 @@
       </div>
     </div>
   </div>
-
-<!-- <div class="gems-title-div">
-  <hr class="block-divider block-divider-bottom-margin">
-</div> -->
-
-
+<!-- Card format for search results starts here -->
 <div class="top-content">
-      <div>New</div>
-    </div>
     <div class="deck-wrapper">
       <div class="card-deck">
+        <!-- Select movies by their _id -->
         {% for movie in movies|sort(attribute='_id', reverse = True) %}
+          <!-- Select Top 5 results -->
           {% if loop.index <= 5 %}
             <div class="card flex-row flex-wrap card-entry " >
               <div class="card-header border-0">
+                <!-- Movie Image -->
                 <img class="thumbnail-image" src="{{ movie.movie_image }}" alt="Main image for {{ movie.movie_name }}">
               </div>
               <div class="card-block px-2">
+                <!-- Movie Name -->
                 <h4 class="card-title">{{ movie.movie_name }}</h4>
+                <!-- Movie Category -->
                 <p class="card-text">{{ movie.category_name }}</p>
+                <!-- Movie Upvotes -->
                 <span class="card-text">Gem Rating: </span>
-              <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
-              <br>
-              <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
-              <br>
-              <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
+                <span class="card-text rating{{ movie._id }}">{{ movie.movie_rating }}</span>
+                <!-- Page break to ensure split between the spans -->
+                <br>
+                <!-- Upvote call to action and button -->
+                <span class="card-text">Click to Agree! </span><button class="agree-button" data-id="{{ movie._id }}" name="agree-button"><i class="fa fa-thumbs-up"></i></button>
+                <br>
+                <!-- Link to more details -->
+                <a href="{{ url_for('movie_details', movie_id=movie._id) }}" class="btn btn-sm btn-success">More Details</a>
               </div>
             </div>
           {% endif %}
         {% endfor %}
       </div>
     </div>
-
-
-
+  </div>
 {% endblock %}
