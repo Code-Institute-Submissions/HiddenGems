@@ -467,7 +467,7 @@ Further to this, a missed form element on movie_details.html caused a bug where 
 
 - Currently, the upvote system is subject to users not utilising it correctly - someone with an intent to upvote their own movie multiple times could do so. Restricting the upvote to logged in users, and registering who has upvoted then blocking future upvotes from them would be a way around this. This would also require a revamp of the current JavaScript which increments the vote without page refresh also.
 
-The user at present is disabled from upvoting the movie again without a page reload. This will deter some people, but those who wish to continuously upvote could do so with a refresh. I would expect that logging the user against the movie when voted and adding a check on click would expand this. The value could then be updated using AJAX. 
+  The user at present is disabled from upvoting the movie again without a page reload. This will deter some people, but those who wish to continuously upvote could do so with a refresh. I would expect that logging the user against the movie when voted and adding a check on click would expand this. The value could then be updated using AJAX. 
 
 - On the 'Movie Details' page, a 'go back' function was implemented so that the user does not get stuck in a dead end. If the user has navigated from one of the 'See More' dropdowns, then they return to it in the closed state rather than it's previous open state.
 
@@ -482,15 +482,15 @@ The user at present is disabled from upvoting the movie again without a page rel
 - Improve the search function. Take it from it's basic movie name form now to including actors, year etc. This could be done through a more in-depth index on the database, however the page would need to be revamped to handle the results. The current format fulfils the basic user need.
 - The main movies page is quite repetitive code-wise. This could be cleaned up with storing the movie cards as a block variable, for example. Initial tests of this principle found getting the 'movie.*' notation difficult. Finding another method to clean this up would be an excellent improvement going forward.
 
-As an update to this point - a mentor note reinforced that one of the strengths of the Jinja notation is the use of templates, and a further effort should be made to implement this. Further testing was carried out using the 'Set Assignments' function of jinja, and the 'Macro' function of Jinja to store the code for the cards and reuse it elsewhere - see https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments.
+  As an update to this point - a mentor note reinforced that one of the strengths of the Jinja notation is the use of templates, and a further effort should be made to implement this. Further testing was carried out using the 'Set Assignments' function of jinja, and the 'Macro' function of Jinja to store the code for the cards and reuse it elsewhere - see https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments.
 
-Once again, the card block could be captured, but on use the 'movie.*' variables were returning as 'undefined'. It very well could be an implementation issue that I'm coming across, but for now I'll keep this listed as a future improvement in the knowledge that the project would be much cleaner with the successful implementation of this templating.
+  Once again, the card block could be captured, but on use the 'movie.*' variables were returning as 'undefined'. It very well could be an implementation issue that I'm coming across, but for now I'll keep this listed as a future improvement in the knowledge that the project would be much cleaner with the successful implementation of this templating.
 
 - Similar to the above point, how I have built the movie cards has progressed across the project. My early card creation uses JavaScript when loading the information in from IMDB. I then moved onto using Python/Jinja loops and filters when displaying the data in card format from the database. A mentor note then pointed out that a much better way is to follow the MVC coding method, where the filtering is performed in the controller (in this case app.py) rather than in the view (movie.html).
 
-As such, one of the final things added to this project was the 'Random' category. I still loop through the information in the view however the filtering and capturing of the movies to present uses the 'sample' method of MongoDB - https://docs.mongodb.com/manual/reference/operator/aggregation/sample/
+  As such, one of the final things added to this project was the 'Random' category. I still loop through the information in the view however the filtering and capturing of the movies to present uses the 'sample' method of MongoDB - https://docs.mongodb.com/manual/reference/operator/aggregation/sample/
 
-On coming back to the project to implement improvements, rewriting the logic of the cards to reflect this across the board would be a worthwhile investment, giving a cleaner structure and better separation of concerns.
+  On coming back to the project to implement improvements, rewriting the logic of the cards to reflect this across the board would be a worthwhile investment, giving a cleaner structure and better separation of concerns.
 
 - One suggested by Can, my mentor also - the site would feel more social if the users were able to also leave reviews on the movies, instead of just being able to agree with upvotes. While the current format does fulfil the user stories in my opinion - I can see the value of having additional ways to interact with the site and leave your mark and opinion. I believe this would be a worthwhile future addition.
 
@@ -671,40 +671,40 @@ https://stackoverflow.com/questions/14867558/html-tag-a-want-to-add-both-href-an
 - Flexible footer - needed as content is dynamically generated onto the pages:
 https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 
-Validation assistance on Add Movies:
+- Validation assistance on Add Movies:
 https://www.w3resource.com/javascript/form/letters-numbers-field.php
 
-Javascript for the character count on find_movie.html from vittore:
+- Javascript for the character count on find_movie.html from vittore:
 https://stackoverflow.com/questions/19962608/javascript-character-count
 
-The Javascript "back a page" command found here:
+- The Javascript "back a page" command found here:
 https://www.w3schools.com/jsref/met_his_back.asp
 
-Dark filter for the carousel images found here:
+- Dark filter for the carousel images found here:
 https://stackoverflow.com/questions/46819577/bootstrap-4-beta-carousel-dark-overlay
 
-Assistance with card-deck media-query functionality (cards would compress to be unreadable before stacking ontop of one another) from FrankieDoodie:
+- Assistance with card-deck media-query functionality (cards would compress to be unreadable before stacking ontop of one another) from FrankieDoodie:
 https://stackoverflow.com/questions/36487389/bootstrap-4-card-deck-table-cell-columns-responsive-based-on-viewport/36499275#36499275
 
-Assistance with the difference in the chrome browser regarding the goBack JavaScript function from Chibueze Opata:
+- Assistance with the difference in the chrome browser regarding the goBack JavaScript function from Chibueze Opata:
 https://stackoverflow.com/questions/9423439/can-i-get-the-history-back-function-to-work-in-chrome-when-using-the-file-p
 
 
-### images
+### Images
 
-VHS tape image - From Anthony on Pexels:
+- VHS tape image - From Anthony on Pexels:
 https://www.pexels.com/photo/3-vhs-tape-on-top-of-table-157543/
 
-Assorted cameras image - From Free Creative Stuff on Pexels:
+- Assorted cameras image - From Free Creative Stuff on Pexels:
 https://www.pexels.com/photo/assorted-camera-lot-on-surface-in-grayscale-photo-1422223/
 
-Single video camera image - From Abet Llacer on Pexels:
+- Single video camera image - From Abet Llacer on Pexels:
 https://www.pexels.com/photo/close-up-photography-of-video-camera-927444/
 
 ### Movie and User details
 
-Users added utilising a random name generator: 
+- Users added utilising a random name generator: 
 https://jimpix.co.uk/
 
-The majority of the movies came from the following list:
+- The majority of the movies came from the following list:
 https://www.scoopwhoop.com/Lesser-Known-Movies-To-Binge-On-This-Long-Weekend/
