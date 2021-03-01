@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Page is responsible for allowing users to register an account, loading their details into the database. -->
 <div class="gems-title-div">
   <h1 class="gems-title">Register</h1>
   <hr class="block-divider block-divider-bottom-margin">
@@ -13,21 +14,25 @@
           <div class="card-body">
             <form class="form-signin" method="POST" action="{{ url_for('register') }}">
               <div class="form-label-group">
+                <!-- Username with length and character type validation -->
                 <label for="username" class="gems-body text-center">Username</label>
-                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate form-control" placeholder="Username" required>
+                  <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate form-control" placeholder="Username" required>
               </div>
+               <!-- Email address with email type validation -->
               <div class="form-label-group">
                 <label for="email" class="gems-body text-center">Email Address</label>
-                <input id="email" name="email" type="email" class="validate form-control" placeholder="Email" required>
+                  <input id="email" name="email" type="email" class="validate form-control" placeholder="Email" required>
               </div>
-
+               <!-- Password with length and type validation -->
               <div class="form-label-group">
                 <label for="password" class="gems-body text-center">Password</label>
-                <input  id="password" name="password" class="form-control validate" type="password" placeholder="Password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                  <input  id="password" name="password" class="form-control validate" type="password" placeholder="Password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
               </div>
               <hr class="block-divider block-divider-bottom-margin">
+               <!-- Submit Button -->
               <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Register</button>
               <hr class="block-divider block-divider-bottom-margin">
+              <!-- Link to login should you have an account already -->
               <a class="nav-link text-center" href="{{ url_for('login') }}">Already have an account? Login Here</a>
             </form>
           </div>
@@ -35,34 +40,5 @@
       </div>
     </div>
   </div>
-
-
-<!-- <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-        <div class="card-panel">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                    <label for="username">Username</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                    <label for="password">Password</label>
-                </div>
-            </div>
-            <div class="row">
-                <button type="submit" class="col s12 btn-sm">
-                    Log In
-                </button>
-            </div>
-        </div>
-    </form>
-    </div>
-
-
-<a class="nav-link" href="{{ url_for('login') }}">Log In</a> -->
-
 
 {% endblock %}
