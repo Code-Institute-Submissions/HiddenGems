@@ -514,6 +514,8 @@ Once these are in place, you can import the tools that you will require (such as
 
 From here, running the app via your IDE will start up a version of the application that can be viewed, and built upon.
 
+In this particular project, the local site can be found at: https://hiddengems-1.wrightdang.repl.co
+
 
 ### Deployment via Heroku
 
@@ -528,7 +530,7 @@ Inital setup was the trickiest part of getting this project working, once set up
 
 From here it's as simple as clicking 'Open App' for a instance of the application to run. 
 
-
+For this particular project, the site can be found at: https://hidden-gems-application.herokuapp.com/
 
 ## User story walkthroughs
 
