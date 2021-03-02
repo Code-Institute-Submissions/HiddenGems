@@ -230,6 +230,20 @@ All that remains are 'undefined' or 'unused' variables, which is expected as the
 ![image](https://user-images.githubusercontent.com/61311614/109396853-78130880-792b-11eb-931f-e4dd9f1d6956.png)
 
 
+#### Python
+
+http://pep8online.com/ was utilised for this and showed a vast amount of formatting errors in app.py:
+
+![image](https://user-images.githubusercontent.com/61311614/109650061-9d368f80-7b54-11eb-9253-f281b38c911b.png)
+
+These fell into four main categories:
+
+- Indentation errors - The  PEP8 guidelines are very specific on how spacing should be within python documentation - this was solved by following the validators cues until the validator was satisfied.
+- Whitespace errors - similar to the above, I had added additional spaces within the code lines which required removal
+- Block comment errors - I had introduced these while adding code comments by not leaving a space between the '#' comment notatation, and the beginning of my comment. Spaces were added appropriately to solve.
+- Line too long errors - I had to go through to find logical breakpoints in the code to make the flow better for the validator.
+
+
 
 #### Wave(WebAIM) validator
 

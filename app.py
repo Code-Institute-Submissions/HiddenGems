@@ -1,7 +1,8 @@
-#imports
+# Imports
 import os
 import logging
-from flask import Flask, render_template, redirect, request, session, url_for, flash
+from flask import (Flask, render_template,
+                   redirect, request, session, url_for, flash)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,74 +16,83 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-#Declare mongo as the route to the database
+# Declare mongo as the route to the database
 mongo = PyMongo(app)
 
-# Home route, where the main movie list is utilised and a secondary random movie variable is used for fetching random movie entries from the database. 
+
+# Home route, where the main movie list is utilised and a secondary
+# random movie variable is used for fetching random movie entries
+# from the database.
 @app.route("/")
 @app.route("/get_movies", methods=["GET", "POST"])
 def get_movies():
-  movies = list(mongo.db.movies.find())
-  random_movies = list(mongo.db.movies.aggregate(
-    [ { '$sample': { 'size': 10 } } ]
-  ))
-    
-  return render_template("movies.html", movies=movies, random_movies=random_movies)
+    movies = list(mongo.db.movies.find())
+    random_movies = list(mongo.db.movies.aggregate(
+      [{'$sample': {'size': 10}}]
+    ))
+
+    return render_template("movies.html", movies=movies,
+                           random_movies=random_movies)
 
 
-# Upvoute route, taking the id of the movie and incrementing the movie_rating by one
+# Upvoute route, taking the id of the movie and
+# incrementing the movie_rating by one
 @app.route('/upvote/<movie_id>', methods=["POST"])
 def upvote(movie_id):
-  
-  mongo.db.movies.update_one({ "_id": ObjectId(movie_id) },
-  {
-    '$inc': { "movie_rating": 1 }
-  }, upsert=False)
-  return 'OK'
 
-# Allow the user to use search.html to query the database entries. Returns a list of movies if successful or displays a message if not.
+    mongo.db.movies.update_one({"_id": ObjectId(movie_id)},
+                               {
+                                 '$inc': {"movie_rating": 1}
+                                }, upsert=False)
+    return 'OK'
+
+
+# Allow the user to use search.html to query
+# the database entries. Returns a list of movies
+# if successful or displays a message if not.
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-      query = request.form.get("query")
-      movies = list(mongo.db.movies.find({"$text": {"$search": query}}))
-      if len(movies) > 0:
-        return render_template("search.html", movies=movies)
-      else:
-        flash("Doesn't look like we have that one!")
-        return render_template ("search.html")
+        query = request.form.get("query")
+        movies = list(mongo.db.movies.find({"$text": {"$search": query}}))
+        if len(movies) > 0:
+            return render_template("search.html", movies=movies)
+        else:
+            flash("Doesn't look like we have that one!")
+            return render_template("search.html")
     return render_template("search.html")
+
 
 # Main login method
 @app.route("/login", methods=["GET", "POST"])
 def login():
-  if request.method == "POST":
-    #find the username
-    existing_user = mongo.db.users.find_one(
-      {"username": request.form.get("username").lower()}
-    )
-    #if username present, confirm password is correct
-    if existing_user:
-      if check_password_hash(
-        existing_user["password"], request.form.get("password")):
-          # set the session cookie to reflect the user's name
-          session["user"] = request.form.get("username").lower()
-          # display success to the user
-          flash("Login Successful!")
-          return redirect(url_for("manage_movies", username=session["user"] ))
-      else:
-        #invalid password flash message
-        flash("Invalid Username or Password")
-        return redirect(url_for("login")) 
-    
-    else:
-      #username not in database
-      flash("Invalid Username or Password")
-      return redirect(url_for("login"))
+    if request.method == "POST":
+        # find the username
+        existing_user = mongo.db.users.find_one(
+          {"username": request.form.get("username").lower()}
+        )
+        # if username present, confirm password is correct
+        if existing_user:
+            if check_password_hash(
+              existing_user["password"], request.form.get("password")):
+                # set the session cookie to reflect the user's name
+                session["user"] = request.form.get("username").lower()
+                # display success to the user
+                flash("Login Successful!")
+                return redirect(url_for
+                                ("manage_movies", username=session["user"]))
+            else:
+                # invalid password flash message
+                flash("Invalid Username or Password")
+                return redirect(url_for("login"))
+        else:
+            # username not in database
+            flash("Invalid Username or Password")
+            return redirect(url_for("login"))
 
-  return render_template("login.html")
+    return render_template("login.html")
 
-#main logout route, simply removes the user from the session cookie, effectively making them anyonymous
+# main logout route, simply removes the user from the session cookie, effectively making them anyonymous
 @app.route("/logout")
 def logout():
     session.pop("user")
@@ -98,7 +108,7 @@ def register():
             {"username": request.form.get("username").lower()})
         existing_email = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
-        #display error if username exists in the database
+        # display error if username exists in the database
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
@@ -106,7 +116,7 @@ def register():
         elif existing_email:
             flash("Email already exists")
             return redirect(url_for("register"))
-        #Add form details to the database
+        # Add form details to the database
         register = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email").lower(),
@@ -114,7 +124,7 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        #put the new user into 'session' cookie
+        # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
         return redirect(url_for("manage_movies", username=session["user"]))
@@ -124,10 +134,10 @@ def register():
 # Allow the user to view their added movies
 @app.route("/manage_movies/<username>", methods=["GET", "POST"])
 def manage_movies(username):
-    #get the session username from the database
+    # get the session username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    #get their movies
+    # get their movies
     movies = list(mongo.db.movies.find({"added_by": username}))
 
     if session["user"]:
@@ -161,7 +171,7 @@ def find_movie():
               "movie_review": "Didn't have much to say about it, but we're sure it's excellent!",
               "imdbID": request.form.get("imdbID")
           }
-        #Otherwise add their review.
+        # Otherwise add their review.
         else:
           movie = {
               "movie_name": request.form.get("movietitle"),
@@ -186,7 +196,7 @@ def find_movie():
   categories = mongo.db.categories.find().sort("category_name", 1)
   return render_template("find_movie.html", categories=categories)
 
-#Take the form details and update the listing by movie id with the user's input.
+# Take the form details and update the listing by movie id with the user's input.
 @app.route("/edit_movie/<movie_id>", methods=["GET", "POST"])
 def edit_movie(movie_id):
     if request.method == "POST":
