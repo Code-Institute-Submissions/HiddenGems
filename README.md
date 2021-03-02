@@ -243,6 +243,9 @@ These fell into four main categories:
 - Block comment errors - I had introduced these while adding code comments by not leaving a space between the '#' comment notatation, and the beginning of my comment. Spaces were added appropriately to solve.
 - Line too long errors - I had to go through to find logical breakpoints in the code to make the flow better for the validator.
 
+Once these were resolved, the validator confirmed that app.py was OK.
+
+![image](https://user-images.githubusercontent.com/61311614/109665070-b6940780-7b65-11eb-86b9-838cb4a46a15.png)
 
 
 #### Wave(WebAIM) validator
@@ -516,19 +519,29 @@ Further to this, a missed form element on movie_details.html caused a bug where 
 There are several vital steps needed for local deployment of this kind of project, they are as follows:
 - Create an account with MongoDB and create the database cluster.
 - Within this cluster, create the tables appropriate for your website, in this particular case - categories, movies and users.
-- Note down the access details for the database, they will be required in the application.
+- Note down the access details for the database, they will be required in the application. You will need in particular `MONGO_URI` and `MONGO_DBNAME`.
 - Create the app.py file for the application controls within the chosen IDE - in this case it is repl.it.
-- Create the env.py file to store sensitive information such as the aforementioned MongoDB login details, and your project environment details (Port, IP, Secret Key)
+- Create the env.py file to store sensitive information such as the aforementioned MongoDB login details, and your project environment details (Port - set in this case to `5000`, IP - set in this case to `0.0.0.0`, Secret Key - any string, but should ideally be random and hard to guess)
 - Create a .gitignore file so that the env.py information is not stored publically on git.
 - Link your app.py and env.py files by importing env.py and then utilising .get commands to retrieve held details there. - Add a route to your app.py file.
-- Create a requirements.txt file, which lists the dependencies of the project.
-- Create a Procfile, which sets where the application should commence.
+- Create a requirements.txt file, which lists the dependencies of the project. The command for this is `pip freeze > requirements.txt`
+- Create a Procfile, which sets where the application should commence. The command for this is `echo web: python app.py > Procfile`
 
 Once these are in place, you can import the tools that you will require (such as Flask and PyMongo) and then begin to add templates to the project.
 
 From here, running the app via your IDE will start up a version of the application that can be viewed, and built upon.
 
-In this particular project, the local site can be found at: https://hiddengems-1.wrightdang.repl.co
+In this particular project, the local site can be found at: https://hiddengems-1.wrightdang.repl.co - though only when running.
+
+### Cloning this exact project
+- Navigate to the following GitHub Repo - https://github.com/WrightDanG/HiddenGems
+- Click the dropdown that states 'Code':
+![image](https://user-images.githubusercontent.com/61311614/109667885-839f4300-7b68-11eb-9b2e-a61242788e79.png)
+- You should have several options to open/download the code. Personally I had 'Open with Visual Studio', 'Open with GitHub Desktop', 'Download ZIP'
+- The first two options will launch the respective clients (if installed) where you can trigger a clone operation.
+- The last option allows you to copy+paste/drag+drop physical copies of the code into your respective IDE. You will need to extract the data first most likely. This requires more manual work but is an equally valid way to clone the project for local use. 
+
+You may note that on the above image, there is a 'GitPod' option. This is due to the GitPod extension installed on my browser. If the user were to also do this (tested working on Chrome and Firefox), log into their respective gitpod account and click this button, they would be able to launch an instance of this project also.
 
 
 ### Deployment via Heroku

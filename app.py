@@ -92,17 +92,20 @@ def login():
 
     return render_template("login.html")
 
-# main logout route, simply removes the user from the session cookie, effectively making them anyonymous
+
+# main logout route, simply removes the user from
+# the session cookie, effectively making them anyonymous
 @app.route("/logout")
 def logout():
     session.pop("user")
     flash("Logged Out")
     return redirect(url_for("login"))
 
+
 # Used for first time registrations.
 @app.route("/register", methods=["GET", "POST"])
 def register():
-  if request.method == "POST":
+    if request.method == "POST":
         # check if username or email exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -129,7 +132,8 @@ def register():
         flash("Registration Successful")
         return redirect(url_for("manage_movies", username=session["user"]))
 
-  return render_template("register.html")
+    return render_template("register.html")
+
 
 # Allow the user to view their added movies
 @app.route("/manage_movies/<username>", methods=["GET", "POST"])
@@ -141,62 +145,74 @@ def manage_movies(username):
     movies = list(mongo.db.movies.find({"added_by": username}))
 
     if session["user"]:
-        return render_template("manage_movies.html", username=username, movies=movies)
+        return render_template(
+                              "manage_movies.html",
+                              username=username, movies=movies)
 
     return redirect(url_for("login"))
 
-# Allow navidation to the add_movie page only if the user is logged in. Direct them to the login page if not.
+
+# Allow navidation to the add_movie page only if the
+# user is logged in. Direct them to the login page if not.
 @app.route("/add_movie")
 def add_movie():
-  if session:
-    return render_template("add_movie.html")
-  
-  flash("Please login or register first")
-  return redirect(url_for("login"))
+    if session:
+        return render_template("add_movie.html")
+
+    flash("Please login or register first")
+    return redirect(url_for("login"))
+
 
 # Take the form movie details and submit them to the database
 @app.route("/find_movie", methods=["GET", "POST"])
 def find_movie():
-  if request.method == "POST":
+    if request.method == "POST":
         # Handle leaving a generic review if the user does not add one.
         if len(request.form.get("moviereview")) == 0:
-          movie = {
-              "movie_name": request.form.get("movietitle"),
-              "movie_year": request.form.get("movieyear"),
-              "movie_image": request.form.get("movieimage"),
-              "category_name": request.form.get("category_name"),
-              "movie_actors": request.form.get("movieactors"),
-              "movie_rating": 0,
-              "added_by": session["user"],
-              "movie_review": "Didn't have much to say about it, but we're sure it's excellent!",
-              "imdbID": request.form.get("imdbID")
-          }
+            movie = {
+                "movie_name": request.form.get("movietitle"),
+                "movie_year": request.form.get("movieyear"),
+                "movie_image": request.form.get("movieimage"),
+                "category_name": request.form.get("category_name"),
+                "movie_actors": request.form.get("movieactors"),
+                "movie_rating": 0,
+                "added_by": session["user"],
+                "movie_review": "Didn't have much to say about it, "
+                                "but we're sure it's excellent!",
+                "imdbID": request.form.get("imdbID")
+            }
         # Otherwise add their review.
         else:
-          movie = {
-              "movie_name": request.form.get("movietitle"),
-              "movie_year": request.form.get("movieyear"),
-              "movie_image": request.form.get("movieimage"),
-              "category_name": request.form.get("category_name"),
-              "movie_actors": request.form.get("movieactors"),
-              "movie_rating": 0,
-              "added_by": session["user"],
-              "movie_review": request.form.get("moviereview"),
-              "imdbID": request.form.get("imdbID")
-          }
-        # Only add the movie if the name and main actors combination does not exist already in the database.
-        if mongo.db.movies.count_documents({"movie_name": request.form.get("movietitle"), "movie_actors": request.form.get("movieactors")}) == 0:
-          mongo.db.movies.insert_one(movie)
-          flash("Movie added successfully")
-          return redirect(url_for("get_movies"))
+            movie = {
+                "movie_name": request.form.get("movietitle"),
+                "movie_year": request.form.get("movieyear"),
+                "movie_image": request.form.get("movieimage"),
+                "category_name": request.form.get("category_name"),
+                "movie_actors": request.form.get("movieactors"),
+                "movie_rating": 0,
+                "added_by": session["user"],
+                "movie_review": request.form.get("moviereview"),
+                "imdbID": request.form.get("imdbID")
+            }
+        # Only add the movie if the name and main actors
+        # combination does not exist already in the database.
+        if mongo.db.movies.count_documents(
+                                {"movie_name": request.form.get("movietitle"),
+                                    "movie_actors": request.form.get(
+                                    "movieactors")}) == 0:
+            mongo.db.movies.insert_one(movie)
+            flash("Movie added successfully")
+            return redirect(url_for("get_movies"))
         else:
-          flash("Movie already exists")
-          return redirect(url_for("add_movie"))
-  # Fetch the categories listings to load into the dropdown list.
-  categories = mongo.db.categories.find().sort("category_name", 1)
-  return render_template("find_movie.html", categories=categories)
+            flash("Movie already exists")
+            return redirect(url_for("add_movie"))
+    # Fetch the categories listings to load into the dropdown list.
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("find_movie.html", categories=categories)
 
-# Take the form details and update the listing by movie id with the user's input.
+
+# Take the form details and update the listing by
+# movie id with the user's input.
 @app.route("/edit_movie/<movie_id>", methods=["GET", "POST"])
 def edit_movie(movie_id):
     if request.method == "POST":
@@ -207,37 +223,43 @@ def edit_movie(movie_id):
               "category_name": request.form.get("category_name"),
               "movie_actors": request.form.get("movieactors"),
               "movie_review": request.form.get("moviereview")
-        }  
+        }
         mongo.db.movies.update_one(
           {"_id": ObjectId(movie_id)},
-          { "$set": update })
+          {"$set": update})
         flash("Entry Successfully Updated")
         if session:
-          return redirect(url_for("manage_movies", username=session["user"]))
+            return redirect(url_for("manage_movies", username=session["user"]))
         else:
-          flash("Looks like you've been logged out. Please log in again.")
-          redirect(url_for("login"))
-        
-    # Ensure the correct movie and category is used.
-    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)}) 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_movie.html", movie=movie, categories=categories)
+            flash("Looks like you've been logged out. Please log in again.")
+            redirect(url_for("login"))
 
-# Remove the movie from the database using the movie id, and display success to the user.
+    # Ensure the correct movie and category is used.
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+      "edit_movie.html", movie=movie, categories=categories)
+
+
+# Remove the movie from the database using the movie id,
+# and display success to the user.
 @app.route("/delete_movie/<movie_id>")
 def delete_movie(movie_id):
     mongo.db.movies.remove({"_id": ObjectId(movie_id)})
     flash("Entry Deleted")
     return redirect(url_for("manage_movies", username=session["user"]))
 
-# Main route for displaying the sum of the held movie details via the 'More Details' links on the main and search page.
+
+# Main route for displaying the sum of the held movie
+# details via the 'More Details' links on the main and search page.
 @app.route("/movie_details/<movie_id>")
 def movie_details(movie_id):
-  movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
-  return render_template("movie_details.html", movie=movie)
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+    return render_template("movie_details.html", movie=movie)
 
 
-# Important to ensure the application runs based on the registered environment settings.
+# Important to ensure the application runs based on the registered
+# environment settings.
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
