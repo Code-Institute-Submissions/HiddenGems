@@ -215,6 +215,19 @@ def find_movie():
 # movie id with the user's input.
 @app.route("/edit_movie/<movie_id>", methods=["GET", "POST"])
 def edit_movie(movie_id):
+    # get the required movie, plus it's owner.
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+    owner = movie["added_by"]
+    # Defensive design addition - check if user is logged in
+    # Ensure that their session name matches the movie owner
+    # if not direct them to home, or login if they are logged out.
+    if session.get("user"):
+        if session["user"] != owner:
+            flash("You do not have access to this particular movie.")
+            return redirect(url_for("get_movies"))
+    else:
+        flash("Please login to perform this action")
+        return redirect(url_for("login"))
     if request.method == "POST":
         update = {
               "movie_name": request.form.get("movietitle"),
@@ -232,10 +245,8 @@ def edit_movie(movie_id):
             return redirect(url_for("manage_movies", username=session["user"]))
         else:
             flash("Looks like you've been logged out. Please log in again.")
-            redirect(url_for("login"))
-
-    # Ensure the correct movie and category is used.
-    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+            return redirect(url_for("login"))
+    # Ensure the correct category is used.
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
       "edit_movie.html", movie=movie, categories=categories)
@@ -245,6 +256,19 @@ def edit_movie(movie_id):
 # and display success to the user.
 @app.route("/delete_movie/<movie_id>")
 def delete_movie(movie_id):
+    # get the required movie, plus it's owner.
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+    owner = movie["added_by"]
+    # Defensive design addition - check if user is logged in
+    # Ensure that their session name matches the movie owner
+    # if not direct them to home, or login if they are logged out.
+    if session.get("user"):
+        if session["user"] != owner:
+            flash("You do not have access to this particular movie.")
+            return redirect(url_for("get_movies"))
+    else:
+        flash("Please login to perform this action")
+        return redirect(url_for("login"))
     mongo.db.movies.remove({"_id": ObjectId(movie_id)})
     flash("Entry Deleted")
     return redirect(url_for("manage_movies", username=session["user"]))

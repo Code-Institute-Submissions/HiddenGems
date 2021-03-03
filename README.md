@@ -308,6 +308,45 @@ I was also wanting short, snappy reviews for the site. As such the character cou
 
 This will be covered in depth in 'Known Issues' below, however there is a limited validation on the upvote button onsite. Previously, a user would be able to continuously press this button to spam upvotes. This was far from the desired functionality. Also within validation.js, there is a function which disables the button on click, so that page refreshes are needed to vote again. This still isn't ideal, but it is far better.
 
+One final aspect mentioned to me in the final mentor meeting was demonstrating an aspect of defensive programming. It was suggested, and I agreed, that users who did not add the movie should not be able to access the url to delete or edit that movie.
+
+To do this, a check was added at the beginning of the /edit_movie and /delete_movie routes which ensure that the logged in user is the user who is classed as the movie owner.
+
+The journey for this is as follows:
+
+A user who has naturally added their movie goes to edit the review:
+
+![image](https://user-images.githubusercontent.com/61311614/109875492-68b3f800-7c68-11eb-9997-0536f02576da.png)
+
+They are permitted to do so, and are given the confirmation message of this also:
+
+![image](https://user-images.githubusercontent.com/61311614/109875550-7ff2e580-7c68-11eb-8dff-40acd1bc65e2.png)
+
+If another user (a non-owner) were to then visit this same url, to attempt the change themselves:
+
+![image](https://user-images.githubusercontent.com/61311614/109875659-a44ec200-7c68-11eb-8b2b-d6de12341a44.png)
+
+They would then be redirected to the homepage, with a message stating that they did not have the appropriate permissions to perform the action:
+
+![image](https://user-images.githubusercontent.com/61311614/109875685-aca6fd00-7c68-11eb-8965-329a3b868577.png)
+
+If a user who was not logged in whatsoever were to attempt the same thing:
+
+![image](https://user-images.githubusercontent.com/61311614/109875763-c21c2700-7c68-11eb-99bd-57b3292d65c6.png)
+
+They would be directed to the login page, with a message stating that they would need to login to perform this action:
+
+![image](https://user-images.githubusercontent.com/61311614/109875788-ca746200-7c68-11eb-8df5-6566aaca1c9d.png)
+
+The same goes for the delete function - should a non user try to access the url for deleting the movie:
+
+![image](https://user-images.githubusercontent.com/61311614/109875872-ea0b8a80-7c68-11eb-99b8-263355b07562.png)
+
+They would get the same result as edit_movie, access denied:
+
+![image](https://user-images.githubusercontent.com/61311614/109875889-f42d8900-7c68-11eb-8965-f87257d97741.png)
+
+
 
 
 ### Page links
